@@ -21,7 +21,7 @@ class ConfigurationController extends Controller
                 'profile_name' => $request['profileName'],
                 'designation' => $request['designation'],
                 'quote_message' => $request['quoteMessage']
-            ])->where('id',$id);
+            ]);
             return Redirect('/view-config');
         }
 
@@ -41,7 +41,7 @@ class ConfigurationController extends Controller
     public function editConfig()
     {
         $configs = Configuration::first();
-        return view('backend.config.editConfig', compact('configs',$configs));
+        return view('backend.config.editConfig', compact('configs'));
     }
 
     public function updateConfig(Request $request)

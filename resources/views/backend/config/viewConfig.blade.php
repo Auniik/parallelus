@@ -14,24 +14,26 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <table class="table table-stripped ">
+                <table class="table table-bordered ">
                 	<tbody>
                 		<tr>
 	                        <th class="col-sm-4">Profile Name</th>
-	                        <td class="col-sm-8">{{$configs->profile_name}}</td>
+	                        <td class="col-sm-8">{{$configs==null ? 'Enter Your Profile name here' : $configs->profile_name}}</td>
 						</tr>
 						<tr>
 	                        <th class="col-sm-4">Designation</th>
-	                        <td class="col-sm-8">{{$configs->designation}}</td>
+	                        <td class="col-sm-8">{{$configs==null ? 'Enter Your designation' : $configs->designation}}</td>
 						</tr>
 						<tr>
 	                        <th class="col-sm-4">Quote Message</th>
-	                        <td class="col-sm-8">{{$configs->quote_message}}</td>
+	                        <td class="col-sm-8">{{$configs==null ? 'Enter Quote' : $configs->quote_message}}</td>
 						</tr>
 						<tr>
 							<td class="col-sm-4"></td>
 	                        <td class="col-sm-8">
-								<a href="{{route('edit-config')}}" class="btn btn-primary">Edit</a>
+                                {{-- <input type="hidden" name="config_id" value="{{$configs->config_id}}"> --}}
+
+								<a href="{{route('edit-config')}}" class="btn btn-primary col-xs-12">Edit</a>
 							</td>
 						</tr>
                 	</tbody>

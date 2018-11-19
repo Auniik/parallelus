@@ -15,22 +15,23 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-6">
-                <form role="form" action="{{route('update-config')}}" method="post">
+                <form role="form" action="{{route('save-config')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <label>Profile Name</label>
-                        <input class="form-control" value="{{$configs->profile_name}}" name="profileName" placeholder="Enter your name">
+                        <input class="form-control" value="{{$configs==null ? '' : $configs->profile_name}}" name="profileName" placeholder="Enter your name">
                     </div>
                     <div class="form-group">
                         <label>Designation</label>
-                        <input class="form-control" value="{{$configs->designation}}" name="designation" placeholder="Enter your designation">
+                        <input class="form-control" value="{{$configs==null ? '' : $configs->designation}}" name="designation" placeholder="Enter your designation">
                     </div>
                     <div class="form-group">
                         <label>Quote Message</label>
-                        <textarea class="form-control" name="quoteMessage" placeholder="Enter your quote">{{$configs->quote_message}}</textarea>
+                        <textarea class="form-control" name="quoteMessage" placeholder="Enter your quote">{{$configs==null ? '' : $configs->quote_message}}</textarea>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-default" type="submit">Save</button>
+                        {{-- <input type="hidden" name="config_id" value="{{$configs->config_id}}"> --}}
+                        <button class="btn btn-success col-xs-12" type="submit">Save</button>
                     </div>
                 </form>
             </div>
