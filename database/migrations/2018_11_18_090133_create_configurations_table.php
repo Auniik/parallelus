@@ -17,7 +17,7 @@ class CreateConfigurationsTable extends Migration
             $table->increments('config_id');
             $table->string('profile_name');
             $table->string('designation');
-            $table->string('copyright');
+            $table->string('quote_message');
             $table->timestamps();
         });
     }

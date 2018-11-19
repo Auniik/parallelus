@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'fontin';
+    src: url('../fonts/Fontin-SmallCaps.ttf');
+}
+.profileName{
+	margin-bottom: -5px;
+	font-family:fontin; 
+	color:white; 
+	font-size:34px;
+}
+.designation{
+	font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+.logoBorder{
+	margin-top: -10px;
+}

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Configuration extends Model
 {
     protected $fillable = [
-        'company_name', 'company_moto', 'copyright',
+        'profile_name', 'designation', 'quote_message',
     ];
 }
