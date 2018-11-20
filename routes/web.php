@@ -11,8 +11,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', function () {
     return view('backend.dashboard');
 })->name('admin');
-Route::get('/add-config', 'ConfigurationController@index')->name('add-config');
-Route::post('/save-config', 'ConfigurationController@saveConfig')->name('save-config');
-Route::get('/view-config', 'ConfigurationController@viewConfig')->name('view-config');
+
+//Site Config
+Route::post('/save-config', 'ConfigurationController@saveConfig')->name('config.save');
 Route::get('/edit-config', 'ConfigurationController@editConfig')->name('edit-config');
-Route::post('/update-config', 'ConfigurationController@updateConfig')->name('update-config');
+
+//Newsletter
+// Route::resource('/send-newsletter', 'NewsletterController@store');
+// Route::get('/newsletters', 'NewsletterController')->name('newsletters');

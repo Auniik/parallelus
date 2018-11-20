@@ -1,43 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Configuration;
+use Session;
+session_start();
 
 class ConfigurationController extends Controller
 {
-    public function index()
-    {
-    	return view('backend.config.addConfig');
-    }
-
+    
     public function saveConfig(Request $request)
     {
-
     	$config = Configuration::first();
         if ($config) {
             $config->update([
-                'profile_name' => $request['profileName'],
-                'designation' => $request['designation'],
-                'quote_message' => $request['quoteMessage'],
-                'address' => $request['address'],
+                'profile_name' => $request->profileName,
+                'designation' => $request->designation,
+                'quote_message' => $request->quoteMessage,
+                'address' => $request->address,
             ]);
-            return Redirect('/view-config');
+            $request->bgImage->storeAs('/', $config->bg_image);
+            return redirect('/edit-config')->withMessage('Site information updated.');
         }
-
-    	Configuration::create([
-            'profile_name' => $request['profileName'],
-            'designation' => $request['designation'],
-            'quote_message' => $request['quoteMessage'],
-            'address' => $request['address']
+        Configuration::create([
+            'profile_name' => $request->profileName,
+            'designation' => $request->designation,
+            'quote_message' => $request->quoteMessage,
+            'address' => $request->address,
+            'bg_image' => $request->bgImage->store('/'),
         ]);
-        return Redirect('/view-config');
-    }
-    public function viewConfig()
-    {
-        $configs = Configuration::first();
-        return view('backend.config.viewConfig',compact('configs'));
+        return redirect('/edit-config')->withMessage('Site information updated.');
+
     }
 
     public function editConfig()
@@ -45,18 +38,4 @@ class ConfigurationController extends Controller
         $configs = Configuration::first();
         return view('backend.config.editConfig', compact('configs'));
     }
-
-    // public function updateConfig(Request $request)
-    // {
-    //     $id=$request->id;
-    //     $config = Configuration::first();
-    //     if ($config) {
-    //         $config->where('id',$id)->update([
-    //             'profile_name' => $request['profileName'],
-    //             'designation' => $request['designation'],
-    //             'quote_message' => $request['quoteMessage']
-    //         ])->where('id',$id);
-    //         return Redirect('/view-config');
-    //     }
-    // }
 }

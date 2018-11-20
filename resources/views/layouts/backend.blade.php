@@ -85,7 +85,7 @@
                             <a href="{{route('admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="{{route('view-config')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Site Setups</a>
+                            <a href="{{route('edit-config')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Site Setups</a>
                         </li>
                         {{-- <li>
                             <a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Site Setups<span class="fa arrow"></span></a>
@@ -132,12 +132,6 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{asset('backend/dist/js/sb-admin-2.js')}}"></script>
-    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
-    <script>
-      tinymce.init({
-        selector: '#tinytext'
-      });
-  </script>
 
 
 </body>

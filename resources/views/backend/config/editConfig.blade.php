@@ -15,7 +15,16 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-6">
-                <form role="form" action="{{route('save-config')}}" method="post">
+                <?php
+                    $message=Session::get('message');
+                    if ($message) { 
+                        echo '<div class="alert alert-success alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'.$message.'
+                              </div>'; 
+                        Session::put('message',null);
+                    }
+                ?>
+                <form role="form" action="{{ url('save-config')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>Profile Name</label>
@@ -37,6 +46,8 @@
                         <label>Backgraound Image</label>
                         <input type="file" class="form-control"  name="bgImage" placeholder="Enter Backgraound image">
                     </div>
+
+                    {{-- <img src="{{ url($configs->bg_image) }}"> --}}
 
                     <div class="form-group">
                         {{-- <input type="hidden" name="config_id" value="{{$configs->config_id}}"> --}}

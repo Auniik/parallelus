@@ -2,9 +2,12 @@
 
 @section('content')
 <body class="home">
+	<?php
+		$config=App\Configuration::first();
 
-	<div id="header" class="header-bg header-large header-nav-top header-nav-toggle offset-bottom" style="background-image: url({{asset('frontend/images/header-home.jpg')}})">
-
+	?>
+	<div id="header" class="header-bg header-large header-nav-top header-nav-toggle offset-bottom" style="background-image: url({{$config==null ? '/frontend/images/header-home.jpg' : $config->bg_image}})">
+		
 		<!-- page header -->
 		<div class="header-bg-wrapper">
 
@@ -12,11 +15,9 @@
 			<div class="header-inner logo-container">
 				<div class="pull-left">
 					<div class="logo">
-						<a href="index.html" style="text-decoration: none">
+						<a href="{{url('/')}}" style="text-decoration: none">
 							<div class="logo-wrapper">
-								<?php
-									$config=App\Configuration::first();
-								?>
+								
 								<div class="profileName">{{$config==null ? 'Your Name' : $config->profile_name}}</div>
 								<div class="logo-inner-wrapper">
 									<img src="{{asset('frontend/images/logo-border1.png')}}" width="500" height="76" class="logoBorder" alt="Tim Hawthorne for U.S. Congress">
@@ -446,15 +447,16 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-wrapper">
-								<form class="form-inline">
+								<form class="form-inline" action="{{-- {{route('send-newssletter')}} --}}" method="post">
+									@csrf
 									<h3>GET INVOLVED!</h3>
 									<div class="form-group">
 										<label class="sr-only" for="email">Email address</label>
-										<input id="email" class="field-full-width" name="email" type="email" value="" required="required" placeholder="Email">
+										<input id="email" class="field-full-width" name="userEmail" type="email" value="" required="required" placeholder="Email">
 									</div>
 									<div class="form-group">
 										<label class="sr-only" for="email">ZIP</label>
-										<input id="zip" class="field-half-width" name="text" type="text" value="" required="required" placeholder="ZIP">
+										<input id="zip" class="field-half-width" name="userZip" type="text" value="" required="required" placeholder="ZIP">
 									</div>
 									<button type="submit" class="btn btn-default">Update Me</button>
 								</form>
