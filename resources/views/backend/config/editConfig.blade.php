@@ -30,6 +30,15 @@
                         <textarea class="form-control" name="quoteMessage" placeholder="Enter your quote">{{$configs==null ? '' : $configs->quote_message}}</textarea>
                     </div>
                     <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" value="{{$configs==null ? '' : $configs->address}}" name="address" placeholder="Enter your address">
+                    </div>
+                    <div class="form-group">
+                        <label>Backgraound Image</label>
+                        <input type="file" class="form-control"  name="bgImage" placeholder="Enter Backgraound image">
+                    </div>
+
+                    <div class="form-group">
                         {{-- <input type="hidden" name="config_id" value="{{$configs->config_id}}"> --}}
                         <button class="btn btn-success col-xs-12" type="submit">Save</button>
                     </div>

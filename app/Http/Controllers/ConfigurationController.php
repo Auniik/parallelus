@@ -20,7 +20,8 @@ class ConfigurationController extends Controller
             $config->update([
                 'profile_name' => $request['profileName'],
                 'designation' => $request['designation'],
-                'quote_message' => $request['quoteMessage']
+                'quote_message' => $request['quoteMessage'],
+                'address' => $request['address'],
             ]);
             return Redirect('/view-config');
         }
@@ -28,7 +29,8 @@ class ConfigurationController extends Controller
     	Configuration::create([
             'profile_name' => $request['profileName'],
             'designation' => $request['designation'],
-            'quote_message' => $request['quoteMessage']
+            'quote_message' => $request['quoteMessage'],
+            'address' => $request['address']
         ]);
         return Redirect('/view-config');
     }
@@ -44,17 +46,17 @@ class ConfigurationController extends Controller
         return view('backend.config.editConfig', compact('configs'));
     }
 
-    public function updateConfig(Request $request)
-    {
-        $id=$request->id;
-        $config = Configuration::first();
-        if ($config) {
-            $config->where('id',$id)->update([
-                'profile_name' => $request['profileName'],
-                'designation' => $request['designation'],
-                'quote_message' => $request['quoteMessage']
-            ])->where('id',$id);
-            return Redirect('/view-config');
-        }
-    }
+    // public function updateConfig(Request $request)
+    // {
+    //     $id=$request->id;
+    //     $config = Configuration::first();
+    //     if ($config) {
+    //         $config->where('id',$id)->update([
+    //             'profile_name' => $request['profileName'],
+    //             'designation' => $request['designation'],
+    //             'quote_message' => $request['quoteMessage']
+    //         ])->where('id',$id);
+    //         return Redirect('/view-config');
+    //     }
+    // }
 }

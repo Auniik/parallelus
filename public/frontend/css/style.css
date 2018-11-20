@@ -7,11 +7,13 @@
 	font-family:fontin; 
 	color:white; 
 	font-size:34px;
+	letter-spacing: 2px;
 }
 .designation{
 	font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     color: white;
+    letter-spacing: 1px;
 }
 .logoBorder{
 	margin-top: -10px;

@@ -28,11 +28,17 @@
 	                        <th class="col-sm-4">Quote Message</th>
 	                        <td class="col-sm-8">{{$configs==null ? 'Enter Quote' : $configs->quote_message}}</td>
 						</tr>
+                        <tr>
+                            <th class="col-sm-4">Address</th>
+                            <td class="col-sm-8">{{$configs==null ? 'Enter Address' : $configs->address}}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-sm-4">Background Image</th>
+                            <td class="col-sm-8"><img src="{{$configs==null ? '' : $configs->bg_image}}" alt=" Enter Background Image (Aspect Ratio 8:3)"></td>
+                        </tr>
 						<tr>
 							<td class="col-sm-4"></td>
 	                        <td class="col-sm-8">
-                                {{-- <input type="hidden" name="config_id" value="{{$configs->config_id}}"> --}}
-
 								<a href="{{route('edit-config')}}" class="btn btn-primary col-xs-12">Edit</a>
 							</td>
 						</tr>

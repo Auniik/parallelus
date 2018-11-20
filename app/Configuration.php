@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Configuration extends Model
 {
     protected $fillable = [
-        'config_id','profile_name', 'designation', 'quote_message',
+        'profile_name', 'designation', 'quote_message', 'address', 'bg_image',
     ];
 }

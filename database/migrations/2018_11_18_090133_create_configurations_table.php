@@ -14,10 +14,12 @@ class CreateConfigurationsTable extends Migration
     public function up()
     {
         Schema::create('configurations', function (Blueprint $table) {
-            $table->increments('config_id');
+            $table->increments('id');
             $table->string('profile_name');
             $table->string('designation');
             $table->string('quote_message');
+            $table->string('address');
+            $table->string('bg_image');
             $table->timestamps();
         });
     }
