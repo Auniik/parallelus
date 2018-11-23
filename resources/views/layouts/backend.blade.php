@@ -79,19 +79,30 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="{{Route('root')}}"><i class="fa fa-dashboard fa-fw"></i> Visit Site</a>
+                            <a href="{{url('/')}}"><i class="fa fa-dashboard fa-fw"></i> Visit Site</a>
                         </li>
                         <li>
                             <a href="{{url('admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Site Setups<span class="fa arrow"></span></a>
+                            <a href="#configs"><i class="fa fa-bar-chart-o fa-fw"></i> Site Setups<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{url('edit-config')}}">Basic Configs</a>
                                 </li>
                                 <li>
                                     <a href="{{url('edit-about')}}">Update About</a>
+                                </li>
+                            </ul> 
+                        </li>
+                        <li>
+                            <a href="#issues"><i class="fa fa-bar-chart-o fa-fw"></i> Issues<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('add-issue')}}">Add Issue</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('all-issue')}}">View Issues</a>
                                 </li>
                             </ul>                            
                         </li>
@@ -135,30 +146,19 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
     {{-- Sweetalert --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    {{--  <script type="text/javascript">
-          var del = documentsGetElementsById(#delete)
-    </script>
+    
     <script type="text/javascript">
-        swal({
-          title: "Are you sure?",
-          text: "Once deleted, you will not be able to recover this data!",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-        })
-        .then((willDelete) => {
-          if (willDelete) {
-            swal("Poof! Your imaginary file has been deleted!", {
-              icon: "success",
-            });
-          } else {
-            swal("Your imaginary file is safe!");
-          }
-        });
-    </script> --}}
+        function confirmDelete() {
+          return confirm('are you sure want to delete?');
+        }
+    </script>
+
     <script>
-        $(document).ready(function() {
-            $('#summernote').summernote();
+        $('#summernote').summernote({
+            height: 300,
+            minHeight: null,
+            maxHeight: null,
+            focus: true
         });
     </script>
    

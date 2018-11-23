@@ -18,11 +18,11 @@
 						<a href="{{url('/')}}" style="text-decoration: none">
 							<div class="logo-wrapper">
 								
-								<div class="profileName">{{$config==null ? 'Your Name' : $config->profile_name}}</div>
+								<div class="profileName">{{$config==null ? 'YOUR NAME' : $config->profile_name}}</div>
 								<div class="logo-inner-wrapper">
 									<img src="{{asset('frontend/images/logo-border1.png')}}" width="500" height="76" class="logoBorder" alt="Tim Hawthorne for U.S. Congress">
 								</div>
-								<div class='designation'>{{$config==null ? 'Your Designation' : strtoupper($config->designation)}}</div>
+								<div class='designation'>{{$config==null ? 'YOUR DESIGNATION' : strtoupper($config->designation)}}</div>
 							</div>
 						</a>
 					</div>
@@ -47,20 +47,20 @@
 			<!-- //NAVBAR -->
 							<div class="collapse navbar-collapse" id="navbar-main">
 								<ul class="nav navbar-nav" id="nav-left">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="issues.html">Issues</a></li>
+									<li class="active"><a href="{{url('/')}}">Home</a></li>
+									<li><a href="{{url('/issues')}}">Issues</a></li>
 									<li class="dropdown show-on-hover">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">News</a>
 										<ul class="dropdown-menu">
-											<li><a href="blog.html">News</a></li>
-											<li><a href="videos.html">Videos</a></li>
-											<li><a href="events.html">Events</a></li>
+											<li><a href="{{url('/blogs')}}">News</a></li>
+											<li><a href="{{('/videos')}}">Videos</a></li>
+											<li><a href="{{('/events')}}">Events</a></li>
 										</ul>
 									</li>
 									<li class="dropdown show-on-hover">
 										<a class="dropdown-toggle" data-toggle="dropdown" href="#">About</a>
 										<ul class="dropdown-menu">
-											<li><a href="{{url('/about')}}">About {{$config->profile_name}}</a></li>
+											<li><a href="{{url('/about')}}">About {{$config==null ? 'Your Name here' : $config->profile_name}}</a></li>
 											<li><a href="page-features.html">Features</a></li>
 										</ul>
 									</li>

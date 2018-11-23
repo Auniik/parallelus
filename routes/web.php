@@ -19,6 +19,14 @@ Route::get('/edit-config', 'ConfigurationController@editConfig')->name('edit-con
 Route::get('/edit-about', 'AboutController@editAbout')->name('edit_about');
 Route::post('/save-about', 'AboutController@saveAbout')->name('save_about');
 
+//ISSUES
+Route::get('/add-issue', 'IssuesController@addIssue')->name('issue.add');
+Route::post('/save-issue', 'IssuesController@saveIssue')->name('issue.save');
+Route::get('/all-issue', 'IssuesController@allIssue')->name('issue.all');
+Route::get('/edit-issue/{id}', 'IssuesController@editIssue')->name('issue.edit');
+Route::post('/update-issue/{id}', 'IssuesController@updateIssue')->name('issue.update');
+Route::get('/delete-issue/{id}', 'IssuesController@deleteIssue')->name('issue.delete');
+
 //Newsletter
 
 Route::get('/newsletters', 'NewsletterController@newsletters')->name('newsletters');

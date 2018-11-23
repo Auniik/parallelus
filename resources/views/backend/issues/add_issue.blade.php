@@ -1,10 +1,9 @@
 @extends('layouts.backend')
 
 @section('admin_content')
-
 <div class="row">
 	<div class="col-lg-12">
-	    <h1 class="page-header">Update About</h1>
+	    <h1 class="page-header">Add Issue</h1>
 	</div>
 <!-- /.col-lg-12 -->
 </div>
@@ -12,7 +11,7 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 		    <div class="panel-heading">
-		        Basic Site Configuration
+		        Add Issue
     		</div>
     <div class="panel-body">
         <div class="row">
@@ -26,18 +25,17 @@
                         Session::put('message',null);
                     }
                 ?>
-                <form role="form" action="{{ url('save-about')}}" method="post">
+                <form role="form" action="{{ url('save-issue')}}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label>About Heading</label>
-                        <input class="form-control" name="aboutHeading" value="{{$about==null ? '' : $about->about_heading}}"  placeholder="Enter your name">
+                        <label>Issue Heading</label>
+                        <input class="form-control" name="issueHeading"  placeholder="Enter any issue heading">
                     </div>
                     <div class="form-group">
-                        <label>Discription</label>
-                        <textarea class="form-control" id="summernote" name="aboutText">{{$about==null ? '' : $about->about_text}}</textarea>
+                        <label>Description</label>
+                        <textarea class="form-control" id="summernote" name="issueDescription"></textarea>
                     </div>
                     <div class="form-group">
-                        {{-- <input type="hidden" name="config_id" value="{{$about->config_id}}"> --}}
                         <button class="btn btn-success col-xs-12" type="submit">Save</button>
                     </div>
                 </form>

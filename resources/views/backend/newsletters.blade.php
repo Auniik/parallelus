@@ -17,8 +17,7 @@
       <td>{{$v_data->user_zip}}</td>
       <td>
        
-      	<a class="btn btn-danger" id="delete" href="{{url('/delet
-      	e-newsletter/'.$v_data->id)}}">Delete</a>
+      	<a class="btn btn-danger" id="delete" href="{{url('/delete-newsletter/'.$v_data->id)}}" onclick="return confirmDelete();">Delete</a>
       </td>
     </tr>
     @endforeach

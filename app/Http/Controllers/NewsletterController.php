@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class NewsletterController extends Controller
 {
 	public function sendNewsletter(Request $request){
-		// $data=$request->all();
 		Newsletter::create([
 			'user_email' => $request->userEmail,
 			'user_zip' => $request->userZip,
