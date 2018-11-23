@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Configuration;
 use Session;
-session_start();
 
 class ConfigurationController extends Controller
 {
@@ -19,7 +18,8 @@ class ConfigurationController extends Controller
                 'quote_message' => $request->quoteMessage,
                 'address' => $request->address,
             ]);
-            $request->bgImage->storeAs('/', $config->bg_image);
+            $request->bgImage->storeAs('/uploads/images', $config->bg_image);
+            $request->favicon->storeAs('/uploads/icons', $config->favicon);
             return redirect('/edit-config')->withMessage('Site information updated.');
         }
         Configuration::create([
@@ -27,7 +27,8 @@ class ConfigurationController extends Controller
             'designation' => $request->designation,
             'quote_message' => $request->quoteMessage,
             'address' => $request->address,
-            'bg_image' => $request->bgImage->store('/'),
+            'bg_image' => $request->bgImage->store('/uploads/images'),
+            'favicon' => $request->favicon->store('/uploads/icons'),
         ]);
         return redirect('/edit-config')->withMessage('Site information updated.');
 
@@ -38,4 +39,5 @@ class ConfigurationController extends Controller
         $configs = Configuration::first();
         return view('backend.config.editConfig', compact('configs'));
     }
+
 }

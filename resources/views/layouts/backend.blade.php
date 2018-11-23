@@ -25,7 +25,7 @@
 
     <!-- Custom Fonts -->
     <link href="{{asset('backend/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -79,26 +79,26 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="{{route('root')}}"><i class="fa fa-dashboard fa-fw"></i> Visit Site</a>
+                            <a href="{{Route('root')}}"><i class="fa fa-dashboard fa-fw"></i> Visit Site</a>
                         </li>
                         <li>
-                            <a href="{{route('admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{url('admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="{{route('edit-config')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Site Setups</a>
-                        </li>
-                        {{-- <li>
                             <a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Site Setups<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{route('add-config')}}">Add Site Info</a>
+                                    <a href="{{url('edit-config')}}">Basic Configs</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('view-config')}}">View Site Info</a>
+                                    <a href="{{url('edit-about')}}">Update About</a>
                                 </li>
-                            </ul>
-                            
-                        </li> --}}
+                            </ul>                            
+                        </li>
+                        <li>
+                            <a href="{{url('newsletters')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Newsletters</a>
+                        </li>
+                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -129,11 +129,39 @@
     <script src="{{asset('backend/vendor/raphael/raphael.min.js')}}"></script>
     <script src="{{asset('backend/vendor/morrisjs/morris.min.js')}}"></script>
     <script src="{{asset('backend/data/morris-data.js')}}"></script>
-
+    
     <!-- Custom Theme JavaScript -->
     <script src="{{asset('backend/dist/js/sb-admin-2.js')}}"></script>
-
-
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    {{-- Sweetalert --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {{--  <script type="text/javascript">
+          var del = documentsGetElementsById(#delete)
+    </script>
+    <script type="text/javascript">
+        swal({
+          title: "Are you sure?",
+          text: "Once deleted, you will not be able to recover this data!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            swal("Poof! Your imaginary file has been deleted!", {
+              icon: "success",
+            });
+          } else {
+            swal("Your imaginary file is safe!");
+          }
+        });
+    </script> --}}
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
+   
 </body>
 
 </html>

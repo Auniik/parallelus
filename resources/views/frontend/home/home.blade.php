@@ -4,7 +4,7 @@
 <body class="home">
 	<?php
 		$config=App\Configuration::first();
-
+		$about=App\About::first();
 	?>
 	<div id="header" class="header-bg header-large header-nav-top header-nav-toggle offset-bottom" style="background-image: url({{$config==null ? '/frontend/images/header-home.jpg' : $config->bg_image}})">
 		
@@ -60,7 +60,7 @@
 									<li class="dropdown show-on-hover">
 										<a class="dropdown-toggle" data-toggle="dropdown" href="#">About</a>
 										<ul class="dropdown-menu">
-											<li><a href="page-about.html">About Tim</a></li>
+											<li><a href="{{url('/about')}}">About {{$config->profile_name}}</a></li>
 											<li><a href="page-features.html">Features</a></li>
 										</ul>
 									</li>
@@ -149,7 +149,7 @@
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 					<blockquote class="big-quote" style="margin-top:0;">&ldquo;{{$config==null ? 'Enter Quote Message' : $config->quote_message}}.&rdquo;</blockquote>
-					<p class="section-more text-center"><a href="page-about.html" class="btn btn-default">More About Tim</a></p>
+					<p class="section-more text-center"><a href="{{url('/about')}}" class="btn btn-default">More About Tim</a></p>
 				</div>
 			</div> <!-- end row -->
 		</div> <!-- end container -->
@@ -439,72 +439,6 @@
 
 	<!-- Footer
 	================================================== -->
-	<footer id="footer" class="wrapper with-overlap">
-
-		<div class="container-box">
-			<div class="container">
-				<div class="container-box-wrapper accent-box">
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="form-wrapper">
-								<form class="form-inline" action="{{-- {{route('send-newssletter')}} --}}" method="post">
-									@csrf
-									<h3>GET INVOLVED!</h3>
-									<div class="form-group">
-										<label class="sr-only" for="email">Email address</label>
-										<input id="email" class="field-full-width" name="userEmail" type="email" value="" required="required" placeholder="Email">
-									</div>
-									<div class="form-group">
-										<label class="sr-only" for="email">ZIP</label>
-										<input id="zip" class="field-half-width" name="userZip" type="text" value="" required="required" placeholder="ZIP">
-									</div>
-									<button type="submit" class="btn btn-default">Update Me</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> <!-- end get-involved -->
-
-		<div class="container">
-			<div class="row">
-
-				<div class="col-md-12">
-
-					<ul class="footer-social icon-blocks">
-						<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-						<li><a href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a></li>
-					</ul>
-
-					
-
-					<div class="footer-nav">
-						<ul>
-							<li><a href="page-about.html">About Tim</a></li>
-							<li><a href="issues.html">On the Issues</a></li>
-							<li><a href="blog.html">News</a></li>
-							<li><a href="events.html">Events</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li><a href="donate.html"><strong class="text-danger">Donate</strong></a></li>
-						</ul>
-					</div>
-
-					
-
-					<div class="copyright">
-						<p>&copy; {{$config==null ? 'Your Name' : $config->profile_name .' '. date("Y")}}, <a href="{{route('root')}}s" rel="nofollow" target="_blank">{{$config==null ? 'Your website Name' : $config->profile_name}}</a>.<br>{{$config==null ? 'Your Address here' : $config->address}}</p>
-					</div>
-
-					
-					<p class="small text-muted no-margin">Developed by <a href="https://www.smartsoftware.com.bd/" rel="nofollow" target="_blank">Smart Software Inc</a></p>
-				</div>
-
-			</div>
-
-		</div>
-	</footer>
+	@include('layouts.footer')
 </body>
 @endsection

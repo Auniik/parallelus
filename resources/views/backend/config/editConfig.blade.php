@@ -44,10 +44,13 @@
                     </div>
                     <div class="form-group">
                         <label>Backgraound Image</label>
-                        <input type="file" class="form-control"  name="bgImage" placeholder="Enter Backgraound image">
+                        <input type="file" class="form-control"  name="bgImage">
                     </div>
-
-                    {{-- <img src="{{ url($configs->bg_image) }}"> --}}
+                    <div class="form-group">
+                        <label>Favicon</label>
+                        <input type="file" class="form-control"  name="favicon">
+                    </div>
+                    {{-- <img src="{{ url($configs->bg_image) }}" height="100px" width="200px"> --}}
 
                     <div class="form-group">
                         {{-- <input type="hidden" name="config_id" value="{{$configs->config_id}}"> --}}

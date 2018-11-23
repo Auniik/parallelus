@@ -15,7 +15,17 @@ Route::get('/admin', function () {
 //Site Config
 Route::post('/save-config', 'ConfigurationController@saveConfig')->name('config.save');
 Route::get('/edit-config', 'ConfigurationController@editConfig')->name('edit-config');
+//About
+Route::get('/edit-about', 'AboutController@editAbout')->name('edit_about');
+Route::post('/save-about', 'AboutController@saveAbout')->name('save_about');
 
 //Newsletter
-// Route::resource('/send-newsletter', 'NewsletterController@store');
-// Route::get('/newsletters', 'NewsletterController')->name('newsletters');
+
+Route::get('/newsletters', 'NewsletterController@newsletters')->name('newsletters');
+Route::get('/delete-newsletter/{id}', 'NewsletterController@delete_newsletter')->name('delete_newsletter');
+
+
+
+//FRONTEND
+Route::get('/about', 'AboutController@about')->name('about');
+Route::post('/send-newsletter', 'NewsletterController@sendNewsletter')->name('newsletter_send');

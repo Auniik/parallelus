@@ -19,6 +19,7 @@
 	<script src="{{asset("frontend/js/jquery.fitvids.js")}}"></script>
 	<script src="{{asset("frontend/js/owl.carousel.min.js")}}"></script>
 	<script src="{{asset("frontend/js/custom.js")}}"></script>
+	
 	<script src="https://www.youtube.com/iframe_api"></script>
 </head>
 
