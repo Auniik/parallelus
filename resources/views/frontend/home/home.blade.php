@@ -52,7 +52,7 @@
 									<li class="dropdown show-on-hover">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">News</a>
 										<ul class="dropdown-menu">
-											<li><a href="{{url('/blogs')}}">News</a></li>
+											<li><a href="{{url('/news-list')}}">News</a></li>
 											<li><a href="{{('/videos')}}">Videos</a></li>
 											<li><a href="{{('/events')}}">Events</a></li>
 										</ul>
@@ -64,10 +64,10 @@
 											<li><a href="page-features.html">Features</a></li>
 										</ul>
 									</li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="{{url('/contact')}}">Contact</a></li>
 								</ul>
 								<ul class="nav navbar-nav" id="nav-right">
-									<li><a href="donate.html">Donate</a></li>
+									<li><a href="{{url('/donate')}}">Donate</a></li>
 								</ul>
 							</div>
 						</div>
@@ -234,74 +234,45 @@
 	<div id="section-news" class="wrapper">
 
 		<div class="container">
-
+<?php
+	$data=App\News::limit(1)->get();
+?>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 					<h2 class="heading">News &amp; Headlines</h2>
 				</div>
 			</div>
-
+			
+			
 			<div class="row">
 				<div class="news-list col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+					@foreach($data as $row)
 					<article class="post">
 						<header>
-							<div class="header-meta">
+							{{-- <div class="header-meta">
 								<span class="posted-on">August 21, 2015</span>
-							</div>
+							</div> --}}
 							<h2 class="entry-title">
-								<a href="single.html" title="article">Fighting for What You Believe in Most</a>
+								<a href="" title="article">{{$row->news_heading}}</a>
 							</h2>
 						</header>
 
 						<p>
-							Fear is the true enemy, the only enemy. We could cause a diplomatic crisis. Take the ship into the Neutral Zone, you enjoyed that. When has justice ever been as simple as a rule book? Some days you get the bear, and some days the bear gets you. It's jazz. Now, how do we defeat an enemy that knows us better than we know ourselves?
+							{{$row->description}}
 							<br>
 							<a href="single.html" class="more-link">Continue reading</a>
 						</p>
 
 						<hr class="sep" />
 					</article>
+					@endforeach
+					
 
-					<article class="post">
-						<header>
-							<div class="header-meta">
-								<span class="posted-on">July 29, 2015</span>
-							</div>
-							<h2 class="entry-title">
-								<a href="single.html" title="article">Making a Difference in People's Lives</a>
-							</h2>
-						</header>
-						<p>
-							 Progress moves us forward without marginalizing efforts to disrupt our responsibility toward a potential future. Lifting people up and recognizing free-speech without compromising the fight against oppression of our potential challenges. This will inspire breakthroughs and contribute to solutions which can save families and promote social innovation for our collective livelihoods&hellip;
-							<br>
-							<a href="single.html" class="more-link">Continue reading</a>
-						</p>
-
-						<hr class="sep" />
-					</article>
-
-					<article class="post">
-						<header>
-							<div class="header-meta">
-								<span class="posted-on">June 1, 2015</span>
-							</div>
-							<h2 class="entry-title">
-								<a href="single.html" title="article">We Believe in the Future and It Starts With Believing in Our Children</a>
-							</h2>
-						</header>
-						<p>
-							 The challenges of our times and on our community is the disruption of engagement for transformative results. We must recognize potential for all possible solutions. Local solutions combined with working alongside other for gerater effectiveness. Time of extraordinary change and non-partisan principals to harness the power of lifting people up to leverage the necessities of our assessment experts&hellip;
-							<br>
-							<a href="single.html" class="more-link">Continue reading</a>
-						</p>
-
-						<hr class="sep" />
-					</article>
-
-					<p class="section-more"><a href="blog.html" class="btn btn-default">More News</a></p>
+					<p class="section-more"><a href="{{url('/news-list')}}" class="btn btn-default">More News</a></p>
 
 				</div>  <!-- end column -->
 			</div>  <!-- end row -->
+
 		</div>  <!-- end container -->
 	</div> <!-- end section-news -->
 

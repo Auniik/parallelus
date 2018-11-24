@@ -20,7 +20,7 @@ class CreateContactsTable extends Migration
             $table->string('email');
             $table->string('zip');
             $table->string('mobile_number');
-            $table->string('comments');
+            $table->text('comments');
             $table->timestamps();
         });
     }

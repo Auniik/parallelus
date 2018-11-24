@@ -82,16 +82,16 @@
                             <a href="{{url('/')}}"><i class="fa fa-dashboard fa-fw"></i> Visit Site</a>
                         </li>
                         <li>
-                            <a href="{{url('admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{url('/admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#configs"><i class="fa fa-bar-chart-o fa-fw"></i> Site Setups<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('edit-config')}}">Basic Configs</a>
+                                    <a href="{{url('/edit-config')}}">Basic Configs</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('edit-about')}}">Update About</a>
+                                    <a href="{{url('/edit-about')}}">Update About</a>
                                 </li>
                             </ul> 
                         </li>
@@ -99,17 +99,36 @@
                             <a href="#issues"><i class="fa fa-bar-chart-o fa-fw"></i> Issues<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('add-issue')}}">Add Issue</a>
+                                    <a href="{{url('/issue-appearance')}}">Appearance</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('all-issue')}}">View Issues</a>
+                                    <a href="{{url('/add-issue')}}">Add Issue</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/all-issue')}}">View Issues</a>
                                 </li>
                             </ul>                            
                         </li>
                         <li>
-                            <a href="{{url('newsletters')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Newsletters</a>
+                            <a href="{{url('/messages')}}"><i class="fa fa-dashboard fa-fw"></i> Messages</a>
                         </li>
-                        
+                        <li>
+                            <a href="#news"><i class="fa fa-bar-chart-o fa-fw"></i> News<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/add-news')}}">Add News</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/all-news')}}">All News</a>
+                                </li>
+                            </ul>                            
+                        </li>
+                        <li>
+                            <a href="{{url('/newsletters')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Newsletters</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/donate')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Donate</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

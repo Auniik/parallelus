@@ -3,7 +3,7 @@
 @section('admin_content')
 <div class="row">
   <div class="col-lg-12">
-      <h1 class="page-header">Issues</h1>
+      <h1 class="page-header">News</h1>
   </div>
 <!-- /.col-lg-12 -->
 </div>
@@ -27,18 +27,17 @@
   </thead>
   <tbody>
 
-  	@foreach($data as $v_data)
+    @foreach($data as $v_data)
     <tr>
       <th scope="row">{{$v_data->id}}</th>
-      <td>{{substr($v_data->issue_heading, 0, 40)}}</td>
-      <td>{{strip_tags(substr($v_data->issue_description, 0, 200))}}</td>
+      <td>{{substr($v_data->news_heading, 0, 40)}}</td>
+      <td>{{strip_tags(substr($v_data->description, 0, 200))}}</td>
       <td>
-        <a class="btn btn-xs btn-primary" href="{{url('/edit-issue/'.$v_data->id)}}">Edit</a>
-        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/delete-issue/'.$v_data->id)}}" onclick="return confirmDelete();">Delete</a>
+        <a class="btn btn-xs btn-primary" href="{{url('/edit-news/'.$v_data->id)}}">Edit</a>
+        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/delete-news/'.$v_data->id)}}" onclick="return confirmDelete();">Delete</a>
       </td>
     </tr>
     @endforeach
   </tbody>
 </table>
-
 @endsection

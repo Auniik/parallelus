@@ -1,3 +1,6 @@
+<?php
+$config=App\Configuration::first();
+?>
 <div class="header-inner menu-container">
 			<div class="navbar-wrapper">
 				<nav class="navbar navbar-default navbar-static-top navbar-sticky" id="nav-main">
@@ -21,7 +24,7 @@
 								<li class="dropdown show-on-hover">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">News</a>
 									<ul class="dropdown-menu">
-										<li><a href="{{url('/blogs')}}">News</a></li>
+										<li><a href="{{url('/news-list')}}">News</a></li>
 										<li><a href="{{url('/videos')}}">Videos</a></li>
 										<li><a href="{{url('/events')}}">Events</a></li>
 									</ul>
@@ -33,10 +36,10 @@
 										<li><a href="page-features.html">Features</a></li>
 									</ul>
 								</li>
-								<li><a href="contact.html">Contact</a></li>
+								<li><a href="{{url('/contact')}}">Contact</a></li>
 							</ul>
 							<ul class="nav navbar-nav" id="nav-right">
-								<li><a href="donate.html">Donate</a></li>
+								<li><a href="{{url('/donate')}}">Donate</a></li>
 							</ul>
 						</div>
 

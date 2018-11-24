@@ -1,5 +1,10 @@
 @extends('layouts.backend')
 @section('admin_content')
+<div class="row">
+  <div class="col-lg-12">
+      <h1 class="page-header">Newsletter Requests</h1>
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -17,7 +22,7 @@
       <td>{{$v_data->user_zip}}</td>
       <td>
        
-      	<a class="btn btn-danger" id="delete" href="{{url('/delete-newsletter/'.$v_data->id)}}" onclick="return confirmDelete();">Delete</a>
+      	<a class="btn btn-xs btn-danger" id="delete" href="{{url('/delete-newsletter/'.$v_data->id)}}" onclick="return confirmDelete();">Delete</a>
       </td>
     </tr>
     @endforeach

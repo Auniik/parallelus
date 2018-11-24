@@ -38,9 +38,25 @@ class IssuesController extends Controller
         // $input = $request->all();
         $info->update([
         	'issue_heading'=>$request->issueHeading,
-        	'issue_descrip$request->all();tion'=>$request->issueDescription,
+        	'issue_description'=>$request->issueDescription,
         ]);
         // $info->update($input);
 		return redirect('/all-issue')->withMessage('Issue updated successfully');
 	}
+
+
+    //Frontend
+    public function issues(){
+        $data=Issues::get();
+        return view('frontend.issues.issues', compact('data'));
+    }
+
+    public function issue($id){
+        $data=Issues::findOrFail($id);
+        return view('frontend.issues.issue', compact('data'));
+    }
+
+    public function issueAppearance(){
+        
+    }
 }

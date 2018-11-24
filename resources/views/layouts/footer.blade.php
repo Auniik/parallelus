@@ -42,12 +42,12 @@
 
 					<div class="footer-nav">
 						<ul>
-							<li><a href="page-about.html">About Tim</a></li>
-							<li><a href="issues.html">On the Issues</a></li>
-							<li><a href="blog.html">News</a></li>
-							<li><a href="events.html">Events</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li><a href="donate.html"><strong class="text-danger">Donate</strong></a></li>
+							<li><a href="{{url('/about')}}">About</a></li>
+							<li><a href="{{url('/issues')}}">On the Issues</a></li>
+							<li><a href="{{url('/news-list')}}">News</a></li>
+							<li><a href="{{url('/events')}}">Events</a></li>
+							<li><a href="{{url('/contacts')}}">Contact</a></li>
+							<li><a href="{{url('/donate')}}"><strong class="text-danger">Donate</strong></a></li>
 						</ul>
 					</div>
 
