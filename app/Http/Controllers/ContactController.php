@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Contact;
+use App\ContactConfig;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -30,4 +31,33 @@ class ContactController extends Controller
 		$data->delete();
 		return redirect('/admin')->withMessage('Contact Deleted');
 	}
+
+
+
+
+	//CONFIGURATION---------------------------------------------------
+
+	public function editContactConfig()
+    {
+        $config = ContactConfig::first();
+        return view('backend.contacts.edit_contacts', compact('config'));
+    }
+
+    public function updateContactConfig(Request $request)
+    {
+    	$config = ContactConfig::first();
+        if ($config) {
+            $config->update([
+                'page_heading' => $request->pageHeading,
+                'description' => $request->description,
+            ]);
+            return redirect('/edit-contact-config')->withMessage('Site information updated.');
+        }
+        ContactConfig::create([
+            'page_heading' => $request->pageHeading,
+            'description' => $request->description,
+        ]);
+        return redirect('/edit-contact-config')->withMessage('Site information updated.');
+
+    }
 }

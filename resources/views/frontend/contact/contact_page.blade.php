@@ -5,7 +5,9 @@
 		<!-- main navigation -->
 		@include('frontend.top_navbar')
 </div> <!-- end header -->
-
+<?php
+	$config=App\ContactConfig::first();
+?>
 
 	<!-- Main Content
 	================================================== -->
@@ -24,12 +26,12 @@
                         Session::put('message',null);
                     }
                 ?>
-					<h1 class="page-title">Contact the Campaign</h1>
+					<h1 class="page-title">{{$config->page_heading}}</h1>
 				</header>
 
 				<div class="entry-content">
 
-					<p>Contact us today and find out what you can do to help us make a better tomorrow. We are eager to hear from you.</p>
+					<p>{{$config->description}}</p>
 
 					<br>
 

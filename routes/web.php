@@ -40,11 +40,16 @@ Route::get('/delete-news/{id}', 'NewsController@deleteNews')->name('news.delete'
 
 
 //Contact
+Route::get('/edit-contact-config', 'ContactController@editContactConfig')->name('contact.edit');
+Route::post('/update-contact-config', 'ContactController@updateContactConfig')->name('contact.update');
 Route::get('/messages', 'ContactController@messages')->name('messages');
 Route::get('/delete-messages/{id}', 'ContactController@deleteMessage')->name('message.delete');
+
 //Newsletter
 Route::get('/newsletters', 'NewsletterController@newsletters')->name('newsletters');
 Route::get('/delete-newsletter/{id}', 'NewsletterController@delete_newsletter')->name('delete_newsletter');
+//Donate
+Route::get('/donates', 'NewsletterController@donates')->name('donate');
 
 
 

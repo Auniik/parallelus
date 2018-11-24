@@ -23,4 +23,7 @@ class NewsletterController extends Controller
 		$data->delete();
 		return redirect('/admin')->withMessage('Newsletter Deleted');
 	}
+	public function donates(){
+		return view('backend.donates');
+	}
 }

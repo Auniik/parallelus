@@ -8,6 +8,12 @@ use Session;
 class ConfigurationController extends Controller
 {
     
+    public function editConfig()
+    {
+        $configs = Configuration::first();
+        return view('backend.config.editConfig', compact('configs'));
+    }
+
     public function saveConfig(Request $request)
     {
     	$config = Configuration::first();
@@ -32,12 +38,6 @@ class ConfigurationController extends Controller
         ]);
         return redirect('/edit-config')->withMessage('Site information updated.');
 
-    }
-
-    public function editConfig()
-    {
-        $configs = Configuration::first();
-        return view('backend.config.editConfig', compact('configs'));
     }
 
 }

@@ -85,22 +85,23 @@
                             <a href="{{url('/admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#configs"><i class="fa fa-bar-chart-o fa-fw"></i> Site Setups<span class="fa arrow"></span></a>
+                            <a href="{{url('/edit-config')}}"><i class="fa fa-dashboard fa-fw"></i> Basic Configs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#about"><i class="fa fa-bar-chart-o fa-fw"></i> About<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{url('/edit-config')}}">Basic Configs</a>
-                                </li>
                                 <li>
                                     <a href="{{url('/edit-about')}}">Update About</a>
                                 </li>
-                            </ul> 
+                                <li>
+                                    <a href="{{url('/edit-feature')}}">Update Feature</a>
+                                </li>
+                            </ul>                            
                         </li>
                         <li>
                             <a href="#issues"><i class="fa fa-bar-chart-o fa-fw"></i> Issues<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{url('/issue-appearance')}}">Appearance</a>
-                                </li>
                                 <li>
                                     <a href="{{url('/add-issue')}}">Add Issue</a>
                                 </li>
@@ -110,8 +111,17 @@
                             </ul>                            
                         </li>
                         <li>
-                            <a href="{{url('/messages')}}"><i class="fa fa-dashboard fa-fw"></i> Messages</a>
+                            <a href="#contact"><i class="fa fa-bar-chart-o fa-fw"></i> Contact<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/edit-contact-config')}}">Update Contact</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/messages')}}">Messages</a>
+                                </li>
+                            </ul>                            
                         </li>
+                        
                         <li>
                             <a href="#news"><i class="fa fa-bar-chart-o fa-fw"></i> News<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -127,7 +137,7 @@
                             <a href="{{url('/newsletters')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Newsletters</a>
                         </li>
                         <li>
-                            <a href="{{url('/donate')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Donate</a>
+                            <a href="{{url('/donates')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Donate</a>
                         </li>
                     </ul>
                 </div>

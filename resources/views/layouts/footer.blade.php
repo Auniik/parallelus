@@ -46,7 +46,7 @@
 							<li><a href="{{url('/issues')}}">On the Issues</a></li>
 							<li><a href="{{url('/news-list')}}">News</a></li>
 							<li><a href="{{url('/events')}}">Events</a></li>
-							<li><a href="{{url('/contacts')}}">Contact</a></li>
+							<li><a href="{{url('/contact')}}">Contact</a></li>
 							<li><a href="{{url('/donate')}}"><strong class="text-danger">Donate</strong></a></li>
 						</ul>
 					</div>
