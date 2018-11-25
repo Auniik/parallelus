@@ -38,7 +38,7 @@
 		
 			<div class="main-section col-md-8">
 				<header class="page-header">
-					<h1 class="page-title">{{$about==null ? 'Your name' : $about->about_heading}}</h1>
+					<h1 class="page-title">{{$about==null ? 'About *Your Name*' : $about->about_heading}}</h1>
 				</header>
 
 				<div class="entry-content">

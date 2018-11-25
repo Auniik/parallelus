@@ -14,7 +14,7 @@ class NewsController extends Controller
     		'news_heading' => $request->newsHeading,
     		'description' => $request->newsDescription,
     	]);
-   		return redirect('/add-news')->withMessage('Issue Added Successfully');
+   		return redirect('/add-news')->withMessage('News Added Successfully');
     }
 
     public function allNews(){
@@ -26,7 +26,7 @@ class NewsController extends Controller
 	{
 		$data=News::findOrFail($id);
 		$data->delete();
-		return redirect('/all-news')->withMessage('Issue Deleted');
+		return redirect('/all-news')->withMessage('News Deleted');
 	}
 	public function editNews($id){
 		$data=News::findOrFail($id);
@@ -40,7 +40,7 @@ class NewsController extends Controller
         	'description'=>$request->newsDescription,
         ]);
         // $info->update($input);
-		return redirect('/all-news')->withMessage('Issue updated successfully');
+		return redirect('/all-news')->withMessage('News updated successfully');
 	}
 
     //Frontend

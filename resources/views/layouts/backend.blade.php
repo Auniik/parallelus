@@ -103,25 +103,16 @@
                             <a href="#issues"><i class="fa fa-bar-chart-o fa-fw"></i> Issues<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
+                                    <a href="{{url('/issue-appearance')}}">Issue Config</a>
+                                </li>
+                                <li>
                                     <a href="{{url('/add-issue')}}">Add Issue</a>
                                 </li>
                                 <li>
                                     <a href="{{url('/all-issue')}}">View Issues</a>
                                 </li>
                             </ul>                            
-                        </li>
-                        <li>
-                            <a href="#contact"><i class="fa fa-bar-chart-o fa-fw"></i> Contact<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{url('/edit-contact-config')}}">Update Contact</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/messages')}}">Messages</a>
-                                </li>
-                            </ul>                            
-                        </li>
-                        
+                        </li>                        
                         <li>
                             <a href="#news"><i class="fa fa-bar-chart-o fa-fw"></i> News<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -130,6 +121,50 @@
                                 </li>
                                 <li>
                                     <a href="{{url('/all-news')}}">All News</a>
+                                </li>
+                            </ul>                            
+                        </li>
+                        <li>
+                            <a href="#social"><i class="fa fa-bar-chart-o fa-fw"></i> Social<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/add-social')}}">Add Social</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/all-social')}}">All Social</a>
+                                </li>
+                            </ul>                            
+                        </li>
+                        <li>
+                            <a href="#news"><i class="fa fa-bar-chart-o fa-fw"></i> Contacts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/contact-appearance')}}">Contact Config</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/messages')}}">Messages</a>
+                                </li>
+                            </ul>                            
+                        </li>
+                        <li>
+                            <a href="#events"><i class="fa fa-bar-chart-o fa-fw"></i> Events<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/')}}">Add Event</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/')}}">All Event</a>
+                                </li>
+                            </ul>                            
+                        </li>
+                        <li>
+                            <a href="#videos"><i class="fa fa-bar-chart-o fa-fw"></i> Videos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/edit-contact-config')}}">Add Videos</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/messages')}}">All Video</a>
                                 </li>
                             </ul>                            
                         </li>

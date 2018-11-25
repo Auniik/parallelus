@@ -24,8 +24,8 @@ class ConfigurationController extends Controller
                 'quote_message' => $request->quoteMessage,
                 'address' => $request->address,
             ]);
-            $request->bgImage->storeAs('/uploads/images', $config->bg_image);
-            $request->favicon->storeAs('/uploads/icons', $config->favicon);
+            $request->bgImage->storeAs('/', $config->bg_image);
+            $request->favicon->storeAs('/', $config->favicon);
             return redirect('/edit-config')->withMessage('Site information updated.');
         }
         Configuration::create([
@@ -33,8 +33,8 @@ class ConfigurationController extends Controller
             'designation' => $request->designation,
             'quote_message' => $request->quoteMessage,
             'address' => $request->address,
-            'bg_image' => $request->bgImage->store('/uploads/images'),
-            'favicon' => $request->favicon->store('/uploads/icons'),
+            'bg_image' => $request->bgImage->storeAs('/uploads/images/home','header-home.jpg'),
+            'favicon' => $request->favicon->storeAs('/uploads/favicon','favicon.ico'),
         ]);
         return redirect('/edit-config')->withMessage('Site information updated.');
 

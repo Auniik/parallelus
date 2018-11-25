@@ -15,18 +15,21 @@ Route::get('/admin', function () {
 //Site Config
 Route::post('/save-config', 'ConfigurationController@saveConfig')->name('config.save');
 Route::get('/edit-config', 'ConfigurationController@editConfig')->name('edit-config');
+
 //About
-Route::get('/edit-about', 'AboutController@editAbout')->name('edit_about');
-Route::post('/save-about', 'AboutController@saveAbout')->name('save_about');
+Route::get('/edit-about', 'AboutController@editAbout')->name('about.edit');
+Route::post('/save-about', 'AboutController@saveAbout')->name('about.save');
+Route::post('/update-about-bg', 'AboutController@updateAboutBg')->name('about.bg');
 
 //ISSUES
-Route::get('/add-issue', 'IssuesController@addIssue')->name('issue.add');
-Route::post('/save-issue', 'IssuesController@saveIssue')->name('issue.save');
-Route::get('/all-issue', 'IssuesController@allIssue')->name('issue.all');
-Route::get('/edit-issue/{id}', 'IssuesController@editIssue')->name('issue.edit');
-Route::post('/update-issue/{id}', 'IssuesController@updateIssue')->name('issue.update');
-Route::get('/delete-issue/{id}', 'IssuesController@deleteIssue')->name('issue.delete');
-Route::get('/issue-appearance', 'IssuesController@issueAppearance')->name('issue.appearance');
+Route::get('/add-social', 'SocialController@addSocial')->name('social.add');
+Route::post('/save-social', 'SocialController@saveSocial')->name('social.save');
+Route::get('/all-social', 'SocialController@allSocial')->name('social.all');
+Route::get('/edit-social/{id}', 'SocialController@editSocial')->name('social.edit');
+Route::post('/update-social/{id}', 'SocialController@updateSocial')->name('social.update');
+Route::get('/delete-social/{id}', 'SocialController@deleteSocial')->name('social.delete');
+Route::get('/social-appearance', 'SocialController@socialAppearance')->name('social.appearance');
+Route::post('/update-social-config', 'SocialController@updateSocialConfig')->name('socialconfig.update');
 
 //NEWS
 Route::get('/add-news', 'NewsController@addNews')->name('news.add');
@@ -36,20 +39,23 @@ Route::get('/edit-news/{id}', 'NewsController@editNews')->name('news.edit');
 Route::post('/update-news/{id}', 'NewsController@updateNews')->name('news.update');
 Route::get('/delete-news/{id}', 'NewsController@deleteNews')->name('news.delete');
 
-
-
+//Social
+Route::get('/add-social', 'SocialController@addSocial')->name('social.add');
+Route::post('/save-social', 'SocialController@saveSocial')->name('social.save');
+Route::get('/all-social', 'SocialController@allSocial')->name('social.all');
+Route::get('/edit-social/{id}', 'SocialController@editSocial')->name('social.edit');
+Route::post('/update-social/{id}', 'SocialController@updateSocial')->name('social.update');
+Route::get('/delete-social/{id}', 'SocialController@deleteSocial')->name('social.delete');
 
 //Contact
-Route::get('/edit-contact-config', 'ContactController@editContactConfig')->name('contact.edit');
-Route::post('/update-contact-config', 'ContactController@updateContactConfig')->name('contact.update');
 Route::get('/messages', 'ContactController@messages')->name('messages');
 Route::get('/delete-messages/{id}', 'ContactController@deleteMessage')->name('message.delete');
+Route::get('/contact-appearance', 'ContactController@contactAppearance')->name('contactconfig.edit');
+Route::post('/update-contact-config', 'ContactController@updateContactConfig')->name('contactconfig.update');
 
 //Newsletter
 Route::get('/newsletters', 'NewsletterController@newsletters')->name('newsletters');
 Route::get('/delete-newsletter/{id}', 'NewsletterController@delete_newsletter')->name('delete_newsletter');
-//Donate
-Route::get('/donates', 'NewsletterController@donates')->name('donate');
 
 
 
@@ -59,9 +65,9 @@ Route::post('/send-newsletter', 'NewsletterController@sendNewsletter')->name('ne
 Route::post('/send-message', 'ContactController@sendMessage')->name('message.send');
 Route::get('/contact', 'ContactController@index')->name('contact.send');
 
-//Issues
-Route::get('/issues', 'IssuesController@issues')->name('issues');
-Route::get('/issue/{id}', 'IssuesController@issue')->name('issue');
+//Social
+Route::get('/socials', 'SocialController@socials')->name('socials');
+Route::get('/social/{id}', 'SocialController@social')->name('social');
 
 //News
 Route::get('/news-list', 'NewsController@newslist')->name('news.list');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\About;
+use App\AboutConfig;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -24,12 +25,34 @@ class AboutController extends Controller
         About::create([
             'about_heading' => $request->aboutHeading,
             'about_text' => $request->aboutText,
-            // 'bg_image' => $request->bgImage->store('/uploads/images'),
         ]);
         return redirect('/edit-about')->withMessage('Site information updated.');
     }
 
+    
+
+    //ABOUT CONFIG
+
+    public function updateAboutBg(Request $request)
+    {
+        $config = AboutConfig::first();
+        if ($config) {
+            $request->bgImage->storeAs('/', $config->bg_image);
+            return redirect('/edit-about')->withMessage('Site information updated.');
+        }
+        AboutConfig::create([
+            'bg_image' => $request->bgImage->storeAs('/uploads/images/about', 'about-background.jpg'),
+        ]);
+        return redirect('/edit-about')->withMessage('Site information updated.');
+
+    }
+
+
+    //FROENT END
+
+
     public function about(){
         return view('frontend.about.about');
     }
+
 }

@@ -16,7 +16,6 @@ class CreateIssueConfigsTable extends Migration
         Schema::create('issue_configs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('page_heading');
-            $table->text('description');
             $table->string('bg_image');
             $table->timestamps();
         });

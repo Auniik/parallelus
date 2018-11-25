@@ -1,7 +1,10 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div id="header" class="header-bg header-nav-bottom" style="background-image: url({{asset('frontend/images/header-page-2.jpg')}})">
+<?php
+$config=App\IssueConfig::first();
+?>
+<div id="header" class="header-bg header-nav-bottom" style="background-image: url({{$config==null ? 'frontend/images/header-page-2.jpg' : $config->bg_image}})">
 
 		<!-- page header -->
 		<div class="header-bg-wrapper">
@@ -14,7 +17,7 @@
 								<div class="col-md-12">
 									<!-- Header Content -->
 									<header class="page-header intro-wrap">
-										<h1 class="page-title">On The Issues</h1>
+										<h1 class="page-title">{{$config==null ? 'On The Issues' : $config->page_heading}}</h1>
 									</header>
 								</div>
 							</div>

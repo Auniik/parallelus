@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Issues;
+use App\IssueConfig;
 use Illuminate\Http\Request;
 
 class IssuesController extends Controller
@@ -56,7 +57,29 @@ class IssuesController extends Controller
         return view('frontend.issues.issue', compact('data'));
     }
 
-    public function issueAppearance(){
-        
+    //-----------ISSUE APPEARANCE--------------------------
+
+    public function issueAppearance()
+    {
+        $config = IssueConfig::first();
+        return view('backend.issues.issue_config', compact('config'));
+    }
+
+    public function updateIssueConfig(Request $request)
+    {
+        $config = IssueConfig::first();
+        if ($config) {
+            $config->update([
+                'page_heading' => $request->pageHeading,
+            ]);
+            $request->bgImage->storeAs('/', $config->bg_image);
+            return redirect('/issue-appearance')->withMessage('Site information updated.');
+        }
+        IssueConfig::create([
+            'page_heading' => $request->pageHeading,
+            'bg_image' => $request->bgImage->storeAs('/uploads/images/issues', 'issue-background.jpg'),
+        ]);
+        return redirect('/issue-appearance')->withMessage('Site information updated.');
+
     }
 }

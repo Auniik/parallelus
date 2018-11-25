@@ -18,3 +18,7 @@
 .logoBorder{
 	margin-top: -10px;
 }
+
+#socialname *{
+	background-color:red !important;
+}

@@ -37,10 +37,10 @@ class ContactController extends Controller
 
 	//CONFIGURATION---------------------------------------------------
 
-	public function editContactConfig()
+	public function contactAppearance()
     {
         $config = ContactConfig::first();
-        return view('backend.contacts.edit_contacts', compact('config'));
+        return view('backend.contacts.contact_config', compact('config'));
     }
 
     public function updateContactConfig(Request $request)
@@ -51,13 +51,13 @@ class ContactController extends Controller
                 'page_heading' => $request->pageHeading,
                 'description' => $request->description,
             ]);
-            return redirect('/edit-contact-config')->withMessage('Site information updated.');
+            return redirect('/contact-appearance')->withMessage('Site information updated.');
         }
         ContactConfig::create([
             'page_heading' => $request->pageHeading,
             'description' => $request->description,
         ]);
-        return redirect('/edit-contact-config')->withMessage('Site information updated.');
+        return redirect('/contact-appearance')->withMessage('Site information updated.');
 
     }
 }

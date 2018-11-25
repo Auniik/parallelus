@@ -30,12 +30,17 @@
 			<div class="row">
 
 				<div class="col-md-12">
-
+					<?
+						$socials=App\Social::get();
+					?>
 					<ul class="footer-social icon-blocks">
-						<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-						<li><a href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a></li>
+						@foreach($socials as $social)
+						@if(substr($social->social_link,0,3)=='http')
+							<li><a href="{{$social->social_link}}"><i class="{{$social->social_name}}"></i></a></li>
+						@else
+							<li><a href="http://{{$social->social_link}}"><i class="{{$social->social_name}}"></i></a></li>
+						@endif
+						@endforeach
 					</ul>
 
 					

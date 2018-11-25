@@ -10,7 +10,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="index.html" class="navbar-brand"><img src="{{asset('frontend/images/logo-tim.png')}}" alt="Tim for US Congress"></a>
+					<a href="{{url('/')}}" class="navbar-brand"><img src="{{asset('frontend/images/logo-tim.png')}}" alt="Tim for US Congress"></a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="navbar-main">

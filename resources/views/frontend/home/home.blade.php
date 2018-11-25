@@ -148,7 +148,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-					<blockquote class="big-quote" style="margin-top:0;">&ldquo;{{$config==null ? 'Enter Quote Message' : $config->quote_message}}.&rdquo;</blockquote>
+					<blockquote class="big-quote" style="margin-top:0;">&ldquo;{{$config==null ? 'Enter Quote Message' : $config->quote_message}}&rdquo;</blockquote>
 					<p class="section-more text-center"><a href="{{url('/about')}}" class="btn btn-default">More About Tim</a></p>
 				</div>
 			</div> <!-- end row -->

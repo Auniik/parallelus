@@ -26,12 +26,12 @@
                         Session::put('message',null);
                     }
                 ?>
-					<h1 class="page-title">{{$config->page_heading}}</h1>
+					<h1 class="page-title">{{$config==null ? 'Contact Page Heading' : $config->page_heading}}</h1>
 				</header>
 
 				<div class="entry-content">
 
-					<p>{{$config->description}}</p>
+					<p>{{$config==null ? '*short description here*' : $config->description}}</p>
 
 					<br>
 

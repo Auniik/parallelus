@@ -26,15 +26,15 @@
                         Session::put('message',null);
                     }
                 ?>
-                <form role="form" action="{{ url('update-contact-config')}}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{ url('update-contact-config')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <label>Contact Page Heading</label>
-                        <input class="form-control" value="{{$config==null ? '' : $config->page_heading}}" name="pageHeading" placeholder="example: Contact Us">
+                        <input class="form-control" value="{{$config==null ? 'Contact me' : $config->page_heading}}" name="pageHeading" placeholder="example: Contact me">
                     </div>
                     <div class="form-group">
                         <label>Short Description</label>
-                        <textarea class="form-control" name="description" placeholder="Enter your quote">{{$config==null ? '' : $config->description}}</textarea>
+                        <textarea class="form-control" name="description" placeholder="Enter a short description">{{$config==null ? '' : $config->description}}</textarea>
                     </div>
                     {{-- <div class="form-group">
                         <label>Backgraound Image</label>
