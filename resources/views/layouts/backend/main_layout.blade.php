@@ -19,6 +19,7 @@
 
     <!-- Custom CSS -->
     <link href="{{asset('backend/dist/css/sb-admin-2.css')}}" rel="stylesheet">
+    <link rel="icon" href="{{asset('backend/icons/favicon.ico')}}" sizes="32x32" />
 
     <!-- Morris Charts CSS -->
   {{--   <link href="{{asset('backend/vendor/morrisjs/morris.css')}}" rel="stylesheet"> --}}

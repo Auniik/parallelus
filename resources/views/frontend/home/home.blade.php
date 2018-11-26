@@ -1,7 +1,6 @@
-@extends('layouts.frontend')
+@extends('layouts.frontend.main_layout')
 
 @section('content')
-<body class="home">
 	<?php
 		$config=App\Configuration::first();
 		$about=App\About::first();
@@ -407,9 +406,4 @@
 		</div> <!-- end container -->
 	</div>  <!-- end section-events -->
 
-
-	<!-- Footer
-	================================================== -->
-	@include('layouts.frontendfooter')
-</body>
 @endsection

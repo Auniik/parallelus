@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.frontend.main_layout')
 
 @section('content')
 <?php
@@ -28,7 +28,7 @@ $config=App\IssueConfig::first();
 		</div>  <!-- end .header-bg-wrapper -->
 
 		<!-- main navigation -->
-		@include('frontend.navbar')
+		@include('layouts.frontend.navbar_top')
 	</div> <!-- end header -->
 
 
@@ -83,5 +83,4 @@ $config=App\IssueConfig::first();
 
 		</div> <!-- end row -->
 	</div> <!-- end main-content -->
-	@include('layouts.frontendfooter')
 @endsection

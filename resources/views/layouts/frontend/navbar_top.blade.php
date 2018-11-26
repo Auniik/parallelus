@@ -1,5 +1,5 @@
 <?php
-$config=App\Configuration::first();
+	$config=App\Configuration::first();
 ?>
 <div class="header-inner menu-container">
 			<div class="navbar-wrapper">

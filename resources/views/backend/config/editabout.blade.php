@@ -1,4 +1,5 @@
-@extends('layouts.backend')
+@extends('layouts.backend.main_layout')
+@section('title', 'Update About Page')
 
 @section('admin_content')
 

@@ -1,3 +1,6 @@
+<?php
+	$config=App\Configuration::first();
+?>
 <div class="header-inner menu-container">
 	<div class="navbar-wrapper">
 		<nav class="navbar navbar-default navbar-fixed-top" id="nav-main">
@@ -10,7 +13,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="{{url('/')}}" class="navbar-brand"><img src="{{asset('frontend/images/logo-tim.png')}}" alt="Tim for US Congress"></a>
+					<a href="{{url('/')}}" class="navbar-brand"><img src="{{asset('frontend/images/logo-tim.png')}}" alt="{{$config==null ? 'Your name' : $config->profile_name}}"></a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="navbar-main">

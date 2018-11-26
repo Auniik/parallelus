@@ -1,10 +1,10 @@
-@extends('layouts.frontend')
+@extends('layouts.frontend.main_layout')
 
 @section('content')
 <div id="header" class="header-nav-top">
 
 		<!-- main navigation -->
-		@include('frontend.top_navbar')
+		@include('layouts.frontend.navbar_static')
 	</div> <!-- end header -->
 
 
@@ -31,10 +31,4 @@
 			</div>
 		</div> <!-- end row -->
 	</div> <!-- end main-content -->
-
-
-	<!-- Footer
-	================================================== -->
-	@include('layouts.frontendfooter')
-
 @endsection

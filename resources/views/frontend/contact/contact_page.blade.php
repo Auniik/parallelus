@@ -1,9 +1,9 @@
-@extends('layouts.frontend')
+@extends('layouts.frontend.main_layout')
 @section('content')
 <div id="header" class="header-nav-top">
 
 		<!-- main navigation -->
-		@include('frontend.top_navbar')
+		@include('layouts.frontend.navbar_static')
 </div> <!-- end header -->
 <?php
 	$config=App\ContactConfig::first();
@@ -110,5 +110,5 @@
 
 		</div> <!-- end container -->
 	</div> <!-- end main-content -->
-@include('layouts.frontendfooter')
+
 @endsection

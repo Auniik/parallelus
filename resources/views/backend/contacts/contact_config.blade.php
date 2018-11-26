@@ -1,5 +1,5 @@
-@extends('layouts.backend')
-
+@extends('layouts.backend.main_layout')
+@section('title', 'Contact Page Setup')
 @section('admin_content')
 
 <div class="row">

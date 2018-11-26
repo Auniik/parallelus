@@ -1,5 +1,5 @@
-@extends('layouts.backend')
-
+@extends('layouts.backend.main_layout')
+@section('title', 'View videos you added')
 @section('admin_content')
 <div class="row">
   <div class="col-lg-12">

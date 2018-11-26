@@ -29,7 +29,7 @@
 		<div class="row">
 
 			<div class="col-md-12">
-				<?
+				<?php
 					$socials=App\Social::get();
 				?>
 				<ul class="footer-social icon-blocks">
@@ -51,10 +51,10 @@
 						<li><a href="{{url('/news-list')}}">News</a></li>
 						<li><a href="{{url('/events')}}">Events</a></li>
 						<li><a href="{{url('/contact')}}">Contact</a></li>
-						<li><a href="{{url('/donate')}}"><strong class="text-danger">Donate</strong></a></li>
 					</ul>
 				</div>
 
+				{{-- Retrieving favicon from Configuration Model --}}
 				<?php
 					$config=App\Configuration::first();
 

@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.frontend.main_layout')
 
 @section('content')
 <div id="header" class="header-bg header-nav-bottom" style="background-image: url({{asset('frontend/images/header-page.jpg')}})">
@@ -26,7 +26,7 @@
 		</div>  <!-- end .header-bg-wrapper -->
 
 		<!-- main navigation -->
-		@include('frontend.navbar')
+		@include('layouts.frontend.navbar_top')
 		
 	</div> <!-- end header -->
 
@@ -104,9 +104,4 @@
 
 		</div> <!-- end row -->
 	</div> <!-- end main-content -->
-
-
-	<!-- Footer
-	================================================== -->
-@include('layouts.frontendfooter')
 @endsection
