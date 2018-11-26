@@ -8,6 +8,9 @@
 	<link rel="stylesheet" href="{{asset('frontend/css/imports.css')}}" media="screen">
 	<link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}" media="screen">
 	<link rel="stylesheet" href="{{asset('frontend/css/owl-carousel.css')}}" media="screen">
+	<script type="text/javascript">
+		var ajax_url = 'videos-ajax.json';
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Cinzel|Open+Sans" rel="stylesheet">
 	<?php
 		$config=App\Configuration::first();

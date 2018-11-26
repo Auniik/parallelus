@@ -35,6 +35,6 @@
 
 	<!-- Footer
 	================================================== -->
-	@include('layouts.footer')
+	@include('layouts.frontendfooter')
 
 @endsection

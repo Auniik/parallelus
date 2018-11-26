@@ -22,3 +22,6 @@
 #socialname *{
 	background-color:red !important;
 }
+p.video-desc {
+	min-height: 40px;
+}

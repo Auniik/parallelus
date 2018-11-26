@@ -83,5 +83,5 @@ $config=App\IssueConfig::first();
 
 		</div> <!-- end row -->
 	</div> <!-- end main-content -->
-	@include('layouts.footer')
+	@include('layouts.frontendfooter')
 @endsection

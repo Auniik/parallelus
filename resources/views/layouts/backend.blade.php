@@ -21,7 +21,7 @@
     <link href="{{asset('backend/dist/css/sb-admin-2.css')}}" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="{{asset('backend/vendor/morrisjs/morris.css')}}" rel="stylesheet">
+  {{--   <link href="{{asset('backend/vendor/morrisjs/morris.css')}}" rel="stylesheet"> --}}
 
     <!-- Custom Fonts -->
     <link href="{{asset('backend/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
@@ -36,60 +36,59 @@
 </head>
 
 <body>
-
-    <div id="wrapper">
+<div id="wrapper">
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{route('admin')}}">Hello</a>
-            </div>
-            <!-- /.navbar-header -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{{route('admin')}}">Hello</a>
+</div>
+    <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        {{-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li> --}}
-                        <li><a href="{{URL::to('/logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+        
+        <!-- /.dropdown -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                {{-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                 </li>
-                <!-- /.dropdown -->
+                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li>
+                <li class="divider"></li> --}}
+                <li><a href="{{URL::to('/logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                </li>
             </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+    </ul>
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="{{url('/')}}"><i class="fa fa-dashboard fa-fw"></i> Visit Site</a>
+                            <a href="{{url('/')}}"><i class="fa fa-home fa-fw"></i> Visit Site</a>
                         </li>
                         <li>
                             <a href="{{url('/admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="{{url('/edit-config')}}"><i class="fa fa-dashboard fa-fw"></i> Basic Configs</a>
+                            <a href="{{url('/edit-config')}}"><i class="fa fa-cogs fa-fw"></i> Basic Configs</a>
                         </li>
                         
                         <li>
-                            <a href="#about"><i class="fa fa-bar-chart-o fa-fw"></i> About<span class="fa arrow"></span></a>
+                            <a href="#about"><i class="fa fa-comment fa-fw"></i> About<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{url('/edit-about')}}">Update About</a>
@@ -100,7 +99,7 @@
                             </ul>                            
                         </li>
                         <li>
-                            <a href="#issues"><i class="fa fa-bar-chart-o fa-fw"></i> Issues<span class="fa arrow"></span></a>
+                            <a href="#issues"><i class="fa fa-list-alt fa-fw"></i> Issues<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{url('/issue-appearance')}}">Issue Config</a>
@@ -114,7 +113,7 @@
                             </ul>                            
                         </li>                        
                         <li>
-                            <a href="#news"><i class="fa fa-bar-chart-o fa-fw"></i> News<span class="fa arrow"></span></a>
+                            <a href="#news"><i class="fa fa-globe fa-fw"></i> News<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{url('/add-news')}}">Add News</a>
@@ -125,7 +124,7 @@
                             </ul>                            
                         </li>
                         <li>
-                            <a href="#social"><i class="fa fa-bar-chart-o fa-fw"></i> Social<span class="fa arrow"></span></a>
+                            <a href="#social"><i class="fa fa-link fa-fw"></i> Social<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{url('/add-social')}}">Add Social</a>
@@ -136,7 +135,7 @@
                             </ul>                            
                         </li>
                         <li>
-                            <a href="#news"><i class="fa fa-bar-chart-o fa-fw"></i> Contacts<span class="fa arrow"></span></a>
+                            <a href="#news"><i class="fa fa-comments fa-fw"></i> Contacts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{url('/contact-appearance')}}">Contact Config</a>
@@ -147,33 +146,31 @@
                             </ul>                            
                         </li>
                         <li>
-                            <a href="#events"><i class="fa fa-bar-chart-o fa-fw"></i> Events<span class="fa arrow"></span></a>
+                            <a href="#events"><i class="fa fa-calendar-o fa-fw"></i> Events<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/')}}">Add Event</a>
+                                    <a href="{{url('/add-event')}}">Add Event</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/')}}">All Event</a>
+                                    <a href="{{url('/all-event')}}">All Event</a>
                                 </li>
                             </ul>                            
                         </li>
                         <li>
-                            <a href="#videos"><i class="fa fa-bar-chart-o fa-fw"></i> Videos<span class="fa arrow"></span></a>
+                            <a href="#videos"><i class="fa fa-youtube-play fa-fw"></i> Videos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/edit-contact-config')}}">Add Videos</a>
+                                    <a href="{{url('/add-video')}}">Add Videos</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/messages')}}">All Video</a>
+                                    <a href="{{url('/all-video')}}">All Video</a>
                                 </li>
                             </ul>                            
                         </li>
                         <li>
-                            <a href="{{url('/newsletters')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Newsletters</a>
+                            <a href="{{url('/newsletters')}}"><i class="fa fa-comment-o fa-fw"></i> Newsletters</a>
                         </li>
-                        <li>
-                            <a href="{{url('/donates')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Donate</a>
-                        </li>
+                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -187,6 +184,7 @@
             @yield('admin_content')
         </div>
         <!-- /#page-wrapper -->
+    
 
     </div>
     <!-- /#wrapper -->
@@ -202,8 +200,8 @@
 
     <!-- Morris Charts JavaScript -->
     <script src="{{asset('backend/vendor/raphael/raphael.min.js')}}"></script>
-    <script src="{{asset('backend/vendor/morrisjs/morris.min.js')}}"></script>
-    <script src="{{asset('backend/data/morris-data.js')}}"></script>
+    {{-- <script src="{{asset('backend/vendor/morrisjs/morris.min.js')}}"></script> --}}
+    {{-- <script src="{{asset('backend/data/morris-data.js')}}"></script> --}}
     
     <!-- Custom Theme JavaScript -->
     <script src="{{asset('backend/dist/js/sb-admin-2.js')}}"></script>

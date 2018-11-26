@@ -38,9 +38,9 @@ $config=App\Configuration::first();
 								</li>
 								<li><a href="{{url('/contact')}}">Contact</a></li>
 							</ul>
-							<ul class="nav navbar-nav" id="nav-right">
+							{{-- <ul class="nav navbar-nav" id="nav-right">
 								<li><a href="{{url('/donate')}}">Donate</a></li>
-							</ul>
+							</ul> --}}
 						</div>
 
 					</div>

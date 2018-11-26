@@ -45,6 +45,7 @@
                             <option value="fa fa-skype"> Skype</option>
                         </select>
                     </div>
+                    <label >Profile Link</label>
                     <div class="form-group input-group">
                         <span class="input-group-addon">http://</span>
                         <input type="text" name="socialLink" class="form-control" placeholder="example: www.facebook.com/username">

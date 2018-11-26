@@ -110,5 +110,5 @@
 
 		</div> <!-- end container -->
 	</div> <!-- end main-content -->
-@include('layouts.footer')
+@include('layouts.frontendfooter')
 @endsection
