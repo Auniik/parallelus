@@ -25,34 +25,65 @@
                             Session::put('message',null);
                         }
                     ?>
-                    <form role="form" action="{{ url('/settings/save')}}" method="post" enctype="multipart/form-data">
+                    <form role="form" action="{{ url('/settings/update')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group">
+                        <div class="form-group {{$errors->has('profileName') ? 'has-error' : ''}}">
                             <label>Profile Name</label>
-                            <input class="form-control" value="{{$config==null ? '' : $config->profile_name}}" name="profileName" placeholder="Enter your name">
+                            <input class="form-control" value="{{$configRecord==null ? '' : $configRecord->profile_name}}" name="profileName" placeholder="Enter your name">
+                            @if($errors->has('profileName'))
+                                <div class="help-block">
+                                    {{$errors->first('profileName')}}
+                                </div>
+                            @endif
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{$errors->has('designation') ? 'has-error' : ''}}">
                             <label>Designation</label>
-                            <input class="form-control" value="{{$config==null ? '' : $config->designation}}" name="designation" placeholder="Enter your designation">
-                        </div>
-                        <div class="form-group">
-                            <label>Quote Message</label>
-                            <textarea class="form-control" name="quoteMessage" placeholder="Enter your quote">{{$config==null ? '' : $config->quote_message}}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            <input type="text" class="form-control" value="{{$config==null ? '' : $config->address}}" name="address" placeholder="Enter your address">
-                        </div>
-                        <div class="form-group">
-                            <label>Backgraound Image</label>
-                            <input type="file" class="form-control"  name="bgImage">
-                        </div>
-                        <div class="form-group">
-                            <label>Favicon</label>
-                            <input type="file" class="form-control"  name="favicon">
+                            <input class="form-control" value="{{$configRecord==null ? '' : $configRecord->designation}}" name="designation" placeholder="Enter your designation">
+                            @if($errors->has('designation'))
+                                <div class="help-block">
+                                    {{$errors->first('designation')}}
+                                </div>
+                            @endif
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group {{$errors->has('quoteMessage') ? 'has-error' : ''}}">
+                            <label>Quote Message</label>
+                            <textarea class="form-control" name="quoteMessage" placeholder="Enter your quote">{{$configRecord==null ?'':$configRecord->quote_message}}</textarea>
+                            @if($errors->has('quoteMessage'))
+                                <div class="help-block">
+                                    {{$errors->first('quoteMessage')}}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group {{$errors->has('address') ? 'has-error' : ''}}">
+                            <label>Address</label>
+                            <input type="text" class="form-control" value="{{$configRecord==null ? '' : $configRecord->address}}" name="address" placeholder="Enter your address">
+                            @if($errors->has('address'))
+                                <div class="help-block">
+                                    {{$errors->first('address')}}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group {{$errors->has('bgImage') ? 'has-error' : ''}}">
+                            <label>Backgraound Image</label>
+                            <input type="file" class="form-control"  name="bgImage">
+                            @if($errors->has('bgImage'))
+                                <div class="help-block">
+                                    {{$errors->first('bgImage')}}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group {{$errors->has('favicon') ? 'has-error' : ''}}">
+                            <label>Favicon</label>
+                            <input type="file" class="form-control"  name="favicon">
+                        @if($errors->has('favicon'))
+                                <div class="help-block">
+                                    {{$errors->first('favicon')}}
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group"}}">
                             <button class="btn btn-success col-xs-12" type="submit">Save</button>
                         </div>
                     </form>

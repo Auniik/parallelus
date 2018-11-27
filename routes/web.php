@@ -14,15 +14,16 @@ Route::get('/admin', function () {
 
 //Site Config
 Route::get('/settings', 'ConfigurationController@editConfig')->name('config.edit');
-Route::post('/settings/save', 'ConfigurationController@saveConfig')->name('config.save');
+Route::post('/settings/update', 'ConfigurationController@updateConfig')->name('config.update');
+Route::post('/settings/save', 'ConfigurationController@store')->name('config.save');
 
 //About
 Route::get('/about/edit', 'AboutController@editAbout')->name('about.edit');
 Route::post('/about/save', 'AboutController@saveAbout')->name('about.save');
 Route::post('/about/background/update', 'AboutController@updateAboutBg')->name('about.background');
 
-Route::get('/feature/edit', 'AboutController@editFeature')->name('feature.edit');
-Route::get('/feature/update', 'AboutController@editFeature')->name('feature.edit');
+Route::get('/feature/edit', 'FeatureController@editFeature')->name('feature.edit');
+Route::post('/feature/save', 'FeatureController@saveFeature')->name('feature.save');
 
 //ISSUES
 Route::get('/issue/add', 'IssuesController@addIssue')->name('issue.add');
@@ -80,6 +81,7 @@ Route::get('/newsletter/{id}/delete', 'NewsletterController@delete_newsletter')-
 
 //------------------FRONTEND----------------------------------------
 Route::get('/about', 'AboutController@about')->name('about');
+Route::get('/features', 'FeatureController@feature')->name('feature');
 Route::post('/newsletter/send', 'NewsletterController@sendNewsletter')->name('newsletter.send');
 Route::post('/message/send', 'ContactController@sendMessage')->name('message.send');
 Route::get('/contact', 'ContactController@index')->name('contact.send');

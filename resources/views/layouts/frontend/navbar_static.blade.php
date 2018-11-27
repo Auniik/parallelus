@@ -1,5 +1,6 @@
 <?php
 	$config=App\Configuration::first();
+	$url = Request::path();
 ?>
 <div class="header-inner menu-container">
 	<div class="navbar-wrapper">
@@ -19,7 +20,7 @@
 				<div class="collapse navbar-collapse" id="navbar-main">
 					<ul class="nav navbar-nav" id="nav-left">
 						<li><a href="{{url('/')}}">Home</a></li>
-						<li><a href="{{url('/issues')}}">Issues</a></li>
+						<li ><a href="{{url('/issues')}}">Issues</a></li>
 						<li class="dropdown show-on-hover">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">News</a>
 							<ul class="dropdown-menu">
@@ -35,7 +36,7 @@
 								<li><a href="{{url('/features')}}">Features</a></li>
 							</ul>
 						</li>
-						<li><a href="{{url('/contact')}}">Contact</a></li>
+						<li id="" class="{{ $url  == 'contact' ? 'active' : '' }}"><a href="{{url('/contact')}}">Contact</a></li>
 					</ul>
 					{{-- <ul class="nav navbar-nav" id="nav-right">
 						<li><a href="{{url('/donate')}}">Donate</a></li>
