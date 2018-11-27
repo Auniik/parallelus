@@ -23,15 +23,15 @@ class VideoController extends Controller
     		'short_description' => $request->shortDescription,
     		'video_url' => $videoId,
     	]);
-   		return redirect('/add-video')->withMessage('Video Link Added Successfully');
+   		return redirect('/video/add')->withMessage('Video Link Added Successfully');
     }
     public function allVideo(){
-    	$data=Video::paginate();
-    	return view('backend.videos.all_video', compact('data'));
+    	$videos=Video::paginate();
+    	return view('backend.videos.all_video', compact('videos'));
     }
     public function deleteVideo($id){
     	$data=Video::findOrFail($id);
     	$data->delete();
-    	return redirect('/all-video')->withMessage('Video Link Deleted');
+    	return redirect('/video/all')->withMessage('Video Link Deleted');
     }
 }

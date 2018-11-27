@@ -1,8 +1,8 @@
 @extends('layouts.frontend.main_layout')
-
+@section('frontend_title', 'Issues')
 @section('content')
 <?php
-$config=App\IssueConfig::first();
+	$config=App\IssueConfig::first();
 ?>
 <div id="header" class="header-bg header-nav-bottom" style="background-image: url({{$config==null ? 'frontend/images/header-page-2.jpg' : $config->bg_image}})">
 
@@ -53,8 +53,7 @@ $config=App\IssueConfig::first();
 						</div>
 					</header>
 					<p>
-						{!!$row==null ? 'Issue description here' : $row->issue_description!!}&hellip;
-						
+						{!! str_limit(optional($row)->issue_description, 350) !!}						
 						<a href="{{url('issue/'.$row->id)}}" class="more-link">Continue reading</a>
 					</p>
 

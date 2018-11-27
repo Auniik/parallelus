@@ -9,8 +9,8 @@ class AboutController extends Controller
 {
 
 	public function editabout(){
-		$about = About::first();
-        return view('backend.config.editabout', compact('about'));
+		$data = About::first();
+        return view('backend.config.edit_about', compact('data'));
 	}
 	public function saveAbout(Request $request){
 	    $about=About::first();
@@ -20,13 +20,13 @@ class AboutController extends Controller
                 'about_text' => $request->aboutText,
             ]);
             // $request->bgImage->storeAs('/uploads/images', $about->bg_image);
-            return redirect('/edit-about')->withMessage('Site information updated.');
+            return redirect('/about/edit')->withMessage('Site information updated.');
         }
         About::create([
             'about_heading' => $request->aboutHeading,
             'about_text' => $request->aboutText,
         ]);
-        return redirect('/edit-about')->withMessage('Site information updated.');
+        return redirect('/about/edit')->withMessage('Site information updated.');
     }
 
     
@@ -38,19 +38,17 @@ class AboutController extends Controller
         $config = AboutConfig::first();
         if ($config) {
             $request->bgImage->storeAs('/', $config->bg_image);
-            return redirect('/edit-about')->withMessage('Site information updated.');
+            return redirect('/about/edit')->withMessage('Site information updated.');
         }
         AboutConfig::create([
             'bg_image' => $request->bgImage->storeAs('/uploads/images/about', 'about-background.jpg'),
         ]);
-        return redirect('/edit-about')->withMessage('Site information updated.');
+        return redirect('/about/edit')->withMessage('Site information updated.');
 
     }
 
 
     //FROENT END
-
-
     public function about(){
         return view('frontend.about.about');
     }

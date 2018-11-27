@@ -1,5 +1,5 @@
 @extends('layouts.frontend.main_layout')
-
+@section('frontend_title', 'About')
 @section('content')
 <div id="header" class="header-bg header-nav-bottom" style="background-image: url({{asset('frontend/images/header-page.jpg')}})">
 		<?php

@@ -1,5 +1,5 @@
 @extends('layouts.frontend.main_layout')
-@section('frontend_title', 'Issue')
+@section('frontend_title', 'News || Article')
 @section('content')
 <div id="header" class="header-nav-top">
 
@@ -15,7 +15,7 @@
 
 			<div class="main-section col-md-8 col-md-offset-2">
 				<header class="page-header">
-					<h1 class="page-title">{{$data->issue_heading}}</h1>
+					<h1 class="page-title">{{$data->news_heading}}</h1>
 				</header>
 
 				<div class="entry-content">
@@ -24,7 +24,7 @@
 						<img width="761" height="400" src="assets/images/content-post-6.jpg" alt="featured image">
 					</p> -->
 
-					{!!$data->issue_description!!}
+					{!!$data->description!!}
 
 				</div>
 

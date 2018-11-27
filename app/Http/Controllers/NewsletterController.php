@@ -14,16 +14,13 @@ class NewsletterController extends Controller
 		return redirect('/')->withMessage('We\'ll notify you soon');
 	}
 	public function newsletters(){
-		$data=Newsletter::get();
-		return view ('backend.newsletters', compact('data'));
+		$newsletters=Newsletter::get();
+		return view ('backend.newsletters', compact('newsletters'));
 	}
 	public function delete_newsletter($id)
 	{
 		$data=Newsletter::findOrFail($id);
 		$data->delete();
 		return redirect('/admin')->withMessage('Newsletter Deleted');
-	}
-	public function donates(){
-		return view('backend.donates');
 	}
 }

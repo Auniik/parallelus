@@ -25,23 +25,23 @@
                             Session::put('message',null);
                         }
                     ?>
-                    <form role="form" action="{{ url('save-config')}}" method="post" enctype="multipart/form-data">
+                    <form role="form" action="{{ url('/settings/save')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label>Profile Name</label>
-                            <input class="form-control" value="{{$configs==null ? '' : $configs->profile_name}}" name="profileName" placeholder="Enter your name">
+                            <input class="form-control" value="{{$config==null ? '' : $config->profile_name}}" name="profileName" placeholder="Enter your name">
                         </div>
                         <div class="form-group">
                             <label>Designation</label>
-                            <input class="form-control" value="{{$configs==null ? '' : $configs->designation}}" name="designation" placeholder="Enter your designation">
+                            <input class="form-control" value="{{$config==null ? '' : $config->designation}}" name="designation" placeholder="Enter your designation">
                         </div>
                         <div class="form-group">
                             <label>Quote Message</label>
-                            <textarea class="form-control" name="quoteMessage" placeholder="Enter your quote">{{$configs==null ? '' : $configs->quote_message}}</textarea>
+                            <textarea class="form-control" name="quoteMessage" placeholder="Enter your quote">{{$config==null ? '' : $config->quote_message}}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Address</label>
-                            <input type="text" class="form-control" value="{{$configs==null ? '' : $configs->address}}" name="address" placeholder="Enter your address">
+                            <input type="text" class="form-control" value="{{$config==null ? '' : $config->address}}" name="address" placeholder="Enter your address">
                         </div>
                         <div class="form-group">
                             <label>Backgraound Image</label>

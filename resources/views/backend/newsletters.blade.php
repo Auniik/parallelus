@@ -16,14 +16,14 @@
     </tr>
   </thead>
   <tbody>
-  	@foreach($data as $v_data)
+  	@foreach($newsletters as $newsletter)
     <tr>
-      <th scope="row">{{$v_data->id}}</th>
-      <td>{{$v_data->user_email}}</td>
-      <td>{{$v_data->user_zip}}</td>
+      <th scope="row">{{$newsletter->id}}</th>
+      <td>{{$newsletter->user_email}}</td>
+      <td>{{$newsletter->user_zip}}</td>
       <td>
        
-      	<a class="btn btn-xs btn-danger" id="delete" href="{{url('/delete-newsletter/'.$v_data->id)}}" onclick="return confirmDelete();">Delete</a>
+      	<a class="btn btn-xs btn-danger" id="delete" href="{{url('/newsletter/'.$newsletter->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
       </td>
     </tr>
     @endforeach

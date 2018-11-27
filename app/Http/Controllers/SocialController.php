@@ -14,16 +14,16 @@ class SocialController extends Controller
     		'social_name' => $request->socialName,
     		'social_link' => $request->socialLink,
     	]);
-   		return redirect('/add-social')->withMessage('Social Link Added Successfully');
+   		return redirect('/social/add')->withMessage('Social Link Added Successfully');
     }
 
     public function allSocial(){
-    	$data=Social::get();
-    	return view('backend.socials.all_social', compact('data'));
+    	$socials=Social::get();
+    	return view('backend.socials.all_social', compact('socials'));
     }
     public function deleteSocial($id){
     	$data=Social::findOrFail($id);
     	$data->delete();
-    	return redirect('/all-social')->withMessage('Social Link Deleted');
+    	return redirect('/social/all')->withMessage('Social Link Deleted');
     }
 }

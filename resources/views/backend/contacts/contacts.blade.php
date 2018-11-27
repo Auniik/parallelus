@@ -7,6 +7,15 @@
   </div>
 </div>
 <table class="table">
+  <?php
+        $message=Session::get('message');
+        if ($message) { 
+            echo '<div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'.$message.'
+                  </div>'; 
+            Session::put('message',null);
+        }
+    ?>
   <thead>
     <tr>
       <th scope="col">SL</th>
@@ -20,18 +29,18 @@
     </tr>
   </thead>
   <tbody>
-  	@foreach($data as $v_data)
+  	@foreach($messages as $message)
     <tr>
-      <th scope="row">{{$v_data->id}}</th>
-      <td>{{$v_data->first_name}}</td>
-      <td>{{$v_data->last_name}}</td>
-      <td>{{$v_data->email}}</td>
-      <td>{{$v_data->zip}}</td>
-      <td>{{$v_data->mobile_number}}</td>
-      <td>{{$v_data->comments}}</td>
+      <th scope="row">{{$message->id}}</th>
+      <td>{{$message->first_name}}</td>
+      <td>{{$message->last_name}}</td>
+      <td>{{$message->email}}</td>
+      <td>{{$message->zip}}</td>
+      <td>{{$message->mobile_number}}</td>
+      <td>{{$message->comments}}</td>
       <td>
        
-      	<a class="btn btn-xs btn-danger" id="delete" href="{{url('/delete-messages/'.$v_data->id)}}" onclick="return confirmDelete();">Delete</a>
+      	<a class="btn btn-xs btn-danger" id="delete" href="{{url('/message/'.$message->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
       </td>
     </tr>
     @endforeach

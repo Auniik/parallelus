@@ -1,4 +1,5 @@
 @extends('layouts.frontend.main_layout')
+@section('frontend_title', 'Videos')
 @section('content')
 
 <div class="videos">
@@ -8,10 +9,10 @@
 		<!-- main navigation -->
 		@include('layouts.frontend.navbar_static')
 	</div> <!-- end header -->
-<?php
-$videos=App\Video::paginate(3);
+	<?php
+		$videos=App\Video::paginate(3);
 
-?>
+	?>
 
 	<!-- Main Content
 	================================================== -->

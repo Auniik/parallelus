@@ -1,4 +1,5 @@
 @extends('layouts.frontend.main_layout')
+@section('frontend_title', 'Contact')
 @section('content')
 <div id="header" class="header-nav-top">
 

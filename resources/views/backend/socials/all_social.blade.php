@@ -27,13 +27,13 @@
   </thead>
   <tbody>
 
-    @foreach($data as $v_data)
+    @foreach($socials as $social)
     <tr>
-      <th scope="row">{{$v_data->id}}</th>
-      <td><i style="font-size:30px" class="{{$v_data->social_name}}"></i></td>
-      <td>{{$v_data->social_link}}</td>
+      <th scope="row">{{$social->id}}</th>
+      <td><i style="font-size:30px" class="{{$social->social_name}}"></i></td>
+      <td>{{$social->social_link}}</td>
       <td>
-        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/delete-social/'.$v_data->id)}}" onclick="return confirmDelete();">Delete</a>
+        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/social/'.$social->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
       </td>
     </tr>
     @endforeach

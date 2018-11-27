@@ -10,8 +10,8 @@ class ConfigurationController extends Controller
     
     public function editConfig()
     {
-        $configs = Configuration::first();
-        return view('backend.config.editConfig', compact('configs'));
+        $config = Configuration::first();
+        return view('backend.config.edit_config', compact('config'));
     }
 
     public function saveConfig(Request $request)
@@ -26,7 +26,7 @@ class ConfigurationController extends Controller
             ]);
             $request->bgImage->storeAs('/', $config->bg_image);
             $request->favicon->storeAs('/', $config->favicon);
-            return redirect('/edit-config')->withMessage('Site information updated.');
+            return redirect('/settings')->withMessage('Site information updated.');
         }
         Configuration::create([
             'profile_name' => $request->profileName,
@@ -36,7 +36,7 @@ class ConfigurationController extends Controller
             'bg_image' => $request->bgImage->storeAs('/uploads/images/home','header-home.jpg'),
             'favicon' => $request->favicon->storeAs('/uploads/favicon','favicon.ico'),
         ]);
-        return redirect('/edit-config')->withMessage('Site information updated.');
+        return redirect('/settings')->withMessage('Site information updated.');
 
     }
 

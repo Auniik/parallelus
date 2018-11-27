@@ -28,20 +28,20 @@
   </thead>
   <tbody>
     
-    <?php $sl = $data->firstItem() ?>
-    @foreach($data as $v_data)
+    <?php $sl = $videos->firstItem() ?>
+    @foreach($videos as $video)
     <tr>
       <th scope="row">{{$sl}}</th>
-      <td>{{$v_data->video_title}}"></td>
-      <td>{{$v_data->short_description}}"></td>
-      <td><a href="http://youtu.be/{{$v_data->video_url}}">http://youtu.be/{{$v_data->video_url}}</a></td>
+      <td>{{$video->video_title}}></td>
+      <td>{{$video->short_description}}"></td>
+      <td><a href="http://youtu.be/{{$video->video_url}}">http://youtu.be/{{$video->video_url}}</a></td>
       <td>
-        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/delete-video/'.$v_data->id)}}" onclick="return confirmDelete();">Delete</a>
+        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/video/'.$video->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
       </td>
     </tr>
     <?php $sl++ ?>
     @endforeach
-    {{ $data->links() }}
+    {{ $videos->links() }}
   </tbody>
 </table>
 @endsection

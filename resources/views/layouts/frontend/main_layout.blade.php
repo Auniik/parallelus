@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Political HTML Template - FrontRunner</title>
+	<title>@yield('frontend_title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}" media="screen">
 	<link rel="stylesheet" href="{{asset('frontend/css/imports.css')}}" media="screen">

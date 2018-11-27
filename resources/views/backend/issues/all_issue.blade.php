@@ -27,14 +27,14 @@
   </thead>
   <tbody>
 
-  	@foreach($data as $v_data)
+  	@foreach($issues as $issue)
     <tr>
-      <th scope="row">{{$v_data->id}}</th>
-      <td>{{substr($v_data->issue_heading, 0, 40)}}</td>
-      <td>{{strip_tags(substr($v_data->issue_description, 0, 200))}}</td>
+      <th scope="row">{{$issue->id}}</th>
+      <td>{{substr($issue->issue_heading, 0, 40)}}</td>
+      <td>{!! str_limit(optional($issue)->issue_description, 250) !!}</td>
       <td>
-        <a class="btn btn-xs btn-primary" href="{{url('/edit-issue/'.$v_data->id)}}">Edit</a>
-        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/delete-issue/'.$v_data->id)}}" onclick="return confirmDelete();">Delete</a>
+        <a class="btn btn-xs btn-primary" href="{{url('/issue/'.$issue->id.'/edit')}}">Edit</a>
+        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/issue/'.$issue->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
       </td>
     </tr>
     @endforeach

@@ -14,23 +14,23 @@ class NewsController extends Controller
     		'news_heading' => $request->newsHeading,
     		'description' => $request->newsDescription,
     	]);
-   		return redirect('/add-news')->withMessage('News Added Successfully');
+   		return redirect('/news/add')->withMessage('News Added Successfully');
     }
 
     public function allNews(){
-    	$data=News::get();
-    	return view('backend.news.all_news', compact('data'));
+    	$news=News::get();
+    	return view('backend.news.all_news', compact('news'));
     }
 
     public function deleteNews($id)
 	{
 		$data=News::findOrFail($id);
 		$data->delete();
-		return redirect('/all-news')->withMessage('News Deleted');
+		return redirect('/news/all')->withMessage('News Deleted');
 	}
 	public function editNews($id){
-		$data=News::findOrFail($id);
-		return view('/backend.news.edit_news', compact('data'));
+		$article=News::findOrFail($id);
+		return view('/backend.news.edit_news', compact('article'));
 	}
 	public function updateNews(Request $request, $id){
 		$info=News::findOrFail($id);
@@ -40,17 +40,17 @@ class NewsController extends Controller
         	'description'=>$request->newsDescription,
         ]);
         // $info->update($input);
-		return redirect('/all-news')->withMessage('News updated successfully');
+		return redirect('/news/all')->withMessage('News updated successfully');
 	}
 
     //Frontend
     public function newslist(){
         $data=News::get();
-        return view('frontend.news.newslist', compact('data'));
+        return view('frontend.news.news', compact('data'));
     }
 
     public function showNews($id){
         $data=News::findOrFail($id);
-        return view('frontend.news.news', compact('data'));
+        return view('frontend.news.article', compact('data'));
     }
 }

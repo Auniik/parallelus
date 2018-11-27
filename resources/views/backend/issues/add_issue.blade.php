@@ -25,7 +25,7 @@
                         Session::put('message',null);
                     }
                 ?>
-                <form role="form" action="{{ url('save-issue')}}" method="post">
+                <form role="form" action="{{ url('issue/save')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <label>Issue Heading</label>

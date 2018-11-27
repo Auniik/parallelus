@@ -25,7 +25,7 @@
                         Session::put('message',null);
                     }
                 ?>
-                <form role="form" action="{{ url('save-video')}}" method="post">
+                <form role="form" action="{{ url('/video/save')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <label>Video Title</label>

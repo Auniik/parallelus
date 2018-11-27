@@ -47,8 +47,8 @@
 				<div class="footer-nav">
 					<ul>
 						<li><a href="{{url('/about')}}">About</a></li>
-						<li><a href="{{url('/issues')}}">On the Issues</a></li>
-						<li><a href="{{url('/news-list')}}">News</a></li>
+						<li><a href="{{url('/issues')}}">Issues</a></li>
+						<li><a href="{{url('/news')}}">News</a></li>
 						<li><a href="{{url('/events')}}">Events</a></li>
 						<li><a href="{{url('/contact')}}">Contact</a></li>
 					</ul>

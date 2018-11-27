@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         
-                        <form role="form" action="{{ url('/update-about-bg')}}" method="post" enctype="multipart/form-data">
+                        <form role="form" action="{{ url('about/background/update')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Choose A Background Image for About Page</label>
@@ -56,18 +56,18 @@
                 <div class="row">
                     <div class="col-lg-8">
                         
-                        <form role="form" action="{{ url('/save-about')}}" method="post">
+                        <form role="form" action="{{ url('/about/save')}}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label>About Heading</label>
-                                <input class="form-control" name="aboutHeading" value="{{$about==null ? '' : $about->about_heading}}"  placeholder="example: About John Doe">
+                                <input class="form-control" name="aboutHeading" value="{{$data==null ? '' : $data->about_heading}}"  placeholder="example: About John Doe">
                             </div>
                             <div class="form-group">
                                 <label>Discription</label>
-                                <textarea class="form-control" id="summernote" name="aboutText">{{$about==null ? '' : $about->about_text}}</textarea>
+                                <textarea class="form-control" id="summernote" name="aboutText">{{$data==null ? '' : $data->about_text}}</textarea>
                             </div>
                             <div class="form-group">
-                                {{-- <input type="hidden" name="config_id" value="{{$about->config_id}}"> --}}
+                                {{-- <input type="hidden" name="config_id" value="{{$data->config_id}}"> --}}
                                 <button class="btn btn-success col-xs-12" type="submit">Save</button>
                             </div>
                         </form>

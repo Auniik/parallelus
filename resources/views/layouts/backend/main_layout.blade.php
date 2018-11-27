@@ -8,48 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>@yield('title')</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('backend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
     <!-- MetisMenu CSS -->
     <link href="{{asset('backend/vendor/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="{{asset('backend/dist/css/sb-admin-2.css')}}" rel="stylesheet">
     <link rel="icon" href="{{asset('backend/icons/favicon.ico')}}" sizes="32x32" />
-
-    <!-- Morris Charts CSS -->
-  {{--   <link href="{{asset('backend/vendor/morrisjs/morris.css')}}" rel="stylesheet"> --}}
-
     <!-- Custom Fonts -->
     <link href="{{asset('backend/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body>
-<div id="wrapper">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="{{route('admin')}}">Hello</a>
-</div>
+    <div id="wrapper">
+            <!-- Navigation -->
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{{url('/admin')}}">Hello</a>
+    </div>
     <!-- /.navbar-header -->
 
     <ul class="nav navbar-top-links navbar-right">
@@ -66,7 +50,7 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li> --}}
-                <li><a href="{{URL::to('/logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <li><a href="{{url('/logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
             <!-- /.dropdown-user -->
@@ -85,17 +69,17 @@
                             <a href="{{url('/admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="{{url('/edit-config')}}"><i class="fa fa-cogs fa-fw"></i> Basic Configs</a>
+                            <a href="{{url('/settings')}}"><i class="fa fa-cogs fa-fw"></i> Basic Configs</a>
                         </li>
                         
                         <li>
                             <a href="#about"><i class="fa fa-comment fa-fw"></i> About<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/edit-about')}}">Update About</a>
+                                    <a href="{{url('/about/edit')}}">Update About</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/edit-feature')}}">Update Feature</a>
+                                    <a href="{{url('/feature/edit')}}">Update Feature</a>
                                 </li>
                             </ul>                            
                         </li>
@@ -103,13 +87,13 @@
                             <a href="#issues"><i class="fa fa-list-alt fa-fw"></i> Issues<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/issue-appearance')}}">Issue Config</a>
+                                    <a href="{{url('/issue/appearance')}}">Issue Config</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/add-issue')}}">Add Issue</a>
+                                    <a href="{{url('/issue/add')}}">Add Issue</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/all-issue')}}">View Issues</a>
+                                    <a href="{{url('/issue/all')}}">View Issues</a>
                                 </li>
                             </ul>                            
                         </li>                        
@@ -117,10 +101,10 @@
                             <a href="#news"><i class="fa fa-globe fa-fw"></i> News<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/add-news')}}">Add News</a>
+                                    <a href="{{url('/news/add')}}">Add News</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/all-news')}}">All News</a>
+                                    <a href="{{url('/news/all')}}">All News</a>
                                 </li>
                             </ul>                            
                         </li>
@@ -128,10 +112,10 @@
                             <a href="#social"><i class="fa fa-link fa-fw"></i> Social<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/add-social')}}">Add Social</a>
+                                    <a href="{{url('/social/add')}}">Add Social</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/all-social')}}">All Social</a>
+                                    <a href="{{url('/social/all')}}">All Social</a>
                                 </li>
                             </ul>                            
                         </li>
@@ -139,7 +123,7 @@
                             <a href="#news"><i class="fa fa-comments fa-fw"></i> Contacts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/contact-appearance')}}">Contact Config</a>
+                                    <a href="{{url('/contact/appearance')}}">Contact Config</a>
                                 </li>
                                 <li>
                                     <a href="{{url('/messages')}}">Messages</a>
@@ -150,10 +134,10 @@
                             <a href="#events"><i class="fa fa-calendar-o fa-fw"></i> Events<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/add-event')}}">Add Event</a>
+                                    <a href="{{url('/event/add')}}">Add Event</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/all-event')}}">All Event</a>
+                                    <a href="{{url('/event/all')}}">All Event</a>
                                 </li>
                             </ul>                            
                         </li>
@@ -161,10 +145,10 @@
                             <a href="#videos"><i class="fa fa-youtube-play fa-fw"></i> Videos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/add-video')}}">Add Videos</a>
+                                    <a href="{{url('/video/add')}}">Add Videos</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/all-video')}}">All Video</a>
+                                    <a href="{{url('/video/all')}}">All Video</a>
                                 </li>
                             </ul>                            
                         </li>
@@ -180,8 +164,6 @@
         </nav>
 
         <div id="page-wrapper">
-            
-            <!-- /.row -->
             @yield('admin_content')
         </div>
         <!-- /#page-wrapper -->
@@ -192,18 +174,14 @@
 
     <!-- jQuery -->
     <script src="{{asset('backend/vendor/jquery/jquery.min.js')}}"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('backend/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{{asset('backend/vendor/metisMenu/metisMenu.min.js')}}"></script>
-
     <!-- Morris Charts JavaScript -->
     <script src="{{asset('backend/vendor/raphael/raphael.min.js')}}"></script>
     {{-- <script src="{{asset('backend/vendor/morrisjs/morris.min.js')}}"></script> --}}
-    {{-- <script src="{{asset('backend/data/morris-data.js')}}"></script> --}}
-    
+    {{-- <script src="{{asset('backend/data/morris-data.js')}}"></script> --}}    
     <!-- Custom Theme JavaScript -->
     <script src="{{asset('backend/dist/js/sb-admin-2.js')}}"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
@@ -223,8 +201,6 @@
             maxHeight: null,
             focus: true
         });
-    </script>
-   
+    </script>   
 </body>
-
 </html>

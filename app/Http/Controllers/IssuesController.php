@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class IssuesController extends Controller
 {
+
+    //ISSUE CRUD----------------------------------
     public function addIssue(){
     	return view('backend.issues.add_issue');
     }
@@ -16,37 +18,36 @@ class IssuesController extends Controller
     		'issue_heading' => $request->issueHeading,
     		'issue_description' => $request->issueDescription,
     	]);
-   		return redirect('/add-issue')->withMessage('Issue Added Successfully');
+   		return redirect('/issue/add')->withMessage('Issue Added Successfully');
     }
 
     public function allIssue(){
-    	$data=Issues::get();
-    	return view('backend.issues.all_issue', compact('data'));
+    	$issues=Issues::get();
+    	return view('backend.issues.all_issue', compact('issues'));
     }
 
     public function deleteIssue($id)
 	{
 		$data=Issues::findOrFail($id);
 		$data->delete();
-		return redirect('/all-issue')->withMessage('Issue Deleted');
+		return redirect('/issue/all')->withMessage('Issue Deleted');
 	}
 	public function editIssue($id){
-		$data=Issues::findOrFail($id);
-		return view('/backend.issues.edit_issue', compact('data'));
+		$issue=Issues::findOrFail($id);
+		return view('/backend.issues.edit_issue', compact('issue'));
 	}
 	public function updateIssue(Request $request, $id){
 		$info=Issues::findOrFail($id);
-        // $input = $request->all();
         $info->update([
         	'issue_heading'=>$request->issueHeading,
         	'issue_description'=>$request->issueDescription,
         ]);
-        // $info->update($input);
-		return redirect('/all-issue')->withMessage('Issue updated successfully');
+		return redirect('/issue/all')->withMessage('Issue updated successfully');
 	}
 
 
-    //Frontend
+    //Frontend-------------------------------------------
+
     public function issues(){
         $data=Issues::get();
         return view('frontend.issues.issues', compact('data'));
@@ -56,6 +57,8 @@ class IssuesController extends Controller
         $data=Issues::findOrFail($id);
         return view('frontend.issues.issue', compact('data'));
     }
+
+
 
     //-----------ISSUE APPEARANCE--------------------------
 
@@ -73,13 +76,13 @@ class IssuesController extends Controller
                 'page_heading' => $request->pageHeading,
             ]);
             $request->bgImage->storeAs('/', $config->bg_image);
-            return redirect('/issue-appearance')->withMessage('Site information updated.');
+            return redirect('/issue/appearance')->withMessage('Site information updated.');
         }
         IssueConfig::create([
             'page_heading' => $request->pageHeading,
             'bg_image' => $request->bgImage->storeAs('/uploads/images/issues', 'issue-background.jpg'),
         ]);
-        return redirect('/issue-appearance')->withMessage('Site information updated.');
+        return redirect('/issue/appearance')->withMessage('Site information updated.');
 
     }
 }

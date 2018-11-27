@@ -25,7 +25,7 @@
                         Session::put('message',null);
                     }
                 ?>
-                <form role="form" action="{{ url('update-issue-config')}}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{ url('/issue/appearance/update')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>Page Heading</label>

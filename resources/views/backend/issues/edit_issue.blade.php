@@ -17,22 +17,21 @@
         <div class="row">
             <div class="col-lg-8">
                 
-                <form role="form" action="{{ url('update-issue/'.$data->id)}}" method="post">
+                <form role="form" action="{{ url('/issue/'.$issue->id.'/update')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <label>Issue Heading</label>
-                        <input class="form-control" name="issueHeading" value="{{$data->issue_heading}}"  placeholder="Enter any issue heading">
+                        <input class="form-control" name="issueHeading" value="{{$issue->issue_heading}}"  placeholder="Enter any issue heading">
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" id="summernote" name="issueDescription">{{$data->issue_description}}</textarea>
+                        <textarea class="form-control" id="summernote" name="issueDescription">{{$issue->issue_description}}</textarea>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success col-xs-12" type="submit">Update</button>
                     </div>
                 </form>
             </div>
-            <!-- /.col-lg-6 (nested) -->
         </div>
         </div>
     </div>

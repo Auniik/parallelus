@@ -13,7 +13,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="{{url('/')}}" class="navbar-brand"><img src="{{asset('frontend/images/logo-tim.png')}}" alt="{{$config==null ? 'Your name' : $config->profile_name}}"></a>
+					<a href="{{url('/')}}" class="navbar-brand">{{$config==null ? 'Your Name' : $config->profile_name}}</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="navbar-main">
@@ -23,7 +23,7 @@
 						<li class="dropdown show-on-hover">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">News</a>
 							<ul class="dropdown-menu">
-								<li><a href="{{url('/news-list')}}">News</a></li>
+								<li><a href="{{url('/news')}}">News</a></li>
 								<li><a href="{{url('/videos')}}">Videos</a></li>
 								<li><a href="{{url('/events')}}">Events</a></li>
 							</ul>

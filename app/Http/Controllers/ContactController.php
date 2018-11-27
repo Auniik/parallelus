@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+	//Frontend
 	public function index(){
 		return view('frontend.contact.contact_page');
 	}
@@ -21,9 +22,11 @@ class ContactController extends Controller
 		]);
 		return redirect('/contact')->withMessage('We\'ll notify you soon');
 	}
+
+	//Backend
 	public function messages(){
-		$data=Contact::get();
-		return view ('backend.contacts.contacts', compact('data'));
+		$messages=Contact::get();
+		return view ('backend.contacts.contacts', compact('messages'));
 	}
 	public function deleteMessage($id)
 	{
@@ -51,13 +54,13 @@ class ContactController extends Controller
                 'page_heading' => $request->pageHeading,
                 'description' => $request->description,
             ]);
-            return redirect('/contact-appearance')->withMessage('Site information updated.');
+            return redirect('/contact/appearance')->withMessage('Site information updated.');
         }
         ContactConfig::create([
             'page_heading' => $request->pageHeading,
             'description' => $request->description,
         ]);
-        return redirect('/contact-appearance')->withMessage('Site information updated.');
+        return redirect('/contact/appearance')->withMessage('Site information updated.');
 
     }
 }

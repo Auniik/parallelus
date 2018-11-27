@@ -26,7 +26,7 @@
                         Session::put('message',null);
                     }
                 ?>
-                <form role="form" action="{{ url('update-contact-config')}}" method="post">
+                <form role="form" action="{{ url('/contact/appearance/update')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <label>Contact Page Heading</label>

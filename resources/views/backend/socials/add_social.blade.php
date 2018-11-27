@@ -25,7 +25,7 @@
                         Session::put('message',null);
                     }
                 ?>
-                <form role="form" action="{{ url('save-social')}}" method="post">
+                <form role="form" action="{{ url('/social/add')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <label>Social Name</label>
