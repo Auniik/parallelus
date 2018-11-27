@@ -5,16 +5,26 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="form-wrapper">
-							<form class="form-inline" action="{{url('send-newsletter')}}" method="post">
+							<form class="form-inline" action="{{url('newsletter/send')}}" method="post">
 								@csrf
 								<h3>GET INVOLVED!</h3>
-								<div class="form-group">
+								<div class="form-group {{$errors->has('userEmail') ? 'has-error' : ''}}">
 									<label class="sr-only" for="email">Email address</label>
-									<input id="email" class="field-full-width" name="userEmail" type="email" value="" required="required" placeholder="Email">
+									<input id="email" class="field-full-width" name="userEmail" type="email" value=""  placeholder="Email">
+									@if($errors->has('userEmail'))
+			                            <div class="help-block">
+			                                {{$errors->first('userEmail')}}
+			                            </div>
+			                        @endif
 								</div>
-								<div class="form-group">
+								<div class="form-group {{$errors->has('userZip') ? 'has-error' : ''}}">
 									<label class="sr-only" for="email">ZIP</label>
-									<input id="zip" class="field-half-width" name="userZip" type="text" value="" required="required" placeholder="ZIP">
+									<input id="zip" class="field-half-width" name="userZip" type="text" value="" placeholder="ZIP">
+									@if($errors->has('userZip'))
+			                            <div class="help-block">
+			                                {{$errors->first('userZip')}}
+			                            </div>
+			                        @endif	
 								</div>
 								<button type="submit" class="btn btn-default">Update Me</button>
 							</form>

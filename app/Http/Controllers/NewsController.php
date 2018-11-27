@@ -10,6 +10,10 @@ class NewsController extends Controller
     	return view('backend.news.add_news');
     }
     public function saveNews(Request $request){
+        $validatedData = $request->validate([
+            'newsHeading' => 'required|max:160',
+            'newsDescription' => 'required|min:160',
+        ]);
     	News::create([
     		'news_heading' => $request->newsHeading,
     		'description' => $request->newsDescription,

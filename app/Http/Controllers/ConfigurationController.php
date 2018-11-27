@@ -21,9 +21,9 @@ class ConfigurationController extends Controller
 
     public function create()
     {
-        return view('backend.config.create');
+        return view('backend.config.add_config');
     }
-    public function store(){
+    public function store(Request $request){
         $validatedData = $request->validate([
             'profileName' => 'required|max:50',
             'designation' => 'required|max:50',
@@ -33,6 +33,7 @@ class ConfigurationController extends Controller
             'bgImage' => 'required',
             'favicon' => 'required',
         ]);
+
         Configuration::create([
             'profile_name' => $request->profileName,
             'designation' => $request->designation,
@@ -44,10 +45,13 @@ class ConfigurationController extends Controller
         return redirect('/settings')->withMessage('Site information updated.');
     }
 
+
     public function edit($configRecord)
     {
         return view('backend.config.edit_config', compact('configRecord'));
     }
+
+
 
     public function updateConfig(Request $request){
         $config=Configuration::first();

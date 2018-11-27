@@ -27,19 +27,34 @@
                 ?>
                 <form role="form" action="{{ url('/video/save')}}" method="post">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('videoTitle') ? 'has-error' : ''}}">
                         <label>Video Title</label>
                         <input type="text" name="videoTitle" class="form-control" placeholder="example: Human Experience Sustainable Future">
+                        @if($errors->has('videoTitle'))
+                            <div class="help-block">
+                                {{$errors->first('videoTitle')}}
+                            </div>
+                        @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('shortDescription') ? 'has-error' : ''}}">
                         <label>Short Description</label>
                         <textarea name="shortDescription" rows="3" class="form-control" maxlength="100" minlength="100" placeholder="example: Human Experience Sustainable Future"></textarea>
+                        @if($errors->has('shortDescription'))
+                            <div class="help-block">
+                                {{$errors->first('shortDescription')}}
+                            </div>
+                        @endif
                     </div>
                     <label >Youtube Link</label>
-                    <div class="form-group input-group">
+                    <div class="form-group input-group {{$errors->has('videoLink') ? 'has-error' : ''}}">
 
                         <span class="input-group-addon">http://</span>
                         <input type="text" name="videoLink" class="form-control" placeholder="example: https://www.youtube.com/watch?v=Bey4XXJAqS8">
+                        @if($errors->has('videoLink'))
+                            <div class="help-block">
+                                {{$errors->first('videoLink')}}
+                            </div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success col-xs-12" type="submit">Save</button>

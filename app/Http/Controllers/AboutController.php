@@ -45,6 +45,9 @@ class AboutController extends Controller
      */
     public function updateAboutBg(Request $request)
     {
+        $validatedData = $request->validate([
+            'bgImage' => 'required|mimes:jpeg,bmp,jpg,png',
+        ]);
         $config = AboutConfig::first();
         if ($config) {
             $request->bgImage->storeAs('/', $config->bg_image);

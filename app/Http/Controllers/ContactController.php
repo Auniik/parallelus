@@ -12,6 +12,14 @@ class ContactController extends Controller
 		return view('frontend.contact.contact_page');
 	}
     public function sendMessage(Request $request){
+    	$validatedData = $request->validate([
+            'firstName' => 'required|max:30',
+            'lastName' => 'required|max:30',
+            'email' => 'required|email|max:50',
+            'zip' => 'required|max:15',
+            'mobileNumber' => 'required|max:70',
+            'comments' => 'required',
+        ]);
 		Contact::create([
 			'first_name' => $request->firstName,
 			'last_name' => $request->lastName,
@@ -48,6 +56,10 @@ class ContactController extends Controller
 
     public function updateContactConfig(Request $request)
     {
+    	$validateContact = $request->validate([
+            'pageHeading' => 'required|max:30',
+            'description' => 'required|max:50',
+        ]);
     	$config = ContactConfig::first();
         if ($config) {
             $config->update([

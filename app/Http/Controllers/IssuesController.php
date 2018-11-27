@@ -14,7 +14,11 @@ class IssuesController extends Controller
     }
 
     public function saveIssue(Request $request){
-    	Issues::create([
+    	$validatedData = $request->validate([
+            'issueHeading' => 'required|max:100',
+            'issueDescription' => 'required|min:100',
+        ]); 
+        Issues::create([
     		'issue_heading' => $request->issueHeading,
     		'issue_description' => $request->issueDescription,
     	]);
@@ -70,7 +74,12 @@ class IssuesController extends Controller
 
     public function updateIssueConfig(Request $request)
     {
+        $validatedData = $request->validate([
+            'pageHeading' => 'required|max:100',
+            'bgImage' => 'required|min:100',
+        ]); 
         $config = IssueConfig::first();
+        
         if ($config) {
             $config->update([
                 'page_heading' => $request->pageHeading,

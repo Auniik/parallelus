@@ -28,13 +28,23 @@
                 ?>
                 <form role="form" action="{{ url('/contact/appearance/update')}}" method="post">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('pageHeading') ? 'has-error' : ''}}">
                         <label>Contact Page Heading</label>
                         <input class="form-control" value="{{$config==null ? 'Contact me' : $config->page_heading}}" name="pageHeading" placeholder="example: Contact me">
+                        @if($errors->has('pageHeading'))
+                            <div class="help-block">
+                                {{$errors->first('pageHeading')}}
+                            </div>
+                        @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('description') ? 'has-error' : ''}}">
                         <label>Short Description</label>
-                        <textarea class="form-control" name="description" placeholder="Enter a short description">{{$config==null ? '' : $config->description}}</textarea>
+                        <textarea class="form-control" name="description" required="" placeholder="Enter a short description">{{$config==null ? '' : $config->description}}</textarea>
+                        @if($errors->has('description'))
+                            <div class="help-block">
+                                {{$errors->first('description')}}
+                            </div>
+                        @endif
                     </div>
                     {{-- <div class="form-group">
                         <label>Backgraound Image</label>

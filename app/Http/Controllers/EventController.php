@@ -10,6 +10,13 @@ class EventController extends Controller
     	return view('backend.events.add_event');
     }
     public function saveEvent(Request $request){
+        $validatedData = $request->validate([
+            'eventTitle' => 'required|max:30',
+            'eventDescription' => 'required|max:100',
+            'eventDate' => 'required|max:50',
+            'eventTime' => 'required|max:30',
+            'eventLocation' => 'required|max:70',
+        ]);
     	Event::create([
     		'event_title' => $request->eventTitle,
     		'description' => $request->eventDescription,

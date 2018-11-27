@@ -30,9 +30,14 @@
                         
                         <form role="form" action="{{ url('about/background/update')}}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group {{$errors->has('bgImage') ? 'has-error' : ''}}">
                                 <label>Choose A Background Image for About Page</label>
                                 <input type="file" class="form-control"  name="bgImage">
+                                @if($errors->has('bgImage'))
+                                    <div class="help-block">
+                                        {{$errors->first('bgImage')}}
+                                    </div>
+                                @endif
                             </div>
                             <div class="form-group">
                                 {{-- <input type="hidden" name="config_id" value="{{$about->config_id}}"> --}}
@@ -69,7 +74,7 @@
                                  @endif
                             </div>
                             <div class="form-group">
-                                <label>Discription</label>
+                                <label>Description</label>
                                 <textarea class="form-control" id="summernote" name="aboutText">{{$data==null ? '' : $data->about_text}}</textarea>
                             </div>
                             <div class="form-group">

@@ -4,9 +4,8 @@ Route::get('/', function () {
     return view('frontend.home.home');
 })->name('root');
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['middleware'=>'auth'],function(){
 //Admin Routes
 Route::get('/admin', function () {
     return view('backend.dashboard');
@@ -47,8 +46,6 @@ Route::get('/news/{id}/delete/', 'NewsController@deleteNews')->name('news.delete
 Route::get('/social/add', 'SocialController@addSocial')->name('social.add');
 Route::post('/social/save', 'SocialController@saveSocial')->name('social.save');
 Route::get('/social/all', 'SocialController@allSocial')->name('social.all');
-Route::get('/social/{id}/edit/', 'SocialController@editSocial')->name('social.edit');
-Route::post('/social/{id}/update/', 'SocialController@updateSocial')->name('social.update');
 Route::get('/social/{id}/delete/', 'SocialController@deleteSocial')->name('social.delete');
 
 //Videos
@@ -75,13 +72,16 @@ Route::post('/contact/appearance/update', 'ContactController@updateContactConfig
 
 //Newsletter
 Route::get('/newsletters', 'NewsletterController@newsletters')->name('newsletters');
-Route::get('/newsletter/{id}/delete', 'NewsletterController@delete_newsletter')->name('delete_newsletter');
+Route::get('/newsletter/{id}/delete', 'NewsletterController@deleteNewsletter')->name('newsletter.delete');
 
-
+});
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
 //------------------FRONTEND----------------------------------------
 Route::get('/about', 'AboutController@about')->name('about');
 Route::get('/features', 'FeatureController@feature')->name('feature');
+Route::get('/newsletter', 'NewsletterController@newsletter')->name('newsletter');
 Route::post('/newsletter/send', 'NewsletterController@sendNewsletter')->name('newsletter.send');
 Route::post('/message/send', 'ContactController@sendMessage')->name('message.send');
 Route::get('/contact', 'ContactController@index')->name('contact.send');

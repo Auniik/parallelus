@@ -11,6 +11,10 @@ class FeatureController extends Controller
         return view('backend.config.edit_feature', compact('data'));
 	}
     public function saveFeature(Request $request){
+        $validatedData = $request->validate([
+            'featureHeader' => 'required|max:100|min:15',
+            'featureText' => 'required|min:100',
+        ]);
         $feature=Feature::first();
         if ($feature) {
             $feature->update([

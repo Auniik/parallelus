@@ -24,30 +24,7 @@
 		</div>  <!-- end .header-inner -->
 	</div>  <!-- end .header-bg-wrapper -->
 
-	<!-- main navigation -->
 	
-	
-
-	<div id="header" class="header-bg header-nav-bottom" style="background-image: url(assets/images/header-page.jpg)">
-
-		<!-- page header -->
-		<div class="header-bg-wrapper">
-			<!-- content -->
-			<div class="header-inner">
-				<div class="top-header-inner">
-					<div class="inner-content">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12">
-									<!-- Header Content -->
-									<!-- <a href="#"><img src="assets/images/logo-black.png" alt="FrontRunner" /></a> -->
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>  <!-- end .header-inner -->
-		</div>  <!-- end .header-bg-wrapper -->
 
 		<!-- main navigation -->
 		@include('layouts.frontend.navbar_top')
@@ -65,7 +42,7 @@
 				</header>
 
 				<div class="entry-content">
-					{!!$feature->feature_text!!}
+					{!!$feature==null ? '*Feature Text*' : $feature->feature_text!!}
 				</div>
 
 			</div>

@@ -25,11 +25,11 @@
                         Session::put('message',null);
                     }
                 ?>
-                <form role="form" action="{{ url('/social/add')}}" method="post">
+                <form role="form" action="{{ url('/social/save')}}" method="post">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('socialName') ? 'has-error' : ''}}">
                         <label>Social Name</label>
-                        <select id="socialname" class="form-control" name="socialName">
+                        <select id="socialame" class="form-control" name="socialName">
                             <option value="">--Select Social Name--</option>
                             <option value="fa fa-facebook"> Facebook</option>
                             <option value="fa fa-twitter"> Twitter</option>
@@ -45,11 +45,21 @@
                             <option value="fa fa-vine"> Vine</option>
                             <option value="fa fa-skype"> Skype</option>
                         </select>
+                        @if($errors->has('socialName'))
+                            <div class="help-block">
+                                {{$errors->first('socialName')}}
+                            </div>
+                        @endif
                     </div>
                     <label >Profile Link</label>
-                    <div class="form-group input-group">
+                    <div class="form-group {{$errors->has('socialLink') ? 'has-error' : ''}} input-group">
                         <span class="input-group-addon">http://</span>
                         <input type="text" name="socialLink" class="form-control" placeholder="example: www.facebook.com/username">
+                        @if($errors->has('socialLink'))
+                            <div class="help-block">
+                                {{$errors->first('socialLink')}}
+                            </div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success col-xs-12" type="submit">Save</button>

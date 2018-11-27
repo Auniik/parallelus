@@ -28,16 +28,25 @@
                         
                         <form role="form" action="{{ url('/feature/save')}}" method="post">
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group  {{$errors->has('featureHeader') ? 'has-error' : ''}}">
                                 <label>Feature Heading</label>
                                 <input class="form-control" name="featureHeader" value="{{$data==null ? '' : $data->feature_header}}"  placeholder="example: Page with Header">
+                                @if($errors->has('featureHeader'))
+                                    <div class="help-block">
+                                        {{$errors->first('featureHeader')}}
+                                    </div>
+                                @endif
                             </div>
-                            <div class="form-group">
-                                <label>Discription</label>
+                            <div class="form-group  {{$errors->has('featureText') ? 'has-error' : ''}}">
+                                <label>Description</label>
                                 <textarea class="form-control" id="summernote" name="featureText">{{$data==null ? '' : $data->feature_text}}</textarea>
+                                @if($errors->has('featureText'))
+                                    <div class="help-block">
+                                        {{$errors->first('featureText')}}
+                                    </div>
+                                @endif
                             </div>
                             <div class="form-group">
-                                {{-- <input type="hidden" name="config_id" value="{{$data->config_id}}"> --}}
                                 <button class="btn btn-success col-xs-12" type="submit">Save</button>
                             </div>
                         </form>

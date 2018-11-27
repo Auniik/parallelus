@@ -43,7 +43,7 @@
 				<div class="col-md-3 col-xs-6 no-padding">
 					<!-- Modify style with color classes: 'accent', 'solid-accent', 'solid-primary' (default: no extra class) -->
 					<div class="header-links-item solid-accent" style="background-image: none;">
-						<a href="donate.html">
+						<a href="#">
 							<article>
 								<h3 class="entry-title">
 									<img src="{{asset('frontend/images/us-map.png')}}" width="65" height="40" alt="US Map" class="icon">
@@ -56,11 +56,11 @@
 				</div>
 				<div class="col-md-3 col-xs-6 no-padding">
 					<div class="header-links-item" style="background-image: url('{{asset('frontend/images/header-bottom-volunteer.jpg')}}')">
-						<a href="volunteer.html">
+						<a href="{{url('/issues')}}">
 							<article>
 								<h3 class="entry-title">
 									<i class="fa fa-check-square-o"></i>
-									<span>Volunteer</span>
+									<span>Issues</span>
 								</h3>
 							</article>
 							<div class="overlay"></div>
@@ -69,7 +69,7 @@
 				</div>
 				<div class="col-md-3 col-xs-6 no-padding">
 					<div class="header-links-item" style="background-image: url('{{asset('frontend/images/header-bottom-updates.jpg')}}')">
-						<a href="newsletter.html">
+						<a href="{{url('/newsletter')}}">
 							<article>
 								<h3 class="entry-title">
 									<i class="fa fa-envelope"></i>
@@ -82,7 +82,7 @@
 				</div>
 				<div class="col-md-3 col-xs-6 no-padding">
 					<div class="header-links-item" style="background-image: url('{{asset('frontend/images/header-bottom-news.jpg')}}')">
-						<a href="blog.html">
+						<a href="{{url('/news')}}">
 							<article>
 								<h3 class="entry-title">
 									<i class="fa fa-newspaper-o"></i>

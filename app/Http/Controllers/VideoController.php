@@ -15,6 +15,11 @@ class VideoController extends Controller
     }
 
     public function saveVideo(Request $request){
+        $validatedData = $request->validate([
+            'videoTitle' => 'required|min:3',
+            'shortDescription' => 'required|max:160|min:10',
+            'videoLink' => 'required',
+        ]);
     	$videoLink= $request->videoLink;
     	preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $videoLink, $matches);
 		$videoId=$matches[1];

@@ -27,13 +27,23 @@
                 ?>
                 <form role="form" action="{{ url('issue/save')}}" method="post">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('issueHeading') ? 'has-error' : ''}}">
                         <label>Issue Heading</label>
                         <input class="form-control" name="issueHeading"  placeholder="Enter any issue heading">
+                        @if($errors->has('issueHeading'))
+                            <div class="help-block">
+                                {{$errors->first('issueHeading')}}
+                            </div>
+                        @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('issueDescription') ? 'has-error' : ''}}">
                         <label>Description</label>
                         <textarea class="form-control" id="summernote" name="issueDescription"></textarea>
+                        @if($errors->has('issueDescription'))
+                            <div class="help-block">
+                                {{$errors->first('issueDescription')}}
+                            </div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success col-xs-12" type="submit">Save</button>

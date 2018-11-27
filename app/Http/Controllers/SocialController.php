@@ -10,6 +10,10 @@ class SocialController extends Controller
     	return view('backend.socials.add_social');
     }
     public function saveSocial(Request $request){
+        $validatedData = $request->validate([
+            'socialName' => 'required|min:3',
+            'socialLink' => 'required|max:100|min:5',
+        ]);
     	Social::create([
     		'social_name' => $request->socialName,
     		'social_link' => $request->socialLink,
