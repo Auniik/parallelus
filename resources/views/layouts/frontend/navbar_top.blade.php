@@ -1,5 +1,6 @@
 <?php
 	$config=App\Configuration::first();
+	$url = Request::path();
 ?>
 <div class="header-inner menu-container">
 			<div class="navbar-wrapper">
@@ -32,7 +33,7 @@
 								<li class="dropdown show-on-hover">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">About</a>
 									<ul class="dropdown-menu">
-										<li><a href="{{url('/about')}}">About {{$config==null ? 'Your name' : $config->profile_name}}</a></li>
+										<li><a href="{{url('/about')}}">About *{{$config==null ? 'Your name' : $config->profile_name}}*</a></li>
 										<li><a href="{{url('features')}}">Features</a></li>
 									</ul>
 								</li>

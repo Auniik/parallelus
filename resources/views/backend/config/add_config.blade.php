@@ -83,7 +83,7 @@
                                     @endif
                                 </div>
 
-                                <div class="form-group"}}">
+                                <div class="form-group">
                                 <button class="btn btn-success col-xs-12" type="submit">Save</button>
                             </div>
                         </form>

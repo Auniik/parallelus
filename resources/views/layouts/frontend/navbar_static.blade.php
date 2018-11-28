@@ -32,11 +32,11 @@
 						<li class="dropdown show-on-hover">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">About</a>
 							<ul class="dropdown-menu">
-								<li><a href="{{url('/about')}}">About </a></li>
+								<li><a href="{{url('/about')}}">About *{{$config==null ? 'Your name' : $config->profile_name}}*</a></li>
 								<li><a href="{{url('/features')}}">Features</a></li>
 							</ul>
 						</li>
-						<li id="" class="{{ $url  == 'contact' ? 'active' : '' }}"><a href="{{url('/contact')}}">Contact</a></li>
+						<li class="{{ $url  == 'contact' ? 'active' : '' }}"><a href="{{url('/contact')}}">Contact</a></li>
 					</ul>
 					{{-- <ul class="nav navbar-nav" id="nav-right">
 						<li><a href="{{url('/donate')}}">Donate</a></li>

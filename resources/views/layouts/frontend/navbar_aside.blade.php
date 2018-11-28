@@ -1,3 +1,6 @@
+<?php
+	$url = Request::path();
+?>
 <div class="header-inner menu-container">
 	<div class="navbar-wrapper do-transition">
 		<nav class="navbar navbar-default navbar-vertical" id="nav-main">
@@ -27,8 +30,8 @@
 						<li class="dropdown show-on-hover">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">About</a>
 							<ul class="dropdown-menu">
-								<li><a href="{{url('/about')}}">About {{$config==null ? 'Your Name here' : $config->profile_name}}</a></li>
-								<li><a href="page-features.html">Features</a></li>
+								<li><a href="{{url('/about')}}">About *{{$config==null ? 'Your Name here' : $config->profile_name}}*</a></li>
+								<li><a href="{{url('/features')}}">Features</a></li>
 							</ul>
 						</li>
 						<li><a href="{{url('/contact')}}">Contact</a></li>
