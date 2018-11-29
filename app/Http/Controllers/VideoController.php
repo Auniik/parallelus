@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class VideoController extends Controller
 {
     public function videos(){
-    	return view('frontend.videos.videos');
+        $data=Video::paginate(9);
+    	return view('frontend.videos.videos', compact('data'));
     }
 
     public function addVideo(Request $request){
@@ -31,7 +32,7 @@ class VideoController extends Controller
    		return redirect('/video/add')->withMessage('Video Link Added Successfully');
     }
     public function allVideo(){
-    	$videos=Video::paginate();
+    	$videos=Video::paginate(10);
     	return view('backend.videos.all_video', compact('videos'));
     }
     public function deleteVideo($id){

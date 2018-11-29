@@ -21,7 +21,7 @@
 							<ul class="nav navbar-nav" id="nav-left">
 								
 								<li><a href="{{url('/')}}">Home</a></li>
-								<li><a href="{{url('/issues')}}">Issues</a></li>
+								<li class="{{ $url  == 'issues' ? 'active' : '' }}"><a href="{{url('/issues')}}">Issues</a></li>
 								<li class="dropdown show-on-hover">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">News</a>
 									<ul class="dropdown-menu">
@@ -33,8 +33,8 @@
 								<li class="dropdown show-on-hover">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">About</a>
 									<ul class="dropdown-menu">
-										<li><a href="{{url('/about')}}">About *{{$config==null ? 'Your name' : $config->profile_name}}*</a></li>
-										<li><a href="{{url('features')}}">Features</a></li>
+										<li class="{{ $url  == 'about' ? 'active' : '' }}"><a href="{{url('/about')}}">About *{{$config==null ? 'Your name' : $config->profile_name}}*</a></li>
+										<li class="{{ $url  == 'features' ? 'active' : '' }}"><a href="{{url('features')}}">Features</a></li>
 									</ul>
 								</li>
 								<li><a href="{{url('/contact')}}">Contact</a></li>

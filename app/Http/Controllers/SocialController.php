@@ -22,7 +22,7 @@ class SocialController extends Controller
     }
 
     public function allSocial(){
-    	$socials=Social::get();
+    	$socials=Social::orderBy('created_at', 'desc')->paginate(10);
     	return view('backend.socials.all_social', compact('socials'));
     }
     public function deleteSocial($id){

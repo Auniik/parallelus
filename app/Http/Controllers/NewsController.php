@@ -22,7 +22,7 @@ class NewsController extends Controller
     }
 
     public function allNews(){
-    	$news=News::get();
+    	$news=News::orderBy('created_at', 'asc')->paginate(10);
     	return view('backend.news.all_news', compact('news'));
     }
 
@@ -49,7 +49,7 @@ class NewsController extends Controller
 
     //Frontend
     public function newslist(){
-        $data=News::get();
+        $data=News::orderBy('created_at', 'desc')->paginate(5);
         return view('frontend.news.news', compact('data'));
     }
 

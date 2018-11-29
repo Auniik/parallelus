@@ -29,7 +29,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>Slider Text</label>
-                                    <input class="form-control" name="sliderText"  placeholder="Enter floating text on a slider">
+                                    <input class="form-control" name="sliderText" value="{{old('sliderText')}}"  placeholder="Enter floating text on a slider">
                                 </div>
                                 <div class="form-group {{$errors->has('sliderImage') ? 'has-error' : ''}}">
                                     <label>Slider Image</label>

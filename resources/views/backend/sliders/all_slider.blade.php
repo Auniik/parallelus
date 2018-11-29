@@ -7,7 +7,8 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
-    <table class="table">
+    <div class="table table-responsive">
+        <table class="table">
         <?php
         $message=Session::get('message');
         if ($message) {
@@ -27,10 +28,10 @@
         </tr>
         </thead>
         <tbody>
-
+    <?php $sl=$sliders->firstItem() ?>
         @foreach($sliders as $slider)
             <tr>
-                <th scope="row">{{$slider->id}}</th>
+                <th scope="row">{{$sl++}}</th>
                 <td><img src="{{url($slider->slider_image)}}" alt="" style="height:70px; width: 200px"></td>
                 <td>{{$slider->slider_text}}</td>
 
@@ -61,5 +62,10 @@
         @endforeach
         </tbody>
     </table>
+    <div class="text-center">
+        {{$sliders->links()}}
+    </div>
+    </div>
+    
 
 @endsection

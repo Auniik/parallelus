@@ -29,7 +29,7 @@
                     @csrf
                     <div class="form-group">
                         <label>Page Heading</label>
-                        <input class="form-control {{$errors->has('pageHeading') ? 'has-error' : ''}}" value="{{$config==null ? '' : $config->page_heading}}" name="pageHeading" placeholder="example: On The Issues">
+                        <input class="form-control {{$errors->has('pageHeading') ? 'has-error' : ''}}" value="{{$config==null ? '' : $config->page_heading}}" name="pageHeading" value="{{old('pageHeading')}}" placeholder="example: On The Issues">
                         @if($errors->has('pageHeading'))
                             <div class="help-block">
                                 {{$errors->first('pageHeading')}}
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group {{$errors->has('bgImage') ? 'has-error' : ''}}">
                         <label>Backgraound Image</label>
-                        <input type="file" class="form-control"  name="bgImage">
+                        <input type="file" class="form-control"   name="bgImage">
                         @if($errors->has('bgImage'))
                             <div class="help-block">
                                 {{$errors->first('bgImage')}}

@@ -7,7 +7,8 @@
   </div>
 <!-- /.col-lg-12 -->
 </div>
-<table class="table">
+<div class="table table-responsive">
+  <table class="table">
   <?php
     $message=Session::get('message');
     if ($message) { 
@@ -26,10 +27,10 @@
     </tr>
   </thead>
   <tbody>
-
-  	@foreach($issues as $issue)
+    <?php $sl=$issues->firstItem() ?>
+    @foreach($issues as $issue)
     <tr>
-      <th scope="row">{{$issue->id}}</th>
+      <th scope="row">{{$sl++}}</th>
       <td>{{substr($issue->issue_heading, 0, 40)}}</td>
       <td>{!! str_limit(optional($issue)->issue_description, 250) !!}</td>
       <td>
@@ -38,7 +39,12 @@
       </td>
     </tr>
     @endforeach
+
   </tbody>
 </table>
+</div>
 
+<div class="text-center">
+  {{$issues->links()}}
+</div>
 @endsection

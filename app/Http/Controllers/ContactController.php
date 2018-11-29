@@ -33,7 +33,7 @@ class ContactController extends Controller
 
 	//Backend
 	public function messages(){
-		$messages=Contact::get();
+		$messages=Contact::orderBy('created_at','desc')->paginate(10);
 		return view ('backend.contacts.contacts', compact('messages'));
 	}
 	public function deleteMessage($id)

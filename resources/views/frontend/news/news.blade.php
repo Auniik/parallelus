@@ -39,8 +39,8 @@
 						{!! str_limit(optional($row)->description, 300) !!}
 						{{-- {!!$row==null ? 'News description here' : substr($row->description, 0, 300)!!} --}}
 						<br>
-						<a href="{{('/news/'.$row->id.'/show')}}" class="more-link">Continue reading</a>
 					</p>
+						<a href="{{('/news/'.$row->id.'/show')}}" class="more-link">Continue reading</a>
 
 					<hr class="sep" />
 				</article>
@@ -49,9 +49,7 @@
 
 				<div class="paging clearfix">
 					<ul class="pagination">
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li class="next-post"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+						{{$data->links()}}
 					</ul>
 				</div>
 

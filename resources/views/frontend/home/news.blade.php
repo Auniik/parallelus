@@ -2,7 +2,7 @@
 
 	<div class="container">
 		<?php
-			$data=App\News::limit(3)->get();
+			$data=App\News::orderBy('created_at', 'desc')->limit(3)->get();
 		?>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
@@ -24,9 +24,9 @@
 					<p>
 						{!! str_limit(optional($row)->description, 350) !!}
 						<br>
-						<a href="{{('/news/'.$row->id.'/show')}}" class="more-link">Continue reading</a>
+						
 					</p>
-
+						<a href="{{('/news/'.$row->id.'/show')}}" class="more-link">Continue reading</a>
 					<hr class="sep" />
 				</article>
 				@endforeach	

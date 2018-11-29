@@ -7,41 +7,43 @@
   </div>
 <!-- /.col-lg-12 -->
 </div>
-<table class="table">
-  <?php
-    $message=Session::get('message');
-    if ($message) { 
-        echo '<div class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'.$message.'
-          </div>'; 
-        Session::put('message',null);
-    }
- ?>
-  <thead>
-    <tr>
-      <th scope="col">SL</th>
-      <th scope="col">Title</th>
-      <th scope="col">Short Description</th>
-      <th scope="col">Youtube Link</th>
-      <th scope="col" class="col-md-2">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <?php $sl = $videos->firstItem() ?>
-    @foreach($videos as $video)
-    <tr>
-      <th scope="row">{{$sl}}</th>
-      <td>{{$video->video_title}}></td>
-      <td>{{$video->short_description}}"></td>
-      <td><a href="http://youtu.be/{{$video->video_url}}">http://youtu.be/{{$video->video_url}}</a></td>
-      <td>
-        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/video/'.$video->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
-      </td>
-    </tr>
-    <?php $sl++ ?>
-    @endforeach
-    {{ $videos->links() }}
-  </tbody>
-</table>
+  <div class="table table-responsive">
+  <table class="table">
+    <?php
+      $message=Session::get('message');
+      if ($message) { 
+          echo '<div class="alert alert-success alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'.$message.'
+            </div>'; 
+          Session::put('message',null);
+      }
+   ?>
+
+    <thead>
+      <tr>
+        <th scope="col">SL</th>
+        <th scope="col">Title</th>
+        <th scope="col">Short Description</th>
+        <th scope="col">Youtube Link</th>
+        <th scope="col" class="col-md-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <?php $sl = $videos->firstItem() ?>
+      @foreach($videos as $video)
+      <tr>
+        <th scope="row">{{$sl++}}</th>
+        <td>{{$video->video_title}}</td>
+        <td>{{$video->short_description}}"></td>
+        <td><a href="http://youtu.be/{{$video->video_url}}">http://youtu.be/{{$video->video_url}}</a></td>
+        <td>
+          <a class="btn btn-xs btn-danger" id="delete" href="{{url('/video/'.$video->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
+        </td>
+      </tr>
+      @endforeach
+      {{ $videos->links() }}
+    </tbody>
+  </table>
+</div>
 @endsection

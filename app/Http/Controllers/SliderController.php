@@ -23,7 +23,7 @@ class SliderController extends Controller
         return redirect('/slider/add')->withMessage('Slider Image Added Successfully');
     }
     public function allSlider(){
-        $sliders= Slider::get();
+        $sliders= Slider::orderBy('created_at', 'desc')->paginate(10);
         return view('backend.sliders.all_slider', compact('sliders'));
     }
 
@@ -41,9 +41,9 @@ class SliderController extends Controller
         ]);
         return redirect('/slider/all')->withMessage('Slider Unpublished.');
     }
-    public function deleteSlider($id){
-        $slider=Slider::findOrFail($id);
-        $slider->delete();
+    public function deleteSlider(Slider $id){
+        // $slider=Slider::findOrFail($id);
+        $id->delete();
         return redirect('/slider/all')->withMessage('Slider Deleted');
     }
 

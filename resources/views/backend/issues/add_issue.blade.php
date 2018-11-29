@@ -29,7 +29,7 @@
                     @csrf
                     <div class="form-group {{$errors->has('issueHeading') ? 'has-error' : ''}}">
                         <label>Issue Heading</label>
-                        <input class="form-control" name="issueHeading"  placeholder="Enter any issue heading">
+                        <input class="form-control" name="issueHeading" value="{{old('issueHeading')}}"  placeholder="Enter any issue heading">
                         @if($errors->has('issueHeading'))
                             <div class="help-block">
                                 {{$errors->first('issueHeading')}}
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group {{$errors->has('issueDescription') ? 'has-error' : ''}}">
                         <label>Description</label>
-                        <textarea class="form-control" id="summernote" name="issueDescription"></textarea>
+                        <textarea class="form-control" id="summernote" name="issueDescription">{{old('issueDescription')}}</textarea>
                         @if($errors->has('issueDescription'))
                             <div class="help-block">
                                 {{$errors->first('issueDescription')}}

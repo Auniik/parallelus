@@ -24,9 +24,9 @@
 						<li class="dropdown show-on-hover">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">News</a>
 							<ul class="dropdown-menu">
-								<li><a href="{{url('/news')}}">News</a></li>
-								<li><a href="{{url('/videos')}}">Videos</a></li>
-								<li><a href="{{url('/events')}}">Events</a></li>
+								<li class="{{ $url  == 'news' ? 'active' : '' }}"><a href="{{url('/news')}}">News</a></li>
+								<li class="{{ $url  == 'videos' ? 'active' : '' }}"><a href="{{url('/videos')}}">Videos</a></li>
+								<li class="{{ $url  == 'events' ? 'active' : '' }}"><a href="{{url('/events')}}">Events</a></li>
 							</ul>
 						</li>
 						<li class="dropdown show-on-hover">

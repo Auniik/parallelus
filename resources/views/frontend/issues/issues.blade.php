@@ -54,8 +54,8 @@
 					</header>
 					<p>
 						{!! str_limit(optional($row)->issue_description, 350) !!}						
-						<a href="{{url('issue/'.$row->id)}}" class="more-link">Continue reading</a>
 					</p>
+						<a href="{{url('issue/'.$row->id)}}" class="more-link">Continue reading</a>
 
 					<hr class="sep" />
 				</article>
@@ -64,11 +64,7 @@
 				<!-- Pagination -->
 				<div class="paging clearfix">
 					<ul class="pagination">
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li class="next-post"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+						{{$data->links()}}
 					</ul>
 				</div>
 

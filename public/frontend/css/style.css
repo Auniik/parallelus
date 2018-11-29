@@ -28,3 +28,6 @@ p.video-desc {
 a.navbar-brand{
 	font-family:fontin; 
 }
+.pagination>li>a, .pagination>li>span{
+	    padding:8px 20px !important;
+}

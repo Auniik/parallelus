@@ -55,12 +55,13 @@
                     <div class="form-group {{$errors->has('socialLink') ? 'has-error' : ''}} input-group">
                         <span class="input-group-addon">http://</span>
                         <input type="text" name="socialLink" class="form-control" placeholder="example: www.facebook.com/username">
-                        @if($errors->has('socialLink'))
-                            <div class="help-block">
-                                {{$errors->first('socialLink')}}
-                            </div>
-                        @endif
+                        
                     </div>
+                    @if($errors->has('socialLink'))
+                        <div class="help-block">
+                            <p class="text-danger">{{$errors->first('socialLink')}}</p>
+                        </div>
+                    @endif
                     <div class="form-group">
                         <button class="btn btn-success col-xs-12" type="submit">Save</button>
                     </div>

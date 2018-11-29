@@ -75,7 +75,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" id="summernote" name="aboutText">{{$data==null ? '' : $data->about_text}}</textarea>
+                                <textarea class="form-control" id="summernote" name="aboutText">{{$data==null ? '':$data->about_text}}</textarea>
                             </div>
                             <div class="form-group">
                                 {{-- <input type="hidden" name="config_id" value="{{$data->config_id}}"> --}}

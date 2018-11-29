@@ -18,7 +18,7 @@ class NewsletterController extends Controller
 		return redirect('/')->withMessage('We\'ll notify you soon');
 	}
 	public function newsletters(){
-		$newsletters=Newsletter::get();
+		$newsletters=Newsletter::orderBy('created_at', 'desc')->paginate(10);
 		return view ('backend.newsletters', compact('newsletters'));
 	}
 	public function deleteNewsletter($id)

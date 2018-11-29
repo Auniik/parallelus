@@ -6,7 +6,8 @@
       <h1 class="page-header">Messages</h1>
   </div>
 </div>
-<table class="table">
+<div class="table table-responsive">
+  <table class="table">
   <?php
         $message=Session::get('message');
         if ($message) { 
@@ -29,9 +30,11 @@
     </tr>
   </thead>
   <tbody>
-  	@foreach($messages as $message)
+    <?php $sl = $messages->firstItem() ?>
+    @foreach($messages as $message)
+    
     <tr>
-      <th scope="row">{{$message->id}}</th>
+      <th scope="row">{{$sl++}}</th>
       <td>{{$message->first_name}}</td>
       <td>{{$message->last_name}}</td>
       <td>{{$message->email}}</td>
@@ -40,11 +43,18 @@
       <td>{{$message->comments}}</td>
       <td>
        
-      	<a class="btn btn-xs btn-danger" id="delete" href="{{url('/message/'.$message->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
+        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/message/'.$message->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
       </td>
     </tr>
+    <?php $sl++ ?>
     @endforeach
+    
   </tbody>
 </table>
+</div>
+
+<div class="text-center"> 
+  {{ $messages->links() }}
+</div>
 
 @endsection

@@ -26,7 +26,7 @@ class IssuesController extends Controller
     }
 
     public function allIssue(){
-    	$issues=Issues::get();
+    	$issues=Issues::orderBy('created_at','desc')->paginate(10);
     	return view('backend.issues.all_issue', compact('issues'));
     }
 
@@ -53,7 +53,7 @@ class IssuesController extends Controller
     //Frontend-------------------------------------------
 
     public function issues(){
-        $data=Issues::get();
+        $data=Issues::orderBy('created_at', 'desc')->paginate(5);
         return view('frontend.issues.issues', compact('data'));
     }
 

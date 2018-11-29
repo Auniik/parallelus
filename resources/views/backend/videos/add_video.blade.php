@@ -50,12 +50,13 @@
 
                         <span class="input-group-addon">http://</span>
                         <input type="text" name="videoLink" class="form-control" placeholder="example: https://www.youtube.com/watch?v=Bey4XXJAqS8">
-                        @if($errors->has('videoLink'))
+                        
+                    </div>
+                    @if($errors->has('videoLink'))
                             <div class="help-block">
-                                {{$errors->first('videoLink')}}
+                                <p class="text-danger">{{$errors->first('videoLink')}}</p>
                             </div>
                         @endif
-                    </div>
                     <div class="form-group">
                         <button class="btn btn-success col-xs-12" type="submit">Save</button>
                     </div>

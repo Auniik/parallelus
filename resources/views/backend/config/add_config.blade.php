@@ -29,7 +29,7 @@
                                 @csrf
                                 <div class="form-group {{$errors->has('profileName') ? 'has-error' : ''}}">
                                     <label>Profile Name</label>
-                                    <input class="form-control" name="profileName" placeholder="Enter your name">
+                                    <input class="form-control" name="profileName" value="{{old('profileName')}}" placeholder="Enter your name">
                                     @if($errors->has('profileName'))
                                         <div class="help-block">
                                             {{$errors->first('profileName')}}
@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="form-group {{$errors->has('designation') ? 'has-error' : ''}}">
                                     <label>Designation</label>
-                                    <input class="form-control" name="designation" placeholder="Enter your designation">
+                                    <input class="form-control" name="designation" value="{{old('profileName')}}"  placeholder="Enter your designation">
                                     @if($errors->has('designation'))
                                         <div class="help-block">
                                             {{$errors->first('designation')}}

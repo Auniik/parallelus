@@ -9,10 +9,7 @@
 		<!-- main navigation -->
 		@include('layouts.frontend.navbar_static')
 	</div> <!-- end header -->
-	<?php
-		$videos=App\Video::paginate(3);
 
-	?>
 
 	<!-- Main Content
 	================================================== -->
@@ -39,10 +36,10 @@
 										<i class="fa fa-times close-icon"></i>
 									</div>
 									<div id="player_container" class="video-container">
-										@foreach($videos as $video)
+										@foreach($data as $row)
 										<!-- Start row -->
-										<div class="video-element video-element-{{$video->video_url}}">
-											<div id="{{$video->video_url}}" class="video-youtube"></div><!-- Use YouTube Video ID here and in 'video-element-######' class of parent -->
+										<div class="video-element video-element-{{$row->video_url}}">
+											<div id="{{$row->video_url}}" class="video-youtube"></div><!-- Use YouTube Video ID here and in 'video-element-######' class of parent -->
 
 										</div>
 										@endforeach
@@ -55,7 +52,7 @@
 				
 
 						<div id="player_list" class="row">
-							@foreach($videos as $video)
+							@foreach($data as $row)
 							<!-- Start Video Thumbnails -->
 							<div class="col-md-4 col-sm-6">
 								
@@ -64,13 +61,13 @@
 									{{-- @php
 									$thumbnail="http://img.youtube.com/vi/{{}}/0.jpg");
 									@endphp --}}
-									<div class="video-thumbnail" id="thumb-{{$video->video_url}}" data-video-index="{{$video->video_url}}" style="background-image: url(http://img.youtube.com/vi/{{$video->video_url}}/0.jpg);">
+									<div class="video-thumbnail" id="thumb-{{$row->video_url}}" data-video-index="{{$row->video_url}}" style="background-image: url(http://img.youtube.com/vi/{{$row->video_url}}/0.jpg);">
 										<i class="fa fa-play-circle"></i>
 										<div class="overlay"></div>
 									</div>
-									<h3 class="video-title">{{$video->video_title}}</h3>
+									<h3 class="video-title">{{$row->video_title}}</h3>
 									<p class="video-desc">
-										{{$video->short_description}}
+										{{$row->short_description}}
 									</p>
 								</article>
 
@@ -93,10 +90,12 @@
 
 						<!-- Ajax Load More -->
 						
-						<p class="text-center">
-
-							{{$videos->links()}}
-						</p>
+						<!-- Pagination -->
+						<div class="paging clearfix">
+							<ul class="pagination">
+								{{$data->links()}}
+							</ul>
+						</div>
 
 					</div>
 
