@@ -71,7 +71,7 @@
 				?>
 
 				<div class="copyright">
-					<p>&copy; {{$config==null ? 'Your Name' : $config->profile_name .' '. date("Y")}}, <a href="{{route('root')}}s" rel="nofollow" target="_blank">{{$config==null ? 'Your website Name' : $config->profile_name}}</a>.<br>{{$config==null ? 'Your Address here' : $config->address}}</p>
+					<p>&copy; {{$config==null ? 'Your Name' : $config->profile_name .' '. date("Y")}}, <a href="{{url('/')}}" rel="nofollow">{{$config==null ? 'Your website Name' : $config->profile_name}}</a>.<br>{{$config==null ? 'Your Address here' : $config->address}}</p>
 				</div>
 
 				

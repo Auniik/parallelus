@@ -55,12 +55,12 @@ class SliderController extends Controller
 
         $data=Slider::findOrFail($id);
         $image=$data->slider_image;
-        $isExist=$request->file('slider_image');
+        $isExist=$request->file('sliderImage');
         $data->update([
             'slider_text'=>$request->sliderText,
         ]);
         if ($isExist) {
-            $request->sliderImage->storeAs('/',$image);
+            $request->sliderImage->storeAs('/', $image);
         }
         
         return redirect('/slider/all')->withMessage('Slider Updated');

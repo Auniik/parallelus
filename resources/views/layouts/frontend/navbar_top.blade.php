@@ -33,7 +33,7 @@
 								<li class="dropdown show-on-hover">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">About</a>
 									<ul class="dropdown-menu">
-										<li class="{{ $url  == 'about' ? 'active' : '' }}"><a href="{{url('/about')}}">About *{{$config==null ? 'Your name' : $config->profile_name}}*</a></li>
+										<li class="{{ $url  == 'about' ? 'active' : '' }}"><a href="{{url('/about')}}">About {{$config==null ? '*Your name*' : $config->profile_name}}</a></li>
 										<li class="{{ $url  == 'features' ? 'active' : '' }}"><a href="{{url('features')}}">Features</a></li>
 									</ul>
 								</li>

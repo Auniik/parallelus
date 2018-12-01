@@ -24,6 +24,13 @@
                               </div>'; 
                         Session::put('message',null);
                     }
+                    $failed=Session::get('failed');
+                    if ($failed) { 
+                        echo '<div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'.$failed.'
+                              </div>'; 
+                        Session::put('failed',null);
+                    }
                 ?>
                 <form role="form" action="{{ url('/video/save')}}" method="post">
                     @csrf

@@ -1,5 +1,5 @@
 @extends('layouts.backend.main_layout')
-@section('title', 'Edit News')
+@section('title', 'Edit Slider')
 @section('admin_content')
 <div class="row">
 	<div class="col-lg-12">

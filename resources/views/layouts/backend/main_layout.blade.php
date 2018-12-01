@@ -16,8 +16,10 @@
     <!-- Custom CSS -->
     <link href="{{asset('backend/dist/css/sb-admin-2.css')}}" rel="stylesheet">
     <link rel="icon" href="{{asset('backend/icons/favicon.ico')}}" sizes="32x32" />
+    
     <!-- Custom Fonts -->
     <link href="{{asset('backend/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 </head>
 
@@ -49,9 +51,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="{{asset('backend/dist/js/sb-admin-2.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
-    {{-- Sweetalert --}}
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+
     <script type="text/javascript">
         function confirmDelete() {
           return confirm('are you sure want to delete?');
@@ -66,5 +66,6 @@
             focus: true
         });
     </script>   
+    
 </body>
 </html>

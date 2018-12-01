@@ -11,19 +11,19 @@ class EventController extends Controller
     }
     public function saveEvent(Request $request){
         $validatedData = $request->validate([
-            'eventTitle' => 'required|max:30',
-            'eventDescription' => 'required|max:100',
+            'eventTitle' => 'required|max:50',
+            'eventDescription' => 'required|max:160',
             'eventDate' => 'required|max:50',
             'startingTime' => 'required|max:50',
-            'endingTime' => 'required|max:30',
+            'endingTime' => 'required|max:50',
             'eventLocation' => 'required|max:70',
         ]);
     	Event::create([
     		'event_title' => $request->eventTitle,
     		'description' => $request->eventDescription,
     		'event_date' => $request->eventDate,
-    		'startingTime' => $request->startingTime,
-    		'endingTime' => $request->endingTime,
+    		'starting_time' => $request->startingTime,
+    		'ending_Time' => $request->endingTime,
     		'event_location' => $request->eventLocation,
     	]);
    		return redirect('/event/add')->withMessage('Event Added Successfully');

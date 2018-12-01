@@ -39,10 +39,22 @@
                         <label>Event Date</label>
                         <input type="date" class="form-control" name="eventDate"  placeholder="Enter event date">
                     </div>
-                    <div class="form-group">
-                        <label>Event Time</label>
-                        <input class="form-control" name="eventTime"  placeholder="example: 6:30 PM - 10:00 PM">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Starting Time</label>
+                                <input type="text" class="form-control" placeholder="example: 11:15 AM"  name="startingTime">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Ending Time</label>
+                                <input type="text" class="form-control" placeholder="example: 2:20 PM" name="endingTime">
+                            </div>
+                        </div>
+                        
                     </div>
+                    
                     <div class="form-group">
                         <label>Event Location</label>
                         <input class="form-control" name="eventLocation"  placeholder="Enter event location">

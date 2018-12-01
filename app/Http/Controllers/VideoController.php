@@ -21,15 +21,19 @@ class VideoController extends Controller
             'shortDescription' => 'required|max:160|min:10',
             'videoLink' => 'required',
         ]);
-    	$videoLink= $request->videoLink;
-    	preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $videoLink, $matches);
-		$videoId=$matches[1];
-    	Video::create([
-    		'video_title' => $request->videoTitle,
-    		'short_description' => $request->shortDescription,
-    		'video_url' => $videoId,
-    	]);
-   		return redirect('/video/add')->withMessage('Video Link Added Successfully');
+        $videoLink= $request->videoLink;
+        preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $videoLink, $matches);
+        if ($matches) {
+            $videoId=$matches[1];
+            Video::create([
+            'video_title' => $request->videoTitle,
+            'short_description' => $request->shortDescription,
+            'video_url' => $videoId,
+        ]);
+        return redirect('/video/add')->withMessage('Video Link Added Successfully');
+        }
+        return redirect('/video/add')->withFailed('Video Link is not valid');
+        
     }
     public function allVideo(){
     	$videos=Video::paginate(10);
