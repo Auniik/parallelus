@@ -49,7 +49,7 @@
 							<a href="{{url('issue/'.$row->id)}}" title="article">{{$row==null ? 'Issue headings here' : $row->issue_heading}}</a>
 						</h2>
 						<div class="entry-thumbnail">
-							<a href="><img width="761" height="400" src="{{asset('frontend/images/content-post-1.jpg')}}" alt="featured image"></a>
+							<a href="{{url('issue/'.$row->id)}}"><img width='761' height='400' src='{{url($row->issue_image)}}' alt='featured image'></a>
 						</div>
 					</header>
 					<p>

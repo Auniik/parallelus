@@ -21,6 +21,7 @@
   <thead>
     <tr>
       <th scope="col">SL</th>
+      <th scope="col">Feature Image</th>
       <th scope="col">Heading</th>
       <th scope="col">Description</th>
       <th scope="col" class="col-md-2">Actions</th>
@@ -31,6 +32,7 @@
     @foreach($issues as $issue)
     <tr>
       <th scope="row">{{$sl++}}</th>
+      <th scope="row"><img src="{{url($issue->issue_image)}}" alt="" style="height:70px; width: 110 px"></th>
       <td>{{substr($issue->issue_heading, 0, 40)}}</td>
       <td>{!! str_limit(optional($issue)->issue_description, 250) !!}</td>
       <td>

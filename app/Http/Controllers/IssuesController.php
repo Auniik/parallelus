@@ -15,12 +15,15 @@ class IssuesController extends Controller
 
     public function saveIssue(Request $request){
     	$validatedData = $request->validate([
-            'issueHeading' => 'required|max:100',
-            'issueDescription' => 'required|min:100',
+            'issueHeading' => 'required',
+            'issueDescription' => 'required',
+            'issueImage' => 'required',
         ]); 
+        $imageName=time();
         Issues::create([
     		'issue_heading' => $request->issueHeading,
-    		'issue_description' => $request->issueDescription,
+            'issue_description' => $request->issueDescription,
+    		'issue_image' => $request->issueImage->storeAs('/uploads/images/issues', $imageName.'.jpg'),
     	]);
    		return redirect('/issue/add')->withMessage('Issue Added Successfully');
     }
