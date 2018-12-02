@@ -23,8 +23,8 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">News</a>
 							<ul class="dropdown-menu">
 								<li><a href="{{url('/news')}}">News</a></li>
-								<li><a href="{{('/videos')}}">Videos</a></li>
-								<li><a href="{{('/events')}}">Events</a></li>
+								<li><a href="{{url('/videos')}}">Videos</a></li>
+								<li><a href="{{url('/events')}}">Events</a></li>
 							</ul>
 						</li>
 						<li class="dropdown show-on-hover">
@@ -36,9 +36,7 @@
 						</li>
 						<li><a href="{{url('/contact')}}">Contact</a></li>
 					</ul>
-					{{-- <ul class="nav navbar-nav" id="nav-right">
-						<li><a href="{{url('/donate')}}">Donate</a></li>
-					</ul> --}}
+					
 				</div>
 			</div>
 		</nav>  <!-- end default nav -->

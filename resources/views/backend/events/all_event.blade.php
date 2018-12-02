@@ -23,7 +23,8 @@
       <th scope="col">Event Title</th>
       <th scope="col">Description</th>
       <th scope="col">Date</th>
-      <th scope="col">Time</th>
+      <th scope="col">Starting Time</th>
+      <th scope="col">Ending Time</th>
       <th scope="col">Location</th>
       <th scope="col" class="col-md-2">Actions</th>
     </tr>
@@ -36,7 +37,8 @@
       <td>{{substr($event->event_title, 0, 40)}}</td>
       <td>{{strip_tags(substr($event->description, 0, 200))}}</td>
       <td>{{$event->event_date}}</td>
-      <td>{{$event->event_time}}</td>
+      <td>{{$event->starting_time}}</td>
+      <td>{{$event->ending_time}}</td>
       <td>{{$event->event_location}}</td>
       <td>
         <a class="btn btn-xs btn-primary" href="{{url('/event/'.$event->id.'/edit')}}">Edit</a>

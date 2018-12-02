@@ -20,15 +20,39 @@
                 <form role="form" action="{{ url('/event/'.$event->id.'/update')}}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label></label>
-                        <input class="form-control" name="newsHeading" value="{{$event->event_title}}"  placeholder="Enter any issue heading">
+                        <label>Event Title</label>
+                        <input class="form-control" value="{{$event->event_title}}" name="eventTitle"  placeholder="Enter a Event Title">
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea class="form-control" id="summernote" name="newsDescription">{{$event->description}}</textarea>
+                        <label>Event Description</label>
+                        <textarea class="form-control"  rows="4" name="eventDescription">{{$event->description}}</textarea>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-success col-xs-12" type="submit">Update</button>
+                        <label>Event Date</label>
+                        <input type="date" class="form-control"  value="{{$event->event_date}}" name="eventDate"  placeholder="Enter event date">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Starting Time</label>
+                                <input type="text" class="form-control"  value="{{$event->starting_time}}" placeholder="example: 11:15 AM"  name="startingTime">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Ending Time</label>
+                                <input type="text" class="form-control"  value="{{$event->ending_time}}" placeholder="example: 2:20 PM" name="endingTime">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Event Location</label>
+                        <input class="form-control" name="eventLocation"  value="{{$event->event_location}}" placeholder="Enter event location">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success col-xs-12" type="submit">Save</button>
                     </div>
                 </form>
             </div>

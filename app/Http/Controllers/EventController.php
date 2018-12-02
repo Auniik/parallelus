@@ -11,19 +11,19 @@ class EventController extends Controller
     }
     public function saveEvent(Request $request){
         $validatedData = $request->validate([
-            'eventTitle' => 'required|max:50',
-            'eventDescription' => 'required|max:160',
+            'eventTitle' => 'required|max:190',
+            'eventDescription' => 'required',
             'eventDate' => 'required|max:50',
             'startingTime' => 'required|max:50',
             'endingTime' => 'required|max:50',
-            'eventLocation' => 'required|max:70',
+            'eventLocation' => 'required|max:190',
         ]);
     	Event::create([
     		'event_title' => $request->eventTitle,
     		'description' => $request->eventDescription,
     		'event_date' => $request->eventDate,
     		'starting_time' => $request->startingTime,
-    		'ending_Time' => $request->endingTime,
+    		'ending_time' => $request->endingTime,
     		'event_location' => $request->eventLocation,
     	]);
    		return redirect('/event/add')->withMessage('Event Added Successfully');
@@ -48,11 +48,17 @@ class EventController extends Controller
 		$info=Event::findOrFail($id);
         $info->update([
         	'event_title' => $request->eventTitle,
-    		'description' => $request->eventDescription,
-    		'event_date' => $request->eventDate,
-    		'event_time' => $request->eventTime,
-    		'event_location' => $request->eventLocation,
+            'description' => $request->eventDescription,
+            'event_date' => $request->eventDate,
+            'starting_time' => $request->startingTime,
+            'ending_time' => $request->endingTime,
+            'event_location' => $request->eventLocation,
         ]);
 		return redirect('/event/all')->withMessage('Event updated successfully');
 	}
+    public function events(){
+        $events = Event::orderBy('event_date', 'desc')->paginate(5);
+        // dd($events->event_date->englishMonth);
+        return view('frontend.events.events', compact('events'));
+    }
 }
