@@ -65,7 +65,7 @@
                             @csrf
                             <div class="form-group {{$errors->has('aboutHeading') ? 'has-error' : ''}}">
                                 <label>About Heading</label>
-                                <input class="form-control " name="aboutHeading" value="{{$data==null ? '' : $data->about_heading}}"  placeholder="example: About John Doe">
+                                <input class="form-control " name="aboutHeading" value="{{$data==null ? 'About ' : $data->about_heading}}"  placeholder="example: About John Doe">
 
                                 @if($errors->has('aboutHeading'))
                                     <div class="help-block">

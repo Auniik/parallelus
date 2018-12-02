@@ -19,11 +19,10 @@ class IssuesController extends Controller
             'issueDescription' => 'required',
             'issueImage' => 'required',
         ]); 
-        $imageName=time();
         Issues::create([
     		'issue_heading' => $request->issueHeading,
             'issue_description' => $request->issueDescription,
-    		'issue_image' => $request->issueImage->storeAs('/uploads/images/issues', $imageName.'.jpg'),
+    		'issue_image' => $request->issueImage->store('/uploads/images/issues'),
     	]);
    		return redirect('/issue/add')->withMessage('Issue Added Successfully');
     }
@@ -44,11 +43,16 @@ class IssuesController extends Controller
 		return view('/backend.issues.edit_issue', compact('issue'));
 	}
 	public function updateIssue(Request $request, $id){
-		$info=Issues::findOrFail($id);
-        $info->update([
-        	'issue_heading'=>$request->issueHeading,
-        	'issue_description'=>$request->issueDescription,
+		$data=Issues::findOrFail($id);
+        $image=$data->issue_image;
+        $isExist=$request->file('issueImage');
+        $data->update([
+            'issue_heading'=>$request->issueHeading,
+            'issue_description'=>$request->issueDescription,
         ]);
+        if ($isExist) {
+            $request->issueImage->storeAs('/', $image);
+        }
 		return redirect('/issue/all')->withMessage('Issue updated successfully');
 	}
 
@@ -78,17 +82,21 @@ class IssuesController extends Controller
     public function updateIssueConfig(Request $request)
     {
         $validatedData = $request->validate([
-            'pageHeading' => 'required|max:100',
-            'bgImage' => 'required|min:100',
+            'pageHeading' => 'required|max:150',
+            'bgImage' => 'required|mimes:jpeg,bmp,jpg,png',
         ]); 
         $config = IssueConfig::first();
-        
+        $image=$config->bg_image;
+        $isExist=$request->file('bgImage');
         if ($config) {
             $config->update([
                 'page_heading' => $request->pageHeading,
             ]);
-            $request->bgImage->storeAs('/', $config->bg_image);
-            return redirect('/issue/appearance')->withMessage('Site information updated.');
+            if ($isExist) {
+                $request->bgImage->storeAs('/', $config->bg_image);
+                return redirect('/issue/appearance')->withMessage('Site information updated.');
+            }
+            
         }
         IssueConfig::create([
             'page_heading' => $request->pageHeading,

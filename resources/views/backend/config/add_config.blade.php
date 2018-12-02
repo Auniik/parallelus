@@ -17,13 +17,13 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <?php
-                            $message=Session::get('message');
-                            if ($message) {
-                                echo '<div class="alert alert-success alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'.$message.'
-                                  </div>';
-                                Session::put('message',null);
-                            }
+                                $message=Session::get('message');
+                                if ($message) {
+                                    echo '<div class="alert alert-success alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'.$message.'
+                                      </div>';
+                                    Session::put('message',null);
+                                }
                             ?>
                             <form role="form" action="{{ url('/settings/save')}}" method="post" enctype="multipart/form-data">
                                 @csrf
@@ -48,7 +48,7 @@
 
                                 <div class="form-group {{$errors->has('quoteMessage') ? 'has-error' : ''}}">
                                     <label>Quote Message</label>
-                                    <textarea class="form-control" name="quoteMessage" placeholder="Enter your quote"></textarea>
+                                    <textarea class="form-control" rows="5" name="quoteMessage" placeholder="Enter your quote"></textarea>
                                     @if($errors->has('quoteMessage'))
                                         <div class="help-block">
                                             {{$errors->first('quoteMessage')}}
@@ -72,6 +72,9 @@
                                             {{$errors->first('bgImage')}}
                                         </div>
                                     @endif
+                                    <div class="text-warning">
+                                        <p>Note: Aspect ratio of image should be 8:3. example: 2400x900px</p>
+                                    </div>
                                 </div>
                                 <div class="form-group {{$errors->has('favicon') ? 'has-error' : ''}}">
                                     <label>Favicon</label>
@@ -81,10 +84,13 @@
                                             {{$errors->first('favicon')}}
                                         </div>
                                     @endif
+                                    <div class="text-warning">
+                                        <p>Note: Size of icon should be 1:1. example: 32x32px</p>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
-                                <button class="btn btn-success col-xs-12" type="submit">Save</button>
+                                <button class="btn btn-success col-xs-12" type="submit">Publish</button>
                             </div>
                         </form>
                     </div>

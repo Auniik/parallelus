@@ -30,8 +30,8 @@ class ConfigurationController extends Controller
             'quoteMessage' => 'required|max:255',
             'designation' => 'required|max:50',
             'address' => 'required|max:70',
-            'bgImage' => 'required',
-            'favicon' => 'required',
+            'bgImage' => 'required|mimes:jpeg,bmp,jpg,png',
+            'favicon' => 'required|mimes:ico,png',
         ]);
 
         Configuration::create([

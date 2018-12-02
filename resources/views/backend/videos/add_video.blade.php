@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group {{$errors->has('shortDescription') ? 'has-error' : ''}}">
                         <label>Short Description</label>
-                        <textarea name="shortDescription" rows="3" class="form-control" maxlength="100" minlength="100" placeholder="example: Human Experience Sustainable Future"></textarea>
+                        <textarea name="shortDescription" rows="3" class="form-control" placeholder="example: Human Experience Sustainable Future"></textarea>
                         @if($errors->has('shortDescription'))
                             <div class="help-block">
                                 {{$errors->first('shortDescription')}}

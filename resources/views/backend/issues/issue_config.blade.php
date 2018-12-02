@@ -25,11 +25,11 @@
                         Session::put('message',null);
                     }
                 ?>
-                <form role="form" action="{{ url('/issue/appearance/update')}}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{url('/issue/appearance/update')}}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('pageHeading') ? 'has-error' : ''}}">
                         <label>Page Heading</label>
-                        <input class="form-control {{$errors->has('pageHeading') ? 'has-error' : ''}}" value="{{$config==null ? '' : $config->page_heading}}" name="pageHeading" value="{{old('pageHeading')}}" placeholder="example: On The Issues">
+                        <input class="form-control" value="{{$config==null ? '' : $config->page_heading}}" name="pageHeading" value="{{old('pageHeading')}}" placeholder="example: On The Issues">
                         @if($errors->has('pageHeading'))
                             <div class="help-block">
                                 {{$errors->first('pageHeading')}}
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group {{$errors->has('bgImage') ? 'has-error' : ''}}">
                         <label>Backgraound Image</label>
-                        <input type="file" class="form-control"   name="bgImage">
+                        <input type="file" class="form-control" name="bgImage">
                         @if($errors->has('bgImage'))
                             <div class="help-block">
                                 {{$errors->first('bgImage')}}
@@ -46,7 +46,6 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        {{-- <input type="hidden" name="config_id" value="{{$configs->config_id}}"> --}}
                         <button class="btn btn-success col-xs-12" type="submit">Save</button>
                     </div>
                 </form>

@@ -15,7 +15,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-9">
                             <?php
                             $message=Session::get('message');
                             if ($message) {
@@ -29,7 +29,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>Slider Text</label>
-                                    <input class="form-control" name="sliderText" value="{{old('sliderText')}}"  placeholder="Enter floating text on a slider">
+                                    <textarea class="form-control" name="sliderText" placeholder="Enter floating text on a slider">{{old('sliderText')}}</textarea>
                                 </div>
                                 <div class="form-group {{$errors->has('sliderImage') ? 'has-error' : ''}}">
                                     <label>Slider Image</label>
@@ -39,6 +39,9 @@
                                             {{$errors->first('sliderImage')}}
                                         </div>
                                     @endif
+                                    <div class="text-warning">
+                                        <p>Note: Aspect ratio of image should be 24:7. example: width:2400px height:700px</p>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Publication Status</label>

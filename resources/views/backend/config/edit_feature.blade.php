@@ -30,7 +30,7 @@
                             @csrf
                             <div class="form-group  {{$errors->has('featureHeader') ? 'has-error' : ''}}">
                                 <label>Feature Heading</label>
-                                <input class="form-control" name="featureHeader" value="{{$data==null ? '' : $data->feature_header}}"  placeholder="example: Page with Header">
+                                <input class="form-control" name="featureHeader" value="{{$data==null ? '' : $data->feature_header}}"  placeholder="example: Feature">
                                 @if($errors->has('featureHeader'))
                                     <div class="help-block">
                                         {{$errors->first('featureHeader')}}

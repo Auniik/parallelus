@@ -16,7 +16,7 @@ class AboutController extends Controller
 	public function saveAbout(Request $request){
 
         $validatedData = $request->validate([
-            'aboutHeading' => 'required|max:50',
+            'aboutHeading' => 'required|max:100',
             'aboutText' => 'required',
         ]);
 

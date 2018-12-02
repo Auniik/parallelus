@@ -21,6 +21,7 @@
   <thead>
     <tr>
       <th scope="col">SL</th>
+      <th scope="col">Feature Image</th>
       <th scope="col">Heading</th>
       <th scope="col">Description</th>
       <th scope="col" class="col-md-2">Actions</th>
@@ -31,6 +32,7 @@
     @foreach($news as $article)
     <tr>
       <th scope="row">{{$sl++}}</th>
+      <th scope="row"><img src="{{url($article->article_image)}}" alt="" style="height:70px; width: 110 px"></th>
       <td>{{substr($article->news_heading, 0, 40)}}</td>
       <td>{{strip_tags(substr($article->description, 0, 200))}}</td>
       <td>

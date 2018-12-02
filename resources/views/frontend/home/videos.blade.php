@@ -10,16 +10,16 @@
 					<div class="close-button">
 						<i class="fa fa-times close-icon"></i>
 					</div>
-					@foreach($videos as $video)
+					
 					<div id="player_container" class="video-container">
-						
+						@foreach($videos as $video)
 						<div class="video-element video-element-{{$video->video_url}}">
 							<div id="{{$video->video_url}}" class="video-youtube"></div><!-- Use YouTube Video ID here and in 'video-element-######' class of parent -->
 						</div>
-						
+						@endforeach
 
 					</div>
-					@endforeach
+					
 				</div>
 
 			</div>

@@ -17,8 +17,12 @@
         <div class="row">
             <div class="col-lg-8">
                 
-                <form role="form" action="{{ url('/issue/'.$issue->id.'/update')}}" method="post">
+                <form role="form" action="{{ url('/issue/'.$issue->id.'/update')}}" method="post" enctype="multipart/form-data">
                     @csrf
+                    <div class="form-group ">
+                        <label>Article Image</label>
+                        <input type="file" class="form-control"  name="issueImage">
+                    </div>
                     <div class="form-group">
                         <label>Issue Heading</label>
                         <input class="form-control" name="issueHeading" value="{{$issue->issue_heading}}"  placeholder="Enter any issue heading">

@@ -17,8 +17,8 @@ class VideoController extends Controller
 
     public function saveVideo(Request $request){
         $validatedData = $request->validate([
-            'videoTitle' => 'required|min:3',
-            'shortDescription' => 'required|max:160|min:10',
+            'videoTitle' => 'required',
+            'shortDescription' => 'required|max:160',
             'videoLink' => 'required',
         ]);
         $videoLink= $request->videoLink;

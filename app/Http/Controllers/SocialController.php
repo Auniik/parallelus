@@ -11,7 +11,7 @@ class SocialController extends Controller
     }
     public function saveSocial(Request $request){
         $validatedData = $request->validate([
-            'socialName' => 'required|min:3',
+            'socialName' => 'required',
             'socialLink' => 'required|max:100|min:5',
         ]);
     	Social::create([

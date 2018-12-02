@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return view('frontend.home.home');
-})->name('root');
+
 
 
 Route::group(['middleware'=>'auth'],function(){
@@ -86,18 +84,26 @@ Route::group(['middleware'=>'auth'],function(){
 
 });
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 //------------------FRONTEND----------------------------------------
+
+Route::get('/', function () {
+    return view('frontend.home.home');
+})->name('root');
 Route::get('/about', 'AboutController@about')->name('about');
 Route::get('/features', 'FeatureController@feature')->name('feature');
+//newsletter
 Route::get('/newsletter', 'NewsletterController@newsletter')->name('newsletter');
 Route::post('/newsletter/send', 'NewsletterController@sendNewsletter')->name('newsletter.send');
-Route::post('/message/send', 'ContactController@sendMessage')->name('message.send');
+
 Route::get('/contact', 'ContactController@index')->name('contact.send');
+Route::post('/message/send', 'ContactController@sendMessage')->name('message.send');
+
 //Issues
 Route::get('/issues', 'IssuesController@issues')->name('issues');
 Route::get('/issue/{id}', 'IssuesController@issue')->name('issue');
+
 //Social
 Route::get('/socials', 'SocialController@socials')->name('socials');
 Route::get('/social/{id}', 'SocialController@social')->name('social');

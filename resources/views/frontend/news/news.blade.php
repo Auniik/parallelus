@@ -30,9 +30,9 @@
 								{{$row->news_heading}}
 							</a>
 						</h2>
-						{{-- <div class="entry-thumbnail">
-							<a href=""><img width="761" height="400" src="assets/images/content-post-4.jpg" alt="featured image"></a>
-						</div> --}}
+						<div class="entry-thumbnail">
+							<a href=""><img width="761" height="400" src="{{url($row->article_image)}}" alt="featured image"></a>
+						</div>
 					</header>
 
 					<p>

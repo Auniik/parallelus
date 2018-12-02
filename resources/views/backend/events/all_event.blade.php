@@ -7,7 +7,8 @@
   </div>
 <!-- /.col-lg-12 -->
 </div>
-<table class="table">
+<div class="table table-responsive">
+  <table class="table">
   <?php
     $message=Session::get('message');
     if ($message) { 
@@ -48,4 +49,6 @@
     @endforeach
   </tbody>
 </table>
+</div>
+
 @endsection

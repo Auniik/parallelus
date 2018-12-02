@@ -11,18 +11,20 @@ class NewsController extends Controller
     }
     public function saveNews(Request $request){
         $validatedData = $request->validate([
-            'newsHeading' => 'required|max:160',
-            'newsDescription' => 'required|min:160',
+            'newsHeading' => 'required',
+            'newsDescription' => 'required',
+            'articleImage' => 'required|mimes:jpeg,bmp,jpg,png',
         ]);
     	News::create([
     		'news_heading' => $request->newsHeading,
     		'description' => $request->newsDescription,
+            'article_image' => $request->articleImage->store('/uploads/images/news'),
     	]);
    		return redirect('/news/add')->withMessage('News Added Successfully');
     }
 
     public function allNews(){
-    	$news=News::orderBy('created_at', 'asc')->paginate(10);
+    	$news=News::orderBy('created_at', 'desc')->paginate(10);
     	return view('backend.news.all_news', compact('news'));
     }
 
@@ -37,13 +39,16 @@ class NewsController extends Controller
 		return view('/backend.news.edit_news', compact('article'));
 	}
 	public function updateNews(Request $request, $id){
-		$info=News::findOrFail($id);
-        // $input = $request->all();
-        $info->update([
+		$data=News::findOrFail($id);
+        $image=$data->article_image;
+        $isExist=$request->file('articleImage');
+        $data->update([
         	'news_heading'=>$request->newsHeading,
         	'description'=>$request->newsDescription,
         ]);
-        // $info->update($input);
+        if($isExist){
+            $request->articleImage->storeAs('/', $image);
+        }
 		return redirect('/news/all')->withMessage('News updated successfully');
 	}
 

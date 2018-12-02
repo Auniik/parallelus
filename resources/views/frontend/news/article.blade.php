@@ -20,9 +20,9 @@
 
 				<div class="entry-content">
 
-					<!-- <p class="entry-thumbnail">
-						<img width="761" height="400" src="assets/images/content-post-6.jpg" alt="featured image">
-					</p> -->
+					<p class="entry-thumbnail">
+						<img width="761" height="400" src="{{url($data->article_image)}}" alt="featured image">
+					</p>
 
 					{!!$data->description!!}
 

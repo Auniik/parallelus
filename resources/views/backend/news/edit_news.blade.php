@@ -17,10 +17,14 @@
         <div class="row">
             <div class="col-lg-8">
                 
-                <form role="form" action="{{ url('/news/'.$article->id.'/update')}}" method="post">
+                <form role="form" action="{{ url('/news/'.$article->id.'/update')}}" method="post" enctype="multipart/form-data">
                     @csrf
+                    <div class="form-group ">
+                        <label>Article Image</label>
+                        <input type="file" class="form-control"  name="articleImage">
+                    </div>
                     <div class="form-group">
-                        <label>News Heading</label>
+                        <label>News Headline</label>
                         <input class="form-control" name="newsHeading" value="{{$article->news_heading}}"  placeholder="Enter any issue heading">
                     </div>
                     <div class="form-group">

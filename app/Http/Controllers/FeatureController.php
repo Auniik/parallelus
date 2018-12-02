@@ -12,8 +12,8 @@ class FeatureController extends Controller
 	}
     public function saveFeature(Request $request){
         $validatedData = $request->validate([
-            'featureHeader' => 'required|max:100|min:15',
-            'featureText' => 'required|min:100',
+            'featureHeader' => 'required|max:100',
+            'featureText' => 'required',
         ]);
         $feature=Feature::first();
         if ($feature) {

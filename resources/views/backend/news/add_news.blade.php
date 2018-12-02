@@ -25,10 +25,19 @@
                         Session::put('message',null);
                     }
                 ?>
-                <form role="form" action="{{ url('/news/save')}}" method="post">
+                <form role="form" action="{{ url('/news/save')}}" method="post" enctype="multipart/form-data">
                     @csrf
+                    <div class="form-group {{$errors->has('articleImage') ? 'has-error' : ''}}">
+                        <label>Feature Image</label>
+                        <input type="file" class="form-control" name="articleImage">
+                        @if($errors->has('articleImage'))
+                            <div class="help-block">
+                                {{$errors->first('articleImage')}}
+                            </div>
+                        @endif
+                    </div>
                     <div class="form-group {{$errors->has('newsHeading') ? 'has-error' : ''}}">
-                        <label>News Heading</label>
+                        <label>News Headline</label>
                         <input class="form-control" name="newsHeading" value="{{old('newsHeading')}}" placeholder="Enter a article headline">
                         @if($errors->has('newsHeading'))
                             <div class="help-block">

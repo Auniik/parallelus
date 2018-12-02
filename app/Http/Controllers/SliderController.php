@@ -12,7 +12,7 @@ class SliderController extends Controller
     }
     public function saveSlider(Request $request){
         $validate=$request->validate([
-            'sliderImage' => 'required',
+            'sliderImage' => 'required|mimes:jpeg,bmp,jpg,png',
         ]);
         $sliderName=time();
         Slider::create([
