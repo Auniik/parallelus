@@ -17,7 +17,7 @@
 								<div class="col-md-12">
 									<!-- Header Content -->
 									<header class="page-header intro-wrap">
-										<h1 class="page-title">{{$config==null ? 'On The Issues' : $config->page_heading}}</h1>
+										<h1 class="page-title">On The Issues</h1>
 									</header>
 								</div>
 							</div>

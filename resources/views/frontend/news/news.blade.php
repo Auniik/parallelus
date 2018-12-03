@@ -26,7 +26,7 @@
 							<span class="posted-on">August 21, 2015</span>
 						</div> --}}
 						<h2 class="entry-title">
-							<a href="{{('/news/'.$row->id.'/show')}}" title="article">
+							<a href="{{url('/news/'.$row->id)}}" title="article">
 								{{$row->news_heading}}
 							</a>
 						</h2>
@@ -40,7 +40,7 @@
 						{{-- {!!$row==null ? 'News description here' : substr($row->description, 0, 300)!!} --}}
 						<br>
 					</p>
-						<a href="{{('/news/'.$row->id.'/show')}}" class="more-link">Continue reading</a>
+						<a href="{{url('/news/'.$row->id)}}" class="more-link">Continue reading</a>
 
 					<hr class="sep" />
 				</article>

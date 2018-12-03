@@ -4,7 +4,7 @@
 <?php
 	$config=App\BackgroundConfig::first();
 ?>
-<div id="header" class="header-bg header-nav-bottom" style="background-image: url({{$config==null ? '/frontend/images/header-page.jpg' : $config->bg_image}})">
+<div id="header" class="header-bg header-nav-bottom" style="background-image: url({{$config==null ? 'frontend/images/header-page.jpg' : $config->bg_image}})">
 		<!-- page header -->
 	<div class="header-bg-wrapper">
 		<!-- content -->

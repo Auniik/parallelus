@@ -15,7 +15,7 @@
 
 			<div class="main-section col-md-8 col-md-offset-2">
 				<header class="page-header">
-					<h1 class="page-title">{{$data->issue_heading}}</h1>
+					<h1 class="page-title">On The Issues</h1>
 				</header>
 
 				<div class="entry-content">

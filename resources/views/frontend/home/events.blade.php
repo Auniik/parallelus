@@ -30,7 +30,7 @@
 						<div class="tl-panel">
 							<div class="tl-heading">{{$event->event_title}}</div>
 							<div class="tl-body">
-								<p>{{$event->event_date->day}}</p>
+								<p>{{$event->description}}</p>
 								<div class="time"><i class="fa fa-clock-o"></i> {{$event->starting_time}} - {{$event->ending_time}}</div>
 								<div class="location"><i class="fa fa-map-marker"></i> {{$event->event_location}}</div>
 							</div>

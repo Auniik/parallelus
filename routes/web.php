@@ -123,7 +123,7 @@ Route::get('social/{id}', 'SocialController@social')->name('social');
 
 //News
 Route::get('news', 'NewsController@newslist')->name('news');
-Route::get('news/{id}/show', 'NewsController@showNews')->name('news.show');
+Route::get('news/{id}', 'NewsController@showNews')->name('news.show');
 
 //videos
 Route::get('videos', 'VideoController@videos')->name('videos');

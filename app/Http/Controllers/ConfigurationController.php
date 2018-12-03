@@ -61,8 +61,8 @@ class ConfigurationController extends Controller
             'quoteMessage' => 'required|max:255',
             'designation' => 'required|max:50',
             'address' => 'required|max:70',
-            'bgImage' => 'required|mimes:jpeg,bmp,jpg,png',
-            'favicon' => 'required|mimes:ico,png',
+            // 'bgImage' => 'required|mimes:jpeg,bmp,jpg,png',
+            // 'favicon' => 'required|mimes:ico,png',
         ]);
         $config=Configuration::first();
         $config->update([

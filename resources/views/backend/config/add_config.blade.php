@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="form-group {{$errors->has('designation') ? 'has-error' : ''}}">
                                     <label>Designation</label>
-                                    <input class="form-control" name="designation" value="{{old('profileName')}}"  placeholder="Enter your designation">
+                                    <input class="form-control" name="designation" value="{{old('designation')}}"  placeholder="Enter your designation">
                                     @if($errors->has('designation'))
                                         <div class="help-block">
                                             {{$errors->first('designation')}}
@@ -48,7 +48,7 @@
 
                                 <div class="form-group {{$errors->has('quoteMessage') ? 'has-error' : ''}}">
                                     <label>Quote Message</label>
-                                    <textarea class="form-control" rows="5" name="quoteMessage" placeholder="Enter your quote"></textarea>
+                                    <textarea class="form-control" rows="5" name="quoteMessage" placeholder="Enter your quote">{{old('quoteMessage')}}</textarea>
                                     @if($errors->has('quoteMessage'))
                                         <div class="help-block">
                                             {{$errors->first('quoteMessage')}}
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="form-group {{$errors->has('address') ? 'has-error' : ''}}">
                                     <label>Address</label>
-                                    <input type="text" class="form-control" name="address" placeholder="Enter your address">
+                                    <input type="text" class="form-control" value="{{old('address')}}" name="address" placeholder="Enter your address">
                                     @if($errors->has('address'))
                                         <div class="help-block">
                                             {{$errors->first('address')}}

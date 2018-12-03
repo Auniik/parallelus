@@ -31,3 +31,8 @@ a.navbar-brand{
 .pagination>li>a, .pagination>li>span{
 	    padding:8px 20px !important;
 }
+
+.icon-blocks .fa-reddit, .icon-blocks .icon-reddit{
+	color:white !important;
+	background: rgb(255, 69, 0) !important;
+}

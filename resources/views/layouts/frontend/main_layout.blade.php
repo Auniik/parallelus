@@ -17,7 +17,7 @@
 	<?php
 		$config=App\Configuration::first();
 	?>
-	<link rel="icon" href="{{$config==null ? '/frontend/images/favicon.ico' : $config->favicon}}" sizes="32x32" />
+	<link rel="icon" href="{{$config==null ? 'frontend/images/favicon.ico' : $config->favicon}}" sizes="32x32" />
 
 	
 </head>

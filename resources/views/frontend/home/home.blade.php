@@ -5,7 +5,7 @@
 		$config=App\Configuration::first();
 		$about=App\About::first();
 	?>
-	<div id="header" class="header-bg header-large header-nav-top header-nav-toggle offset-bottom" style="background-image: url({{$config==null ? '/frontend/images/header-home.jpg' : $config->bg_image}})">
+	<div id="header" class="header-bg header-large header-nav-top header-nav-toggle offset-bottom" style="background-image: url({{$config==null ? 'frontend/images/header-home.jpg' : $config->bg_image}})">
 		
 		<!-- page header -->
 		<div class="header-bg-wrapper">
@@ -47,7 +47,7 @@
 							<article>
 								<h3 class="entry-title">
 									<img src="{{asset('frontend/images/us-map.png')}}" width="65" height="40" alt="US Map" class="icon">
-									<span>Contribute</span>
+									<span></span>
 								</h3>
 							</article>
 							<div class="overlay"></div>
