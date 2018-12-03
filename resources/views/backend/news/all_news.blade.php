@@ -36,8 +36,9 @@
       <td>{{substr($article->news_heading, 0, 40)}}</td>
       <td>{{strip_tags(substr($article->description, 0, 200))}}</td>
       <td>
-        <a class="btn btn-xs btn-primary" href="{{url('/news/'.$article->id.'/edit')}}">Edit</a>
-        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/news/'.$article->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
+        <a class="btn btn-sm btn-warning" href="{{url('/news/'.$article->id.'/view')}}"><i class="fa fa-eye fa-fw"></i></a>
+        <a class="btn btn-sm btn-primary" href="{{url('/news/'.$article->id.'/edit')}}"><i class="fa fa-edit fa-fw"></i></a>
+        <a class="btn btn-sm btn-danger" id="delete" href="{{url('/news/'.$article->id.'/delete')}}" onclick="return confirmDelete();"><i class="fa fa-trash-o fa-fw"></i></a>
       </td>
     </tr>
     @endforeach

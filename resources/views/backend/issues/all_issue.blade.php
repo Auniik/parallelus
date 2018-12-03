@@ -32,12 +32,15 @@
     @foreach($issues as $issue)
     <tr>
       <th scope="row">{{$sl++}}</th>
-      <th scope="row"><img src="{{url($issue->issue_image)}}" alt="" style="height:70px; width: 110 px"></th>
+      <td scope="row"><img src="{{url($issue->issue_image)}}" alt="" style="height:70px; width: 110 px"></td>
       <td>{{substr($issue->issue_heading, 0, 40)}}</td>
-      <td>{!! str_limit(optional($issue)->issue_description, 250) !!}</td>
+      
+      <td>{{ str_limit(optional($issue)->issue_description, 250) }}</td>
+      
       <td>
-        <a class="btn btn-xs btn-primary" href="{{url('/issue/'.$issue->id.'/edit')}}">Edit</a>
-        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/issue/'.$issue->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
+        <a class="btn btn-sm btn-warning" href="{{url('/issue/'.$issue->id.'/view')}}"><i class="fa fa-eye fa-fw"></i></a>
+        <a class="btn btn-sm btn-primary" href="{{url('/issue/'.$issue->id.'/edit')}}"><i class="fa fa-edit fa-fw"></i></a>
+        <a class="btn btn-sm btn-danger" id="delete" href="{{url('/issue/'.$issue->id.'/delete')}}" onclick="return confirmDelete();"><i class="fa fa-trash-o fa-fw"></i></a>
       </td>
     </tr>
     @endforeach

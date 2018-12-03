@@ -34,7 +34,7 @@
         <td><i style="font-size:30px" class="{{$social->social_name}}"></i></td>
         <td>{{$social->social_link}}</td>
         <td>
-          <a class="btn btn-xs btn-danger" id="delete" href="{{url('/social/'.$social->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
+          <a class="btn btn-sm btn-danger" id="delete" href="{{url('/social/'.$social->id.'/delete')}}" onclick="return confirmDelete();"><i class="fa fa-trash-o fa-fw"></i></a>
         </td>
       </tr>
       @endforeach

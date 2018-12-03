@@ -18,39 +18,7 @@
         Session::put('message',null);
     }
 ?>
-<div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Background Image
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        
-                        <form role="form" action="{{ url('about/background/update')}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="form-group {{$errors->has('bgImage') ? 'has-error' : ''}}">
-                                <label>Choose A Background Image for About Page</label>
-                                <input type="file" class="form-control"  name="bgImage">
-                                @if($errors->has('bgImage'))
-                                    <div class="help-block">
-                                        {{$errors->first('bgImage')}}
-                                    </div>
-                                @endif
-                            </div>
-                            <div class="form-group">
-                                {{-- <input type="hidden" name="config_id" value="{{$about->config_id}}"> --}}
-                                <button class="btn btn-success col-xs-12" type="submit">Save</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- /.col-lg-6 (nested) -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="row">
 	<div class="col-lg-12">
         <div class="panel panel-default">

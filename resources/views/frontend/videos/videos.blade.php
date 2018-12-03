@@ -20,6 +20,7 @@
 
 				<header class="page-header">
 					<h1 class="page-title">Videos</h1>
+					<hr/>
 				</header>
 
 				<div class="entry-content">

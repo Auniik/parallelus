@@ -5,13 +5,21 @@
                 <a href="{{url('/')}}"><i class="fa fa-home fa-fw"></i> Visit Site</a>
             </li>
             <li>
-                <a href="{{url('/admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                <a href="{{url('/dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
-                <a href="{{url('/settings')}}"><i class="fa fa-cogs fa-fw"></i> Basic Configs</a>
+                <a href="#Settings"><i class="fa fa-cogs fa-fw"></i> Site Settings<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{url('/settings')}}">Basic Configs</a>
+                    </li>
+                    <li>
+                        <a href="{{url('/background')}}">Background Image</a>
+                    </li>
+                </ul>
             </li>
             <li>
-                <a href="#slider"><i class="fa fa-cogs fa-fw"></i> Slider<span class="fa arrow"></span></a>
+                <a href="#slider"><i class="fa fa-picture-o fa-fw"></i> Slider<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="{{url('/slider/add')}}">Add Slider</a>
@@ -35,9 +43,6 @@
             <li>
                 <a href="#issues"><i class="fa fa-list-alt fa-fw"></i> Issues<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
-                        <a href="{{url('/issue/appearance')}}">Issue Config</a>
-                    </li>
                     <li>
                         <a href="{{url('/issue/add')}}">Add Issue</a>
                     </li>
@@ -103,6 +108,17 @@
             </li>
             <li>
                 <a href="{{url('/newsletters')}}"><i class="fa fa-comment-o fa-fw"></i> Newsletters</a>
+            </li>
+            <li>
+                <a href="#user"><i class="fa fa-user fa-fw"></i> User Management<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{url('/user/add')}}">Add User</a>
+                    </li>
+                    <li>
+                        <a href="{{url('/user/all')}}">All User</a>
+                    </li>
+                </ul>
             </li>
 
         </ul>

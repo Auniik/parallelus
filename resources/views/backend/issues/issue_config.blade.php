@@ -25,8 +25,9 @@
                         Session::put('message',null);
                     }
                 ?>
-                <form role="form" action="{{url('/issue/appearance/update')}}" method="post" enctype="multipart/form-data">
-                    @csrf
+
+                <form role="form" action="{{route('issue.appearance.update')}}" method="post" enctype="multipart/form-data">
+                    {{csrf_field()}}
                     <div class="form-group {{$errors->has('pageHeading') ? 'has-error' : ''}}">
                         <label>Page Heading</label>
                         <input class="form-control" value="{{$config==null ? '' : $config->page_heading}}" name="pageHeading" value="{{old('pageHeading')}}" placeholder="example: On The Issues">

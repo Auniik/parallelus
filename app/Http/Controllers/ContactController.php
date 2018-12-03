@@ -12,7 +12,7 @@ class ContactController extends Controller
 		return view('frontend.contact.contact_page');
 	}
     public function sendMessage(Request $request){
-    	$validatedData = $request->validate([
+    	$request->validate([
             'firstName' => 'required|max:30',
             'lastName' => 'required|max:30',
             'email' => 'required|email|max:50',

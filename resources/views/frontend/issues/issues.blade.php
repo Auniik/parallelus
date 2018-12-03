@@ -2,7 +2,7 @@
 @section('frontend_title', 'Issues')
 @section('content')
 <?php
-	$config=App\IssueConfig::first();
+	$config=App\BackgroundConfig::first();
 ?>
 <div id="header" class="header-bg header-nav-bottom" style="background-image: url({{$config==null ? 'frontend/images/header-page-2.jpg' : $config->bg_image}})">
 
@@ -53,12 +53,16 @@
 						</div>
 					</header>
 					<p>
-						{!! str_limit(optional($row)->issue_description, 350) !!}						
+						{!! str_limit(optional($row)->issue_description, 550) !!}						
 					</p>
-						<a href="{{url('issue/'.$row->id)}}" class="more-link">Continue reading</a>
-
-					<hr class="sep" />
+					
+					
+					
 				</article>
+				
+				<a href="{{url('issue/'.$row->id)}}" class="more-link">Continue reading</a> <br>
+				<div><hr class="sep" /></div>
+				
 				@endforeach
 
 				<!-- Pagination -->

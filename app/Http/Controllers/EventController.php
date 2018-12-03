@@ -10,7 +10,7 @@ class EventController extends Controller
     	return view('backend.events.add_event');
     }
     public function saveEvent(Request $request){
-        $validatedData = $request->validate([
+        $request->validate([
             'eventTitle' => 'required|max:190',
             'eventDescription' => 'required',
             'eventDate' => 'required|max:50',
@@ -45,6 +45,14 @@ class EventController extends Controller
 		return view('/backend.events.edit_event', compact('event'));
 	}
 	public function updateEvent(Request $request, $id){
+        $request->validate([
+            'eventTitle' => 'required|max:190',
+            'eventDescription' => 'required',
+            'eventDate' => 'required|max:50',
+            'startingTime' => 'required|max:50',
+            'endingTime' => 'required|max:50',
+            'eventLocation' => 'required|max:190',
+        ]);
 		$info=Event::findOrFail($id);
         $info->update([
         	'event_title' => $request->eventTitle,

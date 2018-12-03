@@ -37,29 +37,6 @@ class AboutController extends Controller
 
     
 
-    //ABOUT CONFIG
-
-    /**
-     * @param Request $request
-     * @return mixed
-     */
-    public function updateAboutBg(Request $request)
-    {
-        $validatedData = $request->validate([
-            'bgImage' => 'required|mimes:jpeg,bmp,jpg,png',
-        ]);
-        $config = AboutConfig::first();
-        if ($config) {
-            $request->bgImage->storeAs('/', $config->bg_image);
-            return redirect('/about/edit')->withMessage('Site information updated.');
-        }
-        AboutConfig::create([
-            'bg_image' => $request->bgImage->storeAs('/uploads/images/about', 'about-background.jpg'),
-        ]);
-        return redirect('/about/edit')->withMessage('Site information updated.');
-
-    }
-
     //FROENT END
     public function about(){
         return view('frontend.about.about');

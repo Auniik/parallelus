@@ -25,7 +25,7 @@
         <td>{{$newsletter->user_zip}}</td>
         <td>
          
-        	<a class="btn btn-xs btn-danger" id="delete" href="{{url('/newsletter/'.$newsletter->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
+        	<a class="btn btn-sm btn-danger" id="delete" href="{{url('/newsletter/'.$newsletter->id.'/delete')}}" onclick="return confirmDelete();"><i class="fa fa-trash-o fa-fw"></i></a>
         </td>
       </tr>
       @endforeach

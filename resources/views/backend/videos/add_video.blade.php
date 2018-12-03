@@ -36,7 +36,7 @@
                     @csrf
                     <div class="form-group {{$errors->has('videoTitle') ? 'has-error' : ''}}">
                         <label>Video Title</label>
-                        <input type="text" name="videoTitle" class="form-control" placeholder="example: Human Experience Sustainable Future">
+                        <input type="text" name="videoTitle" class="form-control" value="{{old('videoTitle')}}" placeholder="example: Human Experience Sustainable Future">
                         @if($errors->has('videoTitle'))
                             <div class="help-block">
                                 {{$errors->first('videoTitle')}}
@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group {{$errors->has('shortDescription') ? 'has-error' : ''}}">
                         <label>Short Description</label>
-                        <textarea name="shortDescription" rows="3" class="form-control" placeholder="example: Human Experience Sustainable Future"></textarea>
+                        <textarea name="shortDescription" rows="3" class="form-control" placeholder="example: Human Experience Sustainable Future">{{old('shortDescription')}}</textarea>
                         @if($errors->has('shortDescription'))
                             <div class="help-block">
                                 {{$errors->first('shortDescription')}}
@@ -56,7 +56,7 @@
                     <div class="form-group input-group {{$errors->has('videoLink') ? 'has-error' : ''}}">
 
                         <span class="input-group-addon">http://</span>
-                        <input type="text" name="videoLink" class="form-control" placeholder="example: https://www.youtube.com/watch?v=Bey4XXJAqS8">
+                        <input type="text" name="videoLink" class="form-control" value="{{old('videoLink')}}" placeholder="example: https://www.youtube.com/watch?v=Bey4XXJAqS8">
                         
                     </div>
                     @if($errors->has('videoLink'))

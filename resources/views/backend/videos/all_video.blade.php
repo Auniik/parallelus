@@ -38,7 +38,7 @@
         <td>{{$video->short_description}}"></td>
         <td><a href="http://youtu.be/{{$video->video_url}}">http://youtu.be/{{$video->video_url}}</a></td>
         <td>
-          <a class="btn btn-xs btn-danger" id="delete" href="{{url('/video/'.$video->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
+          <a class="btn btn-sm btn-danger" id="delete" href="{{url('/video/'.$video->id.'/delete')}}" onclick="return confirmDelete();"><i class="fa fa-trash-o fa-fw"></i></a>
         </td>
       </tr>
       @endforeach

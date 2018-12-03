@@ -35,6 +35,9 @@
                                 {{$errors->first('issueImage')}}
                             </div>
                         @endif
+                        <div class="text-warning">
+                            <p>Note: Size of image should be 15:8. example: 761x400 pixels</p>
+                        </div>
                     </div>
                     <div class="form-group {{$errors->has('issueHeading') ? 'has-error' : ''}}">
                         <label>Article Headline</label>

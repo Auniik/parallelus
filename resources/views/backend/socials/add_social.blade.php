@@ -43,7 +43,6 @@
                             <option value="fa fa-skype"> Skype</option>
                             <option value="fa fa-tumblr"> Tumblr</option>
                             <option value="fa fa-vine"> Vine</option>
-                            <option value="fa fa-skype"> Skype</option>
                         </select>
                         @if($errors->has('socialName'))
                             <div class="help-block">

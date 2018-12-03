@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Configuration;
 use Session;
+use App\BackgroundConfig;
 
 class ConfigurationController extends Controller
 {
@@ -54,6 +55,15 @@ class ConfigurationController extends Controller
 
 
     public function updateConfig(Request $request){
+        $validatedData = $request->validate([
+            'profileName' => 'required|max:50',
+            'designation' => 'required|max:50',
+            'quoteMessage' => 'required|max:255',
+            'designation' => 'required|max:50',
+            'address' => 'required|max:70',
+            'bgImage' => 'required|mimes:jpeg,bmp,jpg,png',
+            'favicon' => 'required|mimes:ico,png',
+        ]);
         $config=Configuration::first();
         $config->update([
                 'profile_name' => $request->profileName,
@@ -71,6 +81,29 @@ class ConfigurationController extends Controller
         } 
         
         return redirect('/settings')->withMessage('Site information updated.');
+    }
+
+
+
+    //Background Theme
+    public function editBackground(){
+        return view('backend.config.edit_background');
+    }
+    public function updateBackground(Request $request)
+    {
+        $validatedData = $request->validate([
+            'bgImage' => 'required|mimes:jpeg,bmp,jpg,png',
+        ]);
+        $config = BackgroundConfig::first();
+        if ($config) {
+            $request->bgImage->storeAs('/', $config->bg_image);
+            return redirect('/background')->withMessage('Site information updated.');
+        }
+        BackgroundConfig::create([
+            'bg_image' => $request->bgImage->storeAs('/uploads/images/background', 'background.jpg'),
+        ]);
+        return redirect('/background')->withMessage('Site information updated.');
+
     }
 
 }
