@@ -17,6 +17,7 @@ class SocialController extends Controller
     	Social::create([
     		'social_name' => $request->socialName,
     		'social_link' => $request->socialLink,
+            'publication_status' => $request->publicationStatus,
     	]);
    		return redirect('/social/add')->withMessage('Social Link Added Successfully');
     }
@@ -29,5 +30,20 @@ class SocialController extends Controller
     	$data=Social::findOrFail($id);
     	$data->delete();
     	return redirect('/social/all')->withMessage('Social Link Deleted');
+    }
+    //Publication Status
+    public function activeSocial(Social $id){
+        $id->update([
+            'publication_status' => 1,
+        ]);
+       return redirect('/social/all')->withMessage('Social link Published.');
+    }
+
+
+    public function inactiveSocial(Social $id){
+        $id->update([
+            'publication_status' => 0,
+        ]);
+        return redirect('/social/all')->withMessage('Social link Unpublished.');
     }
 }

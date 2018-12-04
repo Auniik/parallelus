@@ -13,7 +13,7 @@
 
 				<ul class="timeline">
 					<?php
-						$events=App\Event::orderBy('event_date', 'desc')->limit(3)->get();
+						
 					?>
 					@foreach($events as $key => $event)
 					<?php

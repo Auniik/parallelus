@@ -1,9 +1,7 @@
 <div id="section-videos" class="wrapper video-list">
 	<div class="container">
 		<h2 class="heading">Videos</h2>
-		<?php
-			$videos=App\Video::orderBy('created_at', 'desc')->limit(4)->get();
-		?>
+		
 		<div class="row">
 			<div class="col-md-12">
 				<div class="video-wrapper">

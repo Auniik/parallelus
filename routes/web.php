@@ -42,6 +42,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('issue/{id}/edit/', 'IssuesController@editIssue')->name('issue.edit');
     Route::post('issue/{id}/update/', 'IssuesController@updateIssue')->name('issue.update');
     Route::get('issue/{id}/delete/', 'IssuesController@deleteIssue')->name('issue.delete');
+    Route::get('issue/{id}/active', 'IssuesController@activeIssue')->name('issue.active');
+    Route::get('issue/{id}/inactive', 'IssuesController@inactiveIssue')->name('issue.inactive');
 
     //NEWS
     Route::get('news/add', 'NewsController@addNews')->name('news.add');
@@ -51,12 +53,16 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('news/{id}/edit/', 'NewsController@editNews')->name('news.edit');
     Route::post('news/{id}/update/', 'NewsController@updateNews')->name('news.update');
     Route::get('news/{id}/delete/', 'NewsController@deleteNews')->name('news.delete');
+    Route::get('news/{id}/active', 'NewsController@activeNews')->name('news.active');
+    Route::get('news/{id}/inactive', 'NewsController@inactiveNews')->name('news.inactive');
 
     //Social
     Route::get('social/add', 'SocialController@addSocial')->name('social.add');
     Route::post('social/save', 'SocialController@saveSocial')->name('social.save');
     Route::get('social/all', 'SocialController@allSocial')->name('social.all');
     Route::get('social/{id}/delete/', 'SocialController@deleteSocial')->name('social.delete');
+    Route::get('social/{id}/active', 'SocialController@activeSocial')->name('social.active');
+    Route::get('social/{id}/inactive', 'SocialController@inactiveSocial')->name('social.inactive');
 
     //Videos
     Route::get('video/add', 'VideoController@addVideo')->name('video.add');
@@ -65,6 +71,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('video/{id}/edit/', 'VideoController@editVideo')->name('video.edit');
     Route::post('video/{id}/update/', 'VideoController@updateVideo')->name('video.update');
     Route::get('video/{id}/delete/', 'VideoController@deleteVideo')->name('video.delete');
+    Route::get('video/{id}/active', 'VideoController@activeVideo')->name('video.active');
+    Route::get('video/{id}/inactive', 'VideoController@inactiveVideo')->name('video.inactive');
 
     //Events
     Route::get('event/add', 'EventController@addEvent')->name('event.add');
@@ -73,6 +81,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('event/{id}/edit/', 'EventController@editEvent')->name('event.edit');
     Route::post('event/{id}/update/', 'EventController@updateEvent')->name('event.update');
     Route::get('event/{id}/delete/', 'EventController@deleteEvent')->name('event.delete');
+    Route::get('event/{id}/active', 'EventController@activeEvent')->name('event.active');
+    Route::get('event/{id}/inactive', 'EventController@inactiveEvent')->name('event.inactive');
 
     //Contact
     Route::get('messages', 'ContactController@messages')->name('messages');
@@ -101,9 +111,8 @@ Route::get('/home', 'HomeController@index')->name('dashboard');
 
 //------------------FRONTEND----------------------------------------
 
-Route::get('/', function () {
-    return view('frontend.home.home');
-})->name('root');
+Route::get('/', 'MainPageController@index')->name('root');
+
 Route::get('about', 'AboutController@about')->name('about');
 Route::get('features', 'FeatureController@feature')->name('feature');
 //newsletter

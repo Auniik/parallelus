@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Issues;
+use App\BackgroundConfig;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,6 +24,7 @@ class IssuesController extends Controller
         Issues::create([
     		'issue_heading' => $request->issueHeading,
             'issue_description' => $request->issueDescription,
+            'publication_status' => $request->publicationStatus,
     		'issue_image' => $request->issueImage->store('/uploads/images/issues'),
     	]);
    		return redirect('/issue/add')->withMessage('Issue Added Successfully');
@@ -53,7 +55,7 @@ class IssuesController extends Controller
         $request->validate([
             'issueHeading' => 'required',
             'issueDescription' => 'required',
-            'issueImage' => 'required',
+            'issueImage' => 'mimes:jpeg,bmp,jpg,png',
         ]); 
 		$data=Issues::findOrFail($id);
         $image=$data->issue_image;
@@ -68,12 +70,29 @@ class IssuesController extends Controller
 		return redirect('/issue/all')->withMessage('Issue updated successfully');
 	}
 
+    //Publication Status
+    public function activeIssue(Issues $id){
+        $id->update([
+            'publication_status' => 1,
+        ]);
+       return redirect('/issue/all')->withMessage('Issue Published.');
+    }
+
+
+    public function inactiveIssue(Issues $id){
+        $id->update([
+            'publication_status' => 0,
+        ]);
+        return redirect('/issue/all')->withMessage('Issue Unpublished.');
+    }
+
 
     //Frontend-------------------------------------------
 
     public function issues(){
-        $data=Issues::orderBy('created_at', 'desc')->paginate(5);
-        return view('frontend.issues.issues', compact('data'));
+        $data=Issues::where('publication_status',1)->orderBy('created_at', 'desc')->paginate(5);
+        $config=BackgroundConfig::first();
+        return view('frontend.issues.issues', compact('data', 'config'));
     }
 
     public function issue($id){

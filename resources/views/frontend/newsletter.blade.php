@@ -2,7 +2,7 @@
 <html lang="en" class="cover">
 <head>
 	<meta charset="utf-8">
-	<title>Newsletter - Political HTML Template - FrontRunner</title>
+	<title>Newsletter</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{asset('frontend/css/imports.css')}}" media="screen">
 	<link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}" media="screen">
@@ -14,7 +14,7 @@
 	<div id="header">
 		<!-- Cover element
 		================================================== -->
-		<div class="cover-wrapper" style="background-image: url(assets/images/full-screen-bg-2.jpg)">
+		<div class="cover-wrapper" style="background-image: url()">
 			<div class="cover-container"> <!-- add class 'overlay' for inner shadow -->
 				<div class="cover-inner">
 					<div id="newsletter" class="cover-right-content">

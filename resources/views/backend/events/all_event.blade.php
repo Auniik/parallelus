@@ -27,6 +27,7 @@
       <th scope="col">Starting Time</th>
       <th scope="col">Ending Time</th>
       <th scope="col">Location</th>
+      <th scope="col">Publication Status</th>
       <th scope="col" class="col-md-2">Actions</th>
     </tr>
   </thead>
@@ -41,9 +42,27 @@
       <td>{{$event->starting_time}}</td>
       <td>{{$event->ending_time}}</td>
       <td>{{$event->event_location}}</td>
+      @if($event->publication_status==1)
+          <td class="center">
+              <span class="label label-success">Active</span>
+          </td>
+      @else
+          <td class="center">
+              <span class="label label-danger">Inactive</span>
+          </td>
+      @endif
       <td>
-        <a class="btn btn-xs btn-primary" href="{{url('/event/'.$event->id.'/edit')}}">Edit</a>
-        <a class="btn btn-xs btn-danger" id="delete" href="{{url('/event/'.$event->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
+      @if ($event->publication_status==1)
+            <a class="btn btn-sm btn-warning" href="{{url('/event/'.$event->id.'/inactive')}}">
+                <i class="fa fa-thumbs-o-down fa-fw"></i>
+            </a>
+        @else
+            <a class="btn btn-sm btn-success" href="{{url('/event/'.$event->id.'/active')}}">
+                <i class="fa fa-thumbs-o-up fa-fw"></i>
+            </a>
+        @endif
+        <a class="btn btn-sm btn-primary" href="{{url('/event/'.$event->id.'/edit')}}">Edit</a>
+        <a class="btn btn-sm btn-danger" id="delete" href="{{url('/event/'.$event->id.'/delete')}}" onclick="return confirmDelete();">Delete</a>
       </td>
     </tr>
     @endforeach

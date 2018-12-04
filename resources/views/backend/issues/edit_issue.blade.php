@@ -19,17 +19,32 @@
                 
                 <form role="form" action="{{ url('/issue/'.$issue->id.'/update')}}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group ">
+                    <div class="form-group {{$errors->has('issueImage') ? 'has-error' : ''}}">
                         <label>Article Image</label>
                         <input type="file" class="form-control"  name="issueImage">
+                        @if($errors->has('issueImage'))
+                            <div class="help-block">
+                                {{$errors->first('issueImage')}}
+                            </div>
+                        @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('issueHeading') ? 'has-error' : ''}}">
                         <label>Issue Heading</label>
                         <input class="form-control" name="issueHeading" value="{{$issue->issue_heading}}"  placeholder="Enter any issue heading">
+                        @if($errors->has('issueHeading'))
+                            <div class="help-block">
+                                {{$errors->first('issueHeading')}}
+                            </div>
+                        @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-grou {{$errors->has('issueDescription') ? 'has-error' : ''}}p">
                         <label>Description</label>
                         <textarea class="form-control" id="summernote" name="issueDescription">{{$issue->issue_description}}</textarea>
+                        @if($errors->has('issueDescription'))
+                            <div class="help-block">
+                                {{$errors->first('issueDescription')}}
+                            </div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success col-xs-12" type="submit">Update</button>

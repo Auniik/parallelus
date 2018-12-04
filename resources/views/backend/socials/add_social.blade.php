@@ -38,7 +38,6 @@
                             <option value="fa fa-youtube"> Youtube</option>
                             <option value="fa fa-linkedin"> Linkedin</option>
                             <option value="fa fa-reddit"> Reddit</option>
-                            <option value="fa fa-snapchat-ghost"> Snapchat</option>
                             <option value="fa fa-pinterest"> Pinterest</option>
                             <option value="fa fa-skype"> Skype</option>
                             <option value="fa fa-tumblr"> Tumblr</option>
@@ -61,6 +60,13 @@
                             <p class="text-danger">{{$errors->first('socialLink')}}</p>
                         </div>
                     @endif
+                    <div class="form-group">
+                        <label>Publication Status</label>
+                        <select class="form-control" name="publicationStatus">
+                            <option value="1"> Active</option>
+                            <option value="0"> Inactive</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <button class="btn btn-success col-xs-12" type="submit">Save</button>
                     </div>

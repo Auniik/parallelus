@@ -1,10 +1,7 @@
 @extends('layouts.frontend.main_layout')
 @section('frontend_title', 'About')
 @section('content')
-<?php
-	$about=App\About::first();
-	$config=App\BackgroundConfig::first();
-?>
+
 <div id="header" class="header-bg header-nav-bottom" style="background-image: url({{$config==null ? 'frontend/images/header-page.jpg' : $config->bg_image}})">
 		
 		<!-- page header -->

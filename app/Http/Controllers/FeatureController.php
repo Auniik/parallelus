@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Feature;
+use App\BackgroundConfig;
 use Illuminate\Http\Request;
 
 class FeatureController extends Controller
@@ -35,7 +36,8 @@ class FeatureController extends Controller
 //Frontend
      public function feature(){
      	$feature=Feature::first();
-        return view('frontend.about.features', compact('feature'));
+        $config=BackgroundConfig::first();
+        return view('frontend.about.features', compact('feature','config'));
     }
 
 }

@@ -39,9 +39,9 @@
 		<div class="row">
 
 			<div class="col-md-12">
-				<?php
-					$socials=App\Social::get();
-				?>
+				
+					{{-- $socials=App\Social::where('publication_status', 1)->orderBy('created_at', 'desc')->get(); --}}
+				
 				<ul class="footer-social icon-blocks">
 					@foreach($socials as $social)
 					@if(substr($social->social_link,0,3)=='http')

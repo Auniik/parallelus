@@ -21,6 +21,7 @@ class CreateEventsTable extends Migration
             $table->string('starting_time');
             $table->string('ending_time');
             $table->string('event_location');
+            $table->tinyInteger('publication_status');
             $table->timestamps();
         });
     }

@@ -63,7 +63,7 @@ class SliderController extends Controller
 
     public function updateSlider(Request $request,$id){
         $request->validate([
-            'sliderImage' => 'required|mimes:jpeg,bmp,jpg,png',
+            'sliderImage' => 'mimes:jpeg,bmp,jpg,png',
         ]);
         $data=Slider::findOrFail($id);
         $image=$data->slider_image;
@@ -77,4 +77,9 @@ class SliderController extends Controller
         
         return redirect('/slider/all')->withMessage('Slider Updated');
     }
+
+
+
+
+    
 }

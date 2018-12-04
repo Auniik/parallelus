@@ -2,7 +2,7 @@
 
 	<div class="container">
 		<?php
-			$data=App\News::orderBy('created_at', 'desc')->limit(3)->get();
+			
 		?>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">

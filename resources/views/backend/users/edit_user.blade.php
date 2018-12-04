@@ -54,6 +54,15 @@
                                 </div>
                             @endif
                         </div>
+                        <div class="form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control" name="password_confirmation" placeholder="Enter password again.">
+                            @if($errors->has('password_confirmation'))
+                                <div class="help-block">
+                                    {{$errors->first('password_confirmation')}}
+                                </div>
+                            @endif
+                        </div>
                         <div class="form-group">
                             <button class="btn btn-success col-xs-12" type="submit">Save</button>
                         </div>

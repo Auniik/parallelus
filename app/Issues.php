@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Issues extends Model
 {
     protected $fillable = [
-        'issue_image', 'issue_heading', 'issue_description',
+        'issue_image', 'issue_heading', 'issue_description', 'publication_status',
     ];
 }

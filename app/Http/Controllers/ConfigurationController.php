@@ -28,7 +28,7 @@ class ConfigurationController extends Controller
         $validatedData = $request->validate([
             'profileName' => 'required|max:50',
             'designation' => 'required|max:50',
-            'quoteMessage' => 'required|max:255',
+            'quoteMessage' => 'required|max:160',
             'designation' => 'required|max:50',
             'address' => 'required|max:70',
             'bgImage' => 'required|mimes:jpeg,bmp,jpg,png',
@@ -58,11 +58,11 @@ class ConfigurationController extends Controller
         $validatedData = $request->validate([
             'profileName' => 'required|max:50',
             'designation' => 'required|max:50',
-            'quoteMessage' => 'required|max:255',
+            'quoteMessage' => 'required|max:160',
             'designation' => 'required|max:50',
             'address' => 'required|max:70',
-            // 'bgImage' => 'required|mimes:jpeg,bmp,jpg,png',
-            // 'favicon' => 'required|mimes:ico,png',
+            'bgImage' => 'mimes:jpeg,bmp,jpg,png',
+            'favicon' => 'mimes:ico,png',
         ]);
         $config=Configuration::first();
         $config->update([

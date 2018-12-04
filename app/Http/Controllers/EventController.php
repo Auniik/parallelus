@@ -25,6 +25,7 @@ class EventController extends Controller
     		'starting_time' => $request->startingTime,
     		'ending_time' => $request->endingTime,
     		'event_location' => $request->eventLocation,
+            'publication_status' => $request->publicationStatus,
     	]);
    		return redirect('/event/add')->withMessage('Event Added Successfully');
     }
@@ -64,6 +65,25 @@ class EventController extends Controller
         ]);
 		return redirect('/event/all')->withMessage('Event updated successfully');
 	}
+
+
+    //Publication Status
+    public function activeEvent(Event $id){
+        $id->update([
+            'publication_status' => 1,
+        ]);
+       return redirect('/event/all')->withMessage('Event Published.');
+    }
+
+
+    public function inactiveEvent(Event $id){
+        $id->update([
+            'publication_status' => 0,
+        ]);
+        return redirect('/event/all')->withMessage('Event Unpublished.');
+    }
+
+    //frontend
     public function events(){
         $events = Event::orderBy('event_date', 'desc')->paginate(5);
         // dd($events->event_date->englishMonth);

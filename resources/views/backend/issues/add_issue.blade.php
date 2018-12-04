@@ -58,6 +58,13 @@
                         @endif
                     </div>
                     <div class="form-group">
+                        <label>Publication Status</label>
+                        <select class="form-control" name="publicationStatus">
+                            <option value="1"> Active</option>
+                            <option value="0"> Inactive</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <button class="btn btn-success col-xs-12" type="submit">Save</button>
                     </div>
                 </form>

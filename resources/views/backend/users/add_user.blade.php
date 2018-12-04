@@ -29,7 +29,7 @@
                         @csrf
                          <div class="form-group {{$errors->has('name') ? 'has-error' : ''}}">
                             <label>User Name</label>
-                            <input class="form-control" name="name" placeholder="example: John Doe">
+                            <input class="form-control" name="name" value="{{old('name')}}" placeholder="example: John Doe">
                             @if($errors->has('name'))
                                 <div class="help-block">
                                     {{$errors->first('name')}}
@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group {{$errors->has('email') ? 'has-error' : ''}}">
                             <label>User Email</label>
-                            <input class="form-control" name="email" placeholder="example: john@gmail.com">
+                            <input class="form-control" name="email" value="{{old('email')}}" placeholder="example: john@gmail.com">
                             @if($errors->has('email'))
                                 <div class="help-block">
                                     {{$errors->first('email')}}
@@ -51,6 +51,15 @@
                             @if($errors->has('password'))
                                 <div class="help-block">
                                     {{$errors->first('password')}}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control" name="password_confirmation" placeholder="Enter password again.">
+                            @if($errors->has('password_confirmation'))
+                                <div class="help-block">
+                                    {{$errors->first('password_confirmation')}}
                                 </div>
                             @endif
                         </div>

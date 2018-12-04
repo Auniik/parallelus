@@ -22,9 +22,10 @@
     <tr>
       <th scope="col">SL</th>
       <th scope="col">Feature Image</th>
-      <th scope="col">Heading</th>
-      <th scope="col">Description</th>
-      <th scope="col" class="col-md-2">Actions</th>
+      <th scope="col">HeadLine</th>
+      {{-- <th scope="col"class="col-md-3">Description</th> --}}
+      <th scope="col"class="col-md-2">Publication Status</th>
+      <th scope="col" class="col-md-3">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -32,12 +33,31 @@
     @foreach($issues as $issue)
     <tr>
       <th scope="row">{{$sl++}}</th>
-      <td scope="row"><img src="{{url($issue->issue_image)}}" alt="" style="height:70px; width: 110 px"></td>
+      <td scope="row"><a href="{{url('/issue/'.$issue->id)}}"><img src="{{url($issue->issue_image)}}" alt="" style="height:70px; width: 110 px"></a></td>
       <td>{{substr($issue->issue_heading, 0, 40)}}</td>
       
-      <td>{{ str_limit(optional($issue)->issue_description, 250) }}</td>
+      {{-- <td>{{strip_tags(substr($issue->issue_description, 0, 200))}}</td> --}}
       
+      @if($issue->publication_status==1)
+          <td class="center">
+              <span class="label label-success">Active</span>
+          </td>
+      @else
+          <td class="center">
+              <span class="label label-danger">Inactive</span>
+          </td>
+      @endif
+
       <td>
+        @if ($issue->publication_status==1)
+            <a class="btn btn-sm btn-warning" href="{{url('/issue/'.$issue->id.'/inactive')}}">
+                <i class="fa fa-thumbs-o-down fa-fw"></i>
+            </a>
+        @else
+            <a class="btn btn-sm btn-success" href="{{url('/issue/'.$issue->id.'/active')}}">
+                <i class="fa fa-thumbs-o-up fa-fw"></i>
+            </a>
+        @endif
         <a class="btn btn-sm btn-warning" href="{{url('/issue/'.$issue->id.'/view')}}"><i class="fa fa-eye fa-fw"></i></a>
         <a class="btn btn-sm btn-primary" href="{{url('/issue/'.$issue->id.'/edit')}}"><i class="fa fa-edit fa-fw"></i></a>
         <a class="btn btn-sm btn-danger" id="delete" href="{{url('/issue/'.$issue->id.'/delete')}}" onclick="return confirmDelete();"><i class="fa fa-trash-o fa-fw"></i></a>

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Social extends Model
 {
     protected $fillable = [
-        'social_name', 'social_link'
+        'social_name', 'social_link', 'publication_status',
     ];
 }

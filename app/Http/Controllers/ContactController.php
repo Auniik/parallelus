@@ -7,10 +7,8 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-	//Frontend
-	public function index(){
-		return view('frontend.contact.contact_page');
-	}
+	
+	
     public function sendMessage(Request $request){
     	$request->validate([
             'firstName' => 'required|max:30',
@@ -74,5 +72,11 @@ class ContactController extends Controller
         ]);
         return redirect('/contact/appearance')->withMessage('Site information updated.');
 
+    }
+
+    //Frontend
+    public function index(){
+        $config=ContactConfig::first();
+        return view('frontend.contact.contact_page', compact('config'));
     }
 }

@@ -18,10 +18,12 @@ class NewsController extends Controller
             'newsHeading' => 'required',
             'newsDescription' => 'required',
             'articleImage' => 'required|mimes:jpeg,bmp,jpg,png',
+
         ]);
     	News::create([
     		'news_heading' => $request->newsHeading,
     		'description' => $request->newsDescription,
+            'publication_status' => $request->publicationStatus,
             'article_image' => $request->articleImage->store('/uploads/images/news'),
     	]);
    		return redirect('/news/add')->withMessage('News Added Successfully');
@@ -57,7 +59,7 @@ class NewsController extends Controller
         $request->validate([
             'newsHeading' => 'required',
             'newsDescription' => 'required',
-            'articleImage' => 'required|mimes:jpeg,bmp,jpg,png',
+            'articleImage' => 'mimes:jpeg,bmp,jpg,png',
         ]);
 		$data=News::findOrFail($id);
         $image=$data->article_image;
@@ -72,11 +74,26 @@ class NewsController extends Controller
 		return redirect('/news/all')->withMessage('News updated successfully');
 	}
 
+    //Publishing status
+    public function activeNews(News $id){
+        $id->update([
+            'publication_status' => 1,
+        ]);
+       return redirect('/news/all')->withMessage('News Published.');
+    }
+
+
+    public function inactiveNews(News $id){
+        $id->update([
+            'publication_status' => 0,
+        ]);
+        return redirect('/news/all')->withMessage('News Unpublished.');
+    }
 
     
     //Frontend
     public function newslist(){
-        $data=News::orderBy('created_at', 'desc')->paginate(5);
+        $data=News::where('publication_status', 1)->orderBy('created_at', 'desc')->paginate(5);
         return view('frontend.news.news', compact('data'));
     }
 

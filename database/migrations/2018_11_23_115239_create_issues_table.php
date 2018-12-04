@@ -17,6 +17,7 @@ class CreateIssuesTable extends Migration
             $table->increments('id');
             $table->string('issue_heading');
             $table->text('issue_description');
+            $table->tinyInteger('publication_status');
             $table->timestamps();
         });
     }

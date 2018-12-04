@@ -17,6 +17,7 @@ class CreateSocialsTable extends Migration
             $table->increments('id');
             $table->string('social_name');
             $table->string('social_link');
+            $table->tinyInteger('publication_status');
             $table->timestamps();
         });
     }

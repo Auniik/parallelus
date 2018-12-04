@@ -2,8 +2,7 @@
 @section('frontend_title', 'Home')
 @section('content')
 	<?php
-		$config=App\Configuration::first();
-		$about=App\About::first();
+		
 	?>
 	<div id="header" class="header-bg header-large header-nav-top header-nav-toggle offset-bottom" style="background-image: url({{$config==null ? 'frontend/images/header-home.jpg' : $config->bg_image}})">
 		
@@ -131,6 +130,4 @@
 	<!-- Events
 	================================================== -->
 	@include('frontend.home.events')
-	  <!-- end section-events -->
-
 @endsection

@@ -6,9 +6,7 @@
 		<!-- main navigation -->
 		@include('layouts.frontend.navbar_static')
 </div> <!-- end header -->
-<?php
-	$config=App\ContactConfig::first();
-?>
+
 
 	<!-- Main Content
 	================================================== -->

@@ -28,14 +28,20 @@
     </thead>
     <tbody>
 <?php $sl=$users->firstItem() ?>
-    @foreach($users as $user)
+    @foreach($users as $key => $user)
+        
         <tr>
             <th scope="row">{{$sl++}}</th>
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>
                 <a class="btn btn-sm btn-primary" href="{{url('/user/'.$user->id.'/edit')}}"><i class="fa fa-edit fa-fw"></i></a>
-                <a class="btn btn-sm btn-danger" id="delete" href="{{url('/user/'.$user->id.'/delete')}}" onclick="return confirmDelete();"><i class="fa fa-trash-o fa-fw"></i></a>
+                @if($key==0)
+                    <button class="btn btn-sm btn-danger" disabled=""><i class="fa fa-trash-o fa-fw"></i></button>
+                @else
+                    <a class="btn btn-sm btn-danger"  id="delete" href="{{url('/user/'.$user->id.'/delete')}}" onclick="return confirmDelete();"><i class="fa fa-trash-o fa-fw"></i></a>
+                @endif
+                
             </td>
         </tr>
     @endforeach

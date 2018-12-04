@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\About;
-use App\AboutConfig;
+use App\BackgroundConfig;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -39,7 +39,9 @@ class AboutController extends Controller
 
     //FROENT END
     public function about(){
-        return view('frontend.about.about');
+        $about=About::first();
+        $config=BackgroundConfig::first();
+        return view('frontend.about.about', compact('about', 'config'));
     }
 
 }

@@ -18,6 +18,7 @@ class CreateVideosTable extends Migration
             $table->string('video_title');
             $table->string('short_description');
             $table->string('video_url');
+            $table->tinyInteger('publication_status');
             $table->timestamps();
         });
     }
