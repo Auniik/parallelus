@@ -21,8 +21,12 @@ class AppServiceProvider extends ServiceProvider
             $socials=Social::where('publication_status', 1)->orderBy('created_at', 'desc')->get();
             $config=Configuration::first();
             $view->with('socials',$socials);
-            $view->with('config',$config);
+            $view->with('config', $config);
         });
+        View::composer('layouts.frontend.main_layout', function ($view) {
+        $config=Configuration::first();
+        $view->with('config', $config);
+    });
     }
     
     /**
