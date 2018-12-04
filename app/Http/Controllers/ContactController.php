@@ -56,7 +56,7 @@ class ContactController extends Controller
     {
     	$validateContact = $request->validate([
             'pageHeading' => 'required|max:30',
-            'description' => 'required|max:50',
+            'description' => 'required|max:160',
         ]);
     	$config = ContactConfig::first();
         if ($config) {

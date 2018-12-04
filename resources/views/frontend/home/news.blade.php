@@ -22,12 +22,13 @@
 					</header>
 
 					<p>
-						{!! str_limit(optional($row)->description, 350) !!}
-						<br>
+						{!! str_limit(optional($row)->description, 250) !!}
+						
 						
 					</p>
-						<a href="{{('/news/'.$row->id.'/show')}}" class="more-link">Continue reading</a>
 					<hr class="sep" />
+						{{-- <a href="{{('/news/'.$row->id.'/show')}}" class="more-link">Continue reading</a> --}}
+					
 				</article>
 				@endforeach	
 				<p class="section-more"><a href="{{url('/news')}}" class="btn btn-default">More News</a></p>
