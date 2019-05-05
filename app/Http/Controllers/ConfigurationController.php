@@ -87,7 +87,9 @@ class ConfigurationController extends Controller
 
     //Background Theme
     public function editBackground(){
-        return view('backend.config.edit_background');
+        return view('backend.config.edit_background',[
+            'backgroundConfig' => BackgroundConfig::first()
+        ]);
     }
     public function updateBackground(Request $request)
     {

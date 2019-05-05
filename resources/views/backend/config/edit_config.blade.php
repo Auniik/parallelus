@@ -67,6 +67,8 @@
                         <div class="form-group {{$errors->has('bgImage') ? 'has-error' : ''}}">
                             <label>Backgraound Image</label>
                             <input type="file" class="form-control"  name="bgImage">
+                            <br>
+                            <img src="{{$configRecord ? $configRecord->bg_image : ''}}" class="img img-responsive img-thumbnail" alt="">
                             @if($errors->has('bgImage'))
                                 <div class="help-block">
                                     {{$errors->first('bgImage')}}
@@ -76,7 +78,9 @@
                         <div class="form-group {{$errors->has('favicon') ? 'has-error' : ''}}">
                             <label>Favicon</label>
                             <input type="file" class="form-control"  name="favicon">
-                        @if($errors->has('favicon'))
+                            <br>
+                            <img src="{{$configRecord ? $configRecord->favicon : ''}}" style="height:30px" alt="">
+                            @if($errors->has('favicon'))
                                 <div class="help-block">
                                     {{$errors->first('favicon')}}
                                 </div>

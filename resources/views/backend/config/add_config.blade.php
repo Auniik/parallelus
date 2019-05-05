@@ -67,6 +67,7 @@
                                 <div class="form-group {{$errors->has('bgImage') ? 'has-error' : ''}}">
                                     <label>Backgraound Image</label>
                                     <input type="file" class="form-control"  name="bgImage">
+                                    <img src="{{$}}" alt="">
                                     @if($errors->has('bgImage'))
                                         <div class="help-block">
                                             {{$errors->first('bgImage')}}

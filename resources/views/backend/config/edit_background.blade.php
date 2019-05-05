@@ -30,6 +30,7 @@
                             <div class="form-group {{$errors->has('bgImage') ? 'has-error' : ''}}">
                                 <label>Choose A Background Image for Pages</label>
                                 <input type="file" class="form-control"  name="bgImage">
+                                <img src="{{$backgroundConfig ? $backgroundConfig->bg_image : ''}}" class="img img-responsive img-thumbnail" alt="">
                                 @if($errors->has('bgImage'))
                                     <div class="help-block">
                                         {{$errors->first('bgImage')}}
